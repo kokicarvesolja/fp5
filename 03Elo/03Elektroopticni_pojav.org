@@ -1,0 +1,62 @@
+#+title: Elektrooptični pojav
+#+startup: entitiespretty nil
+#+startup: nolatexpreview
+#+LATEX_HEADER: \usepackage{amsmath}
+
+* Uvod
+
+Tekoče kristale tvorijo podolgovate molekule, ki se pri ne previsokih temperaturah orientacijsko uredijo. Za smektične tekoče kristale je značilno, da se molekule uredijo v plasti.
+
+Smektični kristal je oblika mezofaze (faza med trdnim in tekočim stanjem), ki so usmerijo podolgem v plasti, vendar se molekula lahko znotraj plasti prosto giba. Primer smektičnega tekočega kristala je milo. [vir]
+
+Poznamo več vrsti smektičnih kristalov, ki jih prikazuje spodnja slika
+
+[[file:smecticCrystals.jpg]]
+
+V smektikih A kaže odlikovana smer, ki ji pravimo direktor vzdolž normale plasti, v smektikih C* pa je kot, ki ga oklepa direktor z normalo nekje med \(  10^{\circ} \text{ in } 30^{\circ} \).
+
+Feroelektrične smektične C* tvorijo molekule, ki imajo velik električni dipolni moment prečno na vzdolžno os molekul, zato se v teh snoveh pojavi električna polarizacija, ki leži v ravnini plasti in je pravokotna na direktor. Polarizacija je sorazmerna s kotom nagiba. Tekoči kristali so posebej uporabni zaradi dvolomnosti, ki izhaja iz orientacijske urejenosti molekul, kjer je optična os vzporedna z direktorjem.
+
+V dovolj debelem vzorcu oriše smer nagiba in s tem tudi električna polarizacija poln krog (nekaj sto do tisoč plasti). Polarizacijo plasti lahko uredimo v isto smer bodisi z zunanjim električnim poljem bodisi z ograditvijo vzorca v ploščici, ki predpisujeta orientacijo molekul. Predpisovanje orientacij molekul je doseženo s kemično ali mehansko obdelavo površin.
+
+Če je razmik med ploščicama dovolj majhen (reda v \(  \mu m \)), se direktor postavi v predpisani smeri po vsem vzorcu. V takem površinko stabiliziranem feroelektričnem tekočem kristalu so plasti kristala pravokotne na ploščici, električna polarizacija pa leži v ravnini ploščic.
+
+Če postavimo ta tanko površinko stabiliziran feroelektrični kristal v zunanje električno polje \(  \vec{E} \), ki je pravokoten na ploščici, se električna polarizacija vzorca deloma zasuče v smeri polje. Tudi direktor se deloma zasuče na stožcu smeri, ki ga določa nagib direktorja glede na normalo plasti. Zasuk električne polarizacije je sorazmeren z električnim poljem, posledično je sorazmeren tudi zasuk optične osi.
+
+Linearnemu odzivu lomnega količnika na zunanje električno polje pravimo /elektrooptični pojav/. Zasuk polarizacije je v izmeničnem polju odvisen tudi od frekvence. Pri previsoki frekvenci polarizacija ne more več slediti polju. Odvisnost spremembe polarizacije \(  \partial P \) od frekvence opišemo z Debyjevim relaksacijskim modelom
+
+\begin{equation}
+\label{eq:1}
+\partial P = \partial P_0 \frac{1}{1 + i \omega \tau}
+\end{equation}
+
+kjer je \(  \tau \) relaksacijski čas odvisen od viskoznosti tekočega kristala in od debeline vzorca.
+
+Kot zasuka optične osi, ki je sorazmeren s spremembo polarizacije, ima enako frekvenčno odvisnost.
+
+Spremembo smeri optične osi zaznamo tako, da opazujemo, kako se spremeni polarizacija svetlobe pri prehodu skozi vzorec. Na vzorec posvetimo s polarizirano svetlobo in merimo svetlobno moč, ki jo prepušča analizator za vzorcem.
+
+Vpadno polarizacijo razstavimo na izredno komponento, ki je vzporedna z optično osjo in na redno komponento, pravokotno na optično os. Prepuščeno svetlobno moč merimo s pomočjo fotodiode. Odziv nekega sistema na majhne periodične zunanje motnje najlažje izmerimos faznim občutljivim ojačevalnikom (FOO, angl. /lock-in amplifier/).
+
+FOO deluje po principu tega, da vhodni izmenični signal iz fotodiode pomnoži z referenčnim izmeničnim signalom s frekvenco modulacije (v našem primeru zunanje električnega polja, priklopljenega na tekočekristalni vzorec).
+
+V tekočem kristalu je zasuk optične osi \(  \psi \) zaradi viskoznosti snovi zakasnjen glede na zunanje električno polje. Del, ki je v fazi dobimo kot realni del enačbe \ref{eq:1}, del zasukan za \(  \frac{\pi}{2} \) pa kot imaginarni del
+
+\begin{align*}
+  \psi_r &= \frac{\psi_0}{1 + (\omega \tau ) ^2} \\
+\psi_i &= - \frac{\psi_0 \omega}{1 + (\omega \tau)^2}
+\end{align*}
+* Potrebščine
+
+- laser
+- FOO z multimetrom
+- fotodioda
+- analizator
+- vzorec
+- osciloskop
+* Naloge
+
+- prepričaj se, da je elektrooptični odziv sorazmeren z modulacijjo do neke napetosti
+- nariši obe komponentni signala kot funkciji frekvence in določi relaksacijski čas
+
+  Faza je bila 140.00 stopinj.

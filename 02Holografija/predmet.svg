@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="150mm"
+   height="100mm"
+   viewBox="0 0 150 100"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   sodipodi:docname="predmet.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.072124"
+     inkscape:cx="274.59746"
+     inkscape:cy="249.74374"
+     inkscape:window-width="2556"
+     inkscape:window-height="1372"
+     inkscape:window-x="1920"
+     inkscape:window-y="42"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker25"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path25" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <linearGradient
+       id="swatch4"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="0"
+         id="stop4" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583"
+       id="rect5"
+       width="1.2768701"
+       height="18.769991"
+       x="128.32544"
+       y="12.641014"
+       inkscape:label="vir" />
+    <rect
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.244753"
+       id="rect6"
+       width="1.1822524"
+       height="17.347345"
+       x="64.423706"
+       y="42.827709"
+       transform="matrix(0.60955931,0.79274047,0.80890053,-0.58794552,0,0)"
+       inkscape:label="polprepustnop" />
+    <rect
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.244753"
+       id="rect7"
+       width="1.1822524"
+       height="17.347345"
+       x="44.372482"
+       y="3.7954009"
+       transform="matrix(0.73976741,0.67286268,0.69258001,-0.72134106,0,0)"
+       inkscape:label="ogledalo" />
+    <rect
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.244753"
+       id="rect10"
+       width="1.1822524"
+       height="17.347345"
+       x="53.06171"
+       y="24.729542"
+       transform="matrix(0.32638514,0.94523687,0.95370005,-0.3007594,0,0)"
+       inkscape:label="objektiv2" />
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="rect11"
+       width="10.087274"
+       height="10.981083"
+       x="29.578131"
+       y="54.538651"
+       transform="rotate(-17.960843)"
+       inkscape:label="objektiv2" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-dasharray:none;stroke-opacity:1"
+       id="path11"
+       cx="63.886677"
+       cy="82.119347"
+       r="3.8306103" />
+    <rect
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.244753"
+       id="rect15"
+       width="1.1822524"
+       height="17.347345"
+       x="65.00071"
+       y="62.251842"
+       transform="matrix(0.32638514,0.94523687,0.95370005,-0.3007594,0,0)"
+       inkscape:label="objektiv2" />
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="rect16"
+       width="10.087274"
+       height="10.981083"
+       x="67.326073"
+       y="66.775185"
+       transform="rotate(-17.960843)"
+       inkscape:label="objektiv2" />
+    <rect
+       style="fill:#000000;fill-rule:evenodd;stroke-width:0.264583;fill-opacity:1"
+       id="rect17"
+       width="0.72230685"
+       height="13.001523"
+       x="24.287567"
+       y="62.118389" />
+    <rect
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:0.204484"
+       id="rect18"
+       width="0.98587906"
+       height="14.520541"
+       x="113.4875"
+       y="29.115385"
+       transform="matrix(0.61466173,0.78879082,0.81260406,-0.58281613,0,0)"
+       inkscape:label="polprepustnop" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.90239px;font-family:BaskervilleF;-inkscape-font-specification:'BaskervilleF, Normal';font-variant-position:sub;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:0.3, 0.3;stroke-dashoffset:0;stroke-opacity:1"
+       x="-76.844872"
+       y="23.848948"
+       id="text19"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan19"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3"
+         x="-76.844872"
+         y="23.848948">fotoplošča</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.90239px;font-family:BaskervilleF;-inkscape-font-specification:'BaskervilleF, Normal';font-variant-position:sub;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:0.3, 0.3;stroke-dashoffset:0;stroke-opacity:1"
+       x="56.430222"
+       y="90.017487"
+       id="text20"><tspan
+         sodipodi:role="line"
+         id="tspan20"
+         style="stroke-width:0.3"
+         x="56.430222"
+         y="90.017487">predmet</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#ff000d;stroke-width:0.358;stroke-dasharray:0.358, 0.358;stroke-dashoffset:0;stroke-opacity:1;marker-mid:"
+       d="M 128.93177,21.127475 H 41.893795"
+       id="path20" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#ff000d;stroke-width:0.264999;stroke-dasharray:0.264999, 0.264999;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 81.71096,21.037186 99.588054,68.348285"
+       id="path21" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#ff000d;stroke-width:0.264999;stroke-dasharray:0.264999, 0.264999;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 42.164661,20.946898 21.308052,60.31262"
+       id="path22" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#ff000d;stroke-width:0.264999;stroke-dasharray:0.264999, 0.264999;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 99.407479,68.167707 24.648721,68.348285"
+       id="path23" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#0022ff;stroke-width:0.264999;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-start:url(#Triangle);marker-end:url(#marker25)"
+       d="M 57.874836,51.283784 73.675297,63.924155 86.044801,51.464362"
+       id="path24" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.90239px;font-family:BaskervilleF;-inkscape-font-specification:'BaskervilleF, Normal';font-variant-position:sub;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="66.09108"
+       y="66.903671"
+       id="text25"><tspan
+         sodipodi:role="line"
+         id="tspan25"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.265"
+         x="66.09108"
+         y="66.903671">objektiva</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82731px;font-family:BaskervilleF;-inkscape-font-specification:'BaskervilleF, Normal';font-variant-position:sub;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.192;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="76.007996"
+       y="-74.326271"
+       id="text26"
+       transform="matrix(0.35390075,0.98625096,-0.87305904,0.39260919,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan26"
+         style="stroke-width:0.192;stroke-dasharray:none"
+         x="76.007996"
+         y="-74.326271">predmetni žarek</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.75217px;font-family:BaskervilleF;-inkscape-font-specification:'BaskervilleF, Normal';font-variant-position:sub;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.186891;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="64.158867"
+       y="-33.391766"
+       id="text27"
+       transform="matrix(0.33023475,0.94172023,-0.94669046,0.32850099,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan27"
+         style="stroke-width:0.186893"
+         x="64.158867"
+         y="-33.391766">referenčni žarek</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.90239px;font-family:BaskervilleF;-inkscape-font-specification:'BaskervilleF, Normal';font-variant-position:sub;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264999;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="120.71553"
+       y="32.232944"
+       id="text29"><tspan
+         sodipodi:role="line"
+         id="tspan29"
+         style="stroke-width:0.265"
+         x="120.71553"
+         y="32.232944" /></text>
+  </g>
+</svg>
