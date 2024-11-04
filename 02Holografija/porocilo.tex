@@ -13,6 +13,7 @@
 \usepackage{capt-of}
 \usepackage{hyperref}
 \usepackage{amsmath}
+\usepackage{float}
 \author{Kristofer Čepon Povšič}
 \date{\today}
 \title{Holografija}
@@ -23,13 +24,34 @@
  pdfsubject={},
  pdfcreator={Emacs 29.4 (Org mode 9.7.11)}, 
  pdflang={English}}
+
+\renewcommand{%
+  \refname}{Viri}
+
+\title{
+  \includegraphics[width=0.4\textwidth]{fmf_logo}\\
+  {\small Oddelek za fiziko} \\
+  {Holografija}\\
+  {\small Poročilo vaje pri FP5}\\
+
+}
+\date{}
+\author{ Kristofer Čepon Povšič \\[5 cm]
+  \small  Asistent: Tilen Knaflič  \\
+}
+\newfloat{slika}{htbp}{loc}
+\floatname{slika}{Slika}
+
+\newfloat{tabela}{htbp}{loc}
+\floatname{tabela}{Tabela}
 \begin{document}
 
 \maketitle
+\clearpage
 \tableofcontents
+\clearpage
 
-\section{Uvod}
-\label{sec:org072c4ed}
+\section{Uvod}\label{sec:org072c4ed}
 
 Holografija je vrsta fotografije, pri kateri ponazorimo predmet v treh dimenzijah.
 
@@ -55,8 +77,7 @@ Ker sta valovanji koherentni (torej lahko interferirata) velja:
 
 Ustrezna gostota svetlobnega toka \(I\) je sorazmerna kvadratu električne poljske jakosti
 
-\begin{equation}
-\label{eq:1}
+\begin{equation}\label{eq:1}
 I = (E_p + E_r) (E_p + E_r)^{*} = \left| E_p \right| ^2 + \left| E_r \right| ^2 + E_p E^{*}_r + E_p^{*}E_r
 \end{equation}
 
@@ -72,15 +93,13 @@ Transmitivnost emulzije \(T\) je odvisna od ekspozicije \(W_{ex}\) podana z
 kjer je parameter \(\gamma\) odvisen od lastnosti emulzije in načina razvijanja.
 
 Definiramo amplitudno prepustnost definirano kot
-\begin{equation}
-\label{eq:2}
+\begin{equation}\label{eq:2}
 T_{ampl} = \sqrt{T}
 \end{equation}
 
 Pri upoštevanju \(E_p \ll E_r\) vstavimo \ref{eq:1} v \ref{eq:2} dobimo
 
-\begin{equation}
-\label{eq:3}
+\begin{equation}\label{eq:3}
 T_{ampl} = C \left| E_r \right| ^{\gamma} \left( 1 + \frac{\gamma}{2 \left| E_r \right|} (E_p E^{*}_r + E_p^{*}E_r) \right) = A + BE_p E^{*}_r + BE_p^{*}E_r
 \end{equation}
 
@@ -90,34 +109,33 @@ kjer sta \(A, B\) konstanti.
 
 Na izstopni strani strani fotografske plošče je električna poljska jakost \(E_{holo}\) enaka produktu
 
-\begin{equation}
-\label{eq:4}
+\begin{equation}\label{eq:4}
 E_{holo} = T_{ampl} \cdot E_r =  AE_r + BE_p \left| E_r \right| + BE_p^{*}E_r^2
 \end{equation}
 
 Prvi člen predstavlja delno prepuščeni referenčni žarek. Drugi člen opisuje divergenten žarek, ki je tako kot da bi izviral iz predmeta in v očesu ustvari virtualno sliko predmeta na originalnem mestu, kjer smo ga slikali.
 Tretji člen opisuje konvergentni žarek, ki daje realno sliko predmeta in je opazen npr. na drobnih delcih cigaretnega dima. Do tega pridemo, če \ref{eq:4} pomnožimo z \(E_r^{*}\).
 
-Postavitev za predmet je taka kot na sliki \ref{fig:1}
+Postavitev za predmet je taka kot na sliki \ref{slika:1}
 
-\begin{center}\label{fig:1}
+\begin{slika}[H]
+\begin{center}
 \includegraphics[width=.9\linewidth]{predmet.pdf}
 \end{center}
-\subsection{Hologram ravnih valov}
-\label{sec:org2e856b7}
+\caption{\small Shema potovanja žarkov pri zajemanju holograma predmeta.}\label{slika:1}
+\end{slika}
+\subsection{Hologram ravnih valov}\label{sec:org2e856b7}
 
 Sedaj imejmo predmetni in referenčni žarek kot ravna valova oblike \(e^{i(kr - \omega t)}\), prvi pod kotom \(\alpha\) na fotografsko ploščo in drugi v smeri normale. Izberimo si koordinatni sistem tako, da lahko žarka zapišemo kot \(\vec{k_p} = (k \sin \alpha, 0, k \cos \alpha)\) in \(\vec{k_r} = (0, 0, k)\).
 Fotografska plošča se nahaja v ravnini \(z = 0\). Potem je intenziteta interferenčnega vzorca na njej enaka
 
-\begin{equation}
-\label{eq:5}
+\begin{equation}\label{eq:5}
 I_{int} = C \left| 1 + e^{ik \sin \alpha x} \right| ^2 = C' (1 + \cos(k\sin \alpha x))
 \end{equation}
 
 Hologram je kosinusna uklonska mrežica s periodo
 
-\begin{equation}
-\label{eq:6}
+\begin{equation}\label{eq:6}
 d = \frac{2 \pi}{k \sin \alpha}
 \end{equation}
 
@@ -125,13 +143,15 @@ Natačnejši račun s Fraunhoferjevim uklonskim integralom bi nam pokazal, da do
 
 Splošen tankoplastni hologram lahko torej razumemo kot superpozicijo kosinusnih uklonskih mrežic, ki nastanejo pri interferenci referenčnega žarka in žarkov, ki izvirajo iz posameznih točk objekta.
 
-Postavitev za ravne valove pa je na sliki \ref{fig:2}
-
-\begin{center}\label{fig:2}
-\includegraphics[width=.9\linewidth]{ravni_zarek.pdf}
+Postavitev za ravne valove pa je na sliki \ref{slika:2}
+\begin{slika}[H]
+\begin{center}
+\includegraphics[width=1.25\linewidth]{ravni_zarek.pdf}
 \end{center}
-\section{Potrebščine}
-\label{sec:orgc1ffef0}
+\caption{\small Shema potovanje žarkov pri zajemu holograma ravnih valov.}\label{slika:2}
+\end{slika}
+
+\section{Potrebščine}\label{sec:orgc1ffef0}
 
 \begin{itemize}
 \item He-Ne laser ( \(\lambda = 623.8 \mathrm{nm}\) )
@@ -141,39 +161,38 @@ Postavitev za ravne valove pa je na sliki \ref{fig:2}
 \item fotografska plošča
 \item predmet
 \end{itemize}
-\section{Naloge}
-\label{sec:org93ee1e7}
+\section{Naloge}\label{sec:org93ee1e7}
 \begin{itemize}
 \item sestavi postavitev za snemanje holograma in ga posnemi
 \item posnemi interferogram dveh ravnih valov
 \end{itemize}
-\section{Navodila}
-\label{sec:org9ab1b67}
+\section{Navodila}\label{sec:org9ab1b67}
 
 Laserski snop s pomočjo delilca razdelimo na dva žarka, ki ju razpršimo z mikroskopskima objektivoma. Naredimo predmetni žarek, ki osvetli predm in referenčni žarek, ki predmet obide. Pravilno ju usmerimo z zrcali.
 
 V drugem delu vaje je postavitev nekoliko drugačna. Postavimo oba snopa enega vzporedno na normalo fotografske plošče in drugega pod nekim kotom \(\alpha\). Tako lahko postavimo interferogram.
 
 V tri banjice pripravimo razvijalec, vodo in fiksir za razvijanje slike, s katerimi potem razvijemo hologram.
-\section{Meritve}
-\label{sec:org1bd5112}
+\section{Meritve}\label{sec:org1bd5112}
 
 Tekom vaje sem postavil in uspešno tudi posnel hologram predmeta.
 
-Glej sliko \ref{fig:3}
+Glej sliko \ref{slika:3}
 
-\begin{center}\label{fig:3}
+\begin{slika}[H]
+\begin{center}
 \includegraphics[width=.9\linewidth]{20241015_131245(1).jpg}
 \end{center}
+\caption{\small Fotografiran hologram, ki je bil posnet, ko sem predmet umaknil.}\label{slika:3}
+\end{slika}
 
 Prav tako sem uspel posneti tudi interferogram, kjer sem izmeril sledeče podatke:
 
-\begin{align} \label{al:1}
-a &= 94 mm \pm 0.1 mm \\
-x &= 255 mm \pm 0.5 mm
-\end{align}
-\section{Izračuni}
-\label{sec:org51bb9fd}
+\begin{align*}
+a &= 94 \mathrm{mm} \pm 0.1 \mathrm{mm} \\
+x &= 255 \mathrm{mm} \pm 0.5 \mathrm{mm}
+\end{align*}
+\section{Izračuni}\label{sec:org51bb9fd}
 
 Po formuli
 
@@ -187,4 +206,6 @@ izračunamo \(\alpha = 0.38 \pm 0.02\) in nato uporabimo izraz \ref{eq:6} in vre
 \[
 d = (2.33 \pm 0.05) \mu m
 \]
+
+To nam pove, da je hologram efektivno uklonska mrežica s periodo \(  d \).
 \end{document}

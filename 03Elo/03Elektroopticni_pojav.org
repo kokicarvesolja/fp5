@@ -42,10 +42,10 @@ FOO deluje po principu tega, da vhodni izmenični signal iz fotodiode pomnoži z
 
 V tekočem kristalu je zasuk optične osi \(  \psi \) zaradi viskoznosti snovi zakasnjen glede na zunanje električno polje. Del, ki je v fazi dobimo kot realni del enačbe \ref{eq:1}, del zasukan za \(  \frac{\pi}{2} \) pa kot imaginarni del
 
-\begin{align*}
-  \psi_r &= \frac{\psi_0}{1 + (\omega \tau ) ^2} \\
+\begin{align}\label{al:1}
+  \psi_r &= \frac{\psi_0}{1 + (\omega \tau ) ^2}
 \psi_i &= - \frac{\psi_0 \omega}{1 + (\omega \tau)^2}
-\end{align*}
+\end{align}
 * Potrebščine
 
 - laser
@@ -60,3 +60,29 @@ V tekočem kristalu je zasuk optične osi \(  \psi \) zaradi viskoznosti snovi z
 - nariši obe komponentni signala kot funkciji frekvence in določi relaksacijski čas
 
   Faza je bila 140.00 stopinj.
+* Izračuni
+** Sorazmernost odziva z modulacijo
+
+Pri fiksni frekvenci \(  \nu = 20 \mathrm{Hz} \) sem preveril, če sta je realna komponenta signala odziva res sorazmerna. S prilagajanjem premice se vidi, da je odziv res linearen.
+
+[[file:figures/modulacija.pdf]]
+** Določanje relaksacijskega časa
+
+Sedaj sem pri fiksni napetosti \(  U = 0.2 \mathrm{V} \) spreminjal frekvenco.
+
+S prilagajanjem funkcij \ref{al:1} sem določil relaksacijski čas za vzorec
+
+\[ \tau_1 = 2.98 \cdot 10^{-3} \pm 0.09 10^{-3} \mathrm{s} \quad \tau_2 = 2.10 \cdot 10^{-3} \pm 0.04 10^{-3} \mathrm{s}
+\]
+
+Za konec sem pa izračunal \(  \tau \) še tako, da sem izračunal kvocient realne in imaginarne komponente. Z deljenjem \ref{al:1} dobimo
+
+\[ \frac{\psi_i}{\psi_r} = - \tau \omega
+\]
+
+Tako sem dobil še čas
+
+\[ \tau = (0.72 \cdot 10^{-3} \pm 0.04) \mathrm{s}
+\]
+
+Kar pa se zelo slabo ujema s prej dobljenima časoma fittanja premic. Možno je, da je do napake prišlo zaradi nepoznavanja FOO in sem tekom merjenj nevede spremenil koeficient, s katerim je bil pomnožena izmerjena realna in imaginarna komponenta signala.
