@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.25)  4 NOV 2024 17:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.25)  4 NOV 2024 22:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -456,7 +456,7 @@ line 67.
 [3 <./smecticCrystals.jpg>]
 
 [4]
-<figures/modulacija.pdf, id=82, 462.52798pt x 346.89601pt>
+<figures/modulacija.pdf, id=83, 462.52798pt x 346.89601pt>
 File: figures/modulacija.pdf Graphic file (type pdf)
 <use figures/modulacija.pdf>
 Package pdftex.def Info: figures/modulacija.pdf  used on input line 128.
@@ -466,18 +466,18 @@ Package pdftex.def Info: figures/modulacija.pdf  used on input line 128.
 [5
 
 {/opt/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-<figures/fit_modelov.pdf, id=90, 462.52798pt x 346.89601pt>
+<figures/fit_modelov.pdf, id=92, 462.52798pt x 346.89601pt>
 File: figures/fit_modelov.pdf Graphic file (type pdf)
 <use figures/fit_modelov.pdf>
-Package pdftex.def Info: figures/fit_modelov.pdf  used on input line 142.
+Package pdftex.def Info: figures/fit_modelov.pdf  used on input line 143.
 (pdftex.def)             Requested size: 323.9978pt x 243.0108pt.
 
 
 [6 <./figures/modulacija.pdf>]
-<figures/deljena.pdf, id=154, 462.52798pt x 346.89601pt>
+<figures/deljena.pdf, id=156, 462.52798pt x 346.89601pt>
 File: figures/deljena.pdf Graphic file (type pdf)
 <use figures/deljena.pdf>
-Package pdftex.def Info: figures/deljena.pdf  used on input line 155.
+Package pdftex.def Info: figures/deljena.pdf  used on input line 156.
 (pdftex.def)             Requested size: 323.9978pt x 243.0108pt.
 
 
@@ -493,13 +493,13 @@ Package rerunfilecheck Info: File `03Elektroopticni_pojav.out' has not changed.
 (rerunfilecheck)             Checksum: E89BD905BB77A9BFA1368E14E93EAFDC;834.
  ) 
 Here is how much of TeX's memory you used:
- 10784 strings out of 473579
- 162709 string characters out of 5704593
- 554135 words of memory out of 5000000
- 33492 multiletter control sequences out of 15000+600000
+ 10786 strings out of 473579
+ 162725 string characters out of 5704593
+ 554188 words of memory out of 5000000
+ 33493 multiletter control sequences out of 15000+600000
  574793 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,481b,544s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,481b,441s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt
 /texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></opt/texlive
 /2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></opt/texlive/2024/te
@@ -513,10 +513,10 @@ b></opt/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></opt/
 texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></opt/texlive/
 2024/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></opt/texlive/2024/tex
 mf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on 03Elektroopticni_pojav.pdf (8 pages, 323592 bytes).
+Output written on 03Elektroopticni_pojav.pdf (8 pages, 323859 bytes).
 PDF statistics:
- 342 PDF objects out of 1000 (max. 8388607)
- 160 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
+ 345 PDF objects out of 1000 (max. 8388607)
+ 163 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
  82 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,4 @@
+#+title: Sunkovna jedrska magnetna resonanca
+#+startup: entitiespretty nil
+#+startup: nolatexpreview
+#+LATEX_HEADER: \usepackage{amsmath}

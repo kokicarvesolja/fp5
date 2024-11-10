@@ -1,0 +1,46 @@
+#+title: Poskusi z žarki X
+#+startup: entitiespretty nil
+
+* Uvod
+** Izvor žarkov X
+Elektrone iz katode pospešimo z visoko napetostjo proti kovinski tarči. Pri trku zaradi zaviranje elektronov v polju jeder pride do zavornega sevanja v spektru žarkov X.
+
+Elektroni, ki imajo zadosti energije, pa iz notranjih elektronskih lupin gradnikov izbijejo elektrone. Elektroni iz višjih stanj zapolnijo vrzel, pri tem pa izsevajo karakteristične X žarke, ki imajo točno določeno energijo.
+** Izonizacijska celica
+Najenostavnejša ionizacijska celica je ploščni kondenzator zvezan z izvorom visoke napetosti. Če v prostor med ploščama posvetimo z rentgenskimi žarki, ti na atomih zraka povzročijo fotoefekt. Fotoelektroni zaradi svoje visoke hitrosti ionizirajo molekule. Nastale ionske pare napetost na kondenzatorju usmeri k ploščam in dobimo tokovni sunek na tokokrogu. Ob zadostni količini fotonov, se sunki povprečijo v merljiv električni tok.
+
+V splošnem ne dosežejo vsi ionski pari elektrod, ker se jih nekaj že prej rekombinira. Pri majhnih jakosti je to znatno, pri višjih pa ne več. To pomeni, da z višanjem narašča tudi tok, nato pa nastopi nasičenje.
+
+Pri rentgenskih napravah pogosto uporabljamo izraz ekspozicijske doze namesto števila fotonov, saj ni pomembno samo število, ampak tudi energija. Ekspozicijska doza \(  X \) je električni naboj \(  \Delta Q \)enega predznaka, ki ga v zraku volumna \(  \Delta V \) z maso \(  \Delta m \), na enoto mase sprosti ionizirajoče sevanje
+
+\[ X = \frac{\Delta Q}{\Delta m} 
+\]
+
+Enota za ekspozicijsko dozo je \(  \frac{\mathrm{As}}{\mathrm{kg}} \). Hitrost doze definiramo z odvodom doze po času in jo izrazimo s tokom:
+
+
+\[ \frac{\mathrm{d} X}{\mathrm{d} t} = \frac{\Delta I}{\delta m} = \frac{\Delta I }{\rho \Delta V}
+\]
+** Polarizacija žarkov X
+Žarki X nastanejo v rentgenski cevi kot posledica interakcije pospešenih elektronov z jedri v anodi.
+
+Frekvenca izsevanega elektromagnetnega valovanja \(  \nu \) je določena s kinetično energijo \(  \Delta E_k \), ki jo izgubi elektron. Maksimalno frekvenco dobimo, ko se vsa elektronova kinetična energija spremeni v elektromagnetno:
+
+\[  h \nu = E_k
+\]
+kjer je \(  h \) Planckova konstanta. 
+
+Priročna je formula za izračun ustrezne valovne dolžine
+
+\[ \lambda_{min}[nm] = \frac{1240}{U[\mathrm{V}]} 
+\]
+
+kjer je \(  U \) anodna napetost. Velja, da je pri napetosti \(  12.4 \mathrm{kV} \) minimalna valovna dolžina \(  0.1 \mathrm{nm} \).
+
+Spekter sevanja žarkov X je po večini zvezen, vendar ima tudi diskretne črte, ki so posledice skakanja višjih elektronov na prazna mesta. 
+
+
+
+
+
+

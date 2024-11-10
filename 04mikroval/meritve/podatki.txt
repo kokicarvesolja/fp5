@@ -1,0 +1,4 @@
+Ubiralka d = 1.3 cm
+Resonator na x = 414
+Minimalna lega x = 0.5cm, maksimalna lega x = 6.7cm
+Izbran maksimum za bolometer je -230.8V
