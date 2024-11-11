@@ -1,0 +1,79 @@
+#+title: Osnove mikrovalovne tehnike
+#+startup: entitiespretty nil
+#+startup: nolatexpreview
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \renewcommand{\theta}{\vartheta} \renewcommand{\phi}{\varphi}
+* Uvod
+
+Mikrovalovi so elektromagnetno valovanje z valovno dolžino nekaj centimetrov in frekvenco nekaj GHz. Kot izvor mikrovalov služijo klistroni (ang. /klystron/) in se ga uporablja za ojačitev visokih radijskih frekvenc - od UHF (ultra-high frequencies) do mikrovalov.
+
+[[file:Klystron.gif]]
+
+Resonančne votline (ang. /cavity resonators/) so v klistronu uporabljene zato, da dodajo signal elektronskemu curku in odstranijo ojačan signal iz njega. Lastno nihanje elektromagnetnega polja v resonančni votlini ustvarja med mrežicama izmenično napetost, ki enakomerni curek elektronov hitrostno modulira. Zaradi tega nastanejo zgoščine in razredčine v elektronskem curku.
+
+Na sliki se nahaja najenostavnejši klistron z dvema resonančnima votlinama. V navodilih za vajo se preseku elektronskega curka in črnih črt resonančnih votlin reče "mrežica".
+
+V refleksnem klistronu je na mestu kolektorja odbojna elektroda, ki neenakomerni elektronski curek usmeri nazaj proti resonančnima votlinama in katodi. Ob pravilno izbrani odbojni napetosti se vračajoči curek vrne med mrežico s tako fazo, da električno polje gruč elektronov ojači lastno nihanje elektromagnetnega polja v resonančni votlini in klistron deluje kot oscilator.
+
+Ta pogoj za pozitivno povratno zvezo deluje pri več diskretnih vrednostih napetosti: reče se, da klistron deluje v različnih rodovih.
+
+Mikrovalovno elektromagnetno polje iz resonančne votline speljemo v valovod, kar je vodnik v obliki dveh vzporednih žic, kablov ali cevi namenjen za strogo usmerjeno prenašanje mikrovalov.
+
+Značilna in lahko merljiva količina za stojno valovanje v vodniku je razmerje med minimalno in maksimalno amplitudo napetosti ali toka, ki ga imenujemo ubranost
+
+\begin{equation}
+\label{eq:1}
+s = \frac{\left| U_{min} \right|}{\left| U_{max} \right|} = \sqrt{\frac{h_{min}}{h_{max}}}
+\end{equation}
+
+Reaktanco bremena \(  \eta_R \) normirano na karakteristično upornost lahko zapišemo kot
+
+\begin{equation}
+\label{eq:2}
+\frac{\eta_R}{Z_0} = \frac{(s ^2 - 1) \tan (\beta x_{min})}{1 + s ^2 \tan ^2(\beta x_{min})}
+\end{equation}
+
+kjer je \(  x_{min} \) določimo z dvojno meritvijo:
+
+1) najprej izmerimo krivuljo ubranosti za vodnik, ki je zaključen z bremenom,
+2) nato pa še za vodnik, ki je kratko sklenjen
+
+in fazna konstanta \(  \beta = \omega \sqrt{LC} \).
+
+Enaka normirana rezistenca pa je
+
+\begin{equation}
+\label{eq:3}
+\frac{\xi_R}{Z_0} = (1 - \frac{\eta_R}{Z_0} \tan (\beta x_{min}))s
+\end{equation}
+
+Frekvenco mikrovalov lahko merimo z resonatorjem, ki ga ugradimo v valovod. Umerimo ga s premikanjem dna. Ko je uglašen se tudi v njem pojavi valovanje tako, da se del moči valovanja na valovodu porabi (za \(  60% \)). Če je vijak umerjen v frekvenčni skali lahko hitro določimo frekvenco valovanja v valovodu.
+
+Moč merimo najpogosteje s termoelektričnimi elementi, ki se zaradi obsevanja močno segrejejo in se jim zato spremeni upornost. Takim elementom pravimo bolometri. Če z njim izmerimo moč \(  P_m \) dobimo celotno vpadno moč kot
+
+\begin{equation}
+\label{eq:4}
+P = \frac{P_m}{1 - \left| r_R \right| ^2}; \quad \left| r_R \right|^2 = (\frac{1 - s}{1 + s}) ^2
+\end{equation}
+
+Termistorji so izdelani iz polprevodnikov, ki so pomešani z bakrenim prahom za boljšo prevodnost. Zveza med močjo in spremembo upornosti ni popolnoma linearna za razliko od bareterjev, ki so iz tanke platinaste žičke. Slednji so občutljivi na preobremenitve, kar termistorji niso.
+* Potrebščine
+- klistron
+- ubiralka
+- dušilka
+- resonator
+- merilni vod
+- kratkostična stena
+- antena
+- bolometer
+- osciloskop in voltmeter
+* Naloge
+- prilagodite valovod na generator mikrovalov
+- izmerite frekvenco valovanja s pomočjo resonatorja
+- posnemite rodove klinstronovega delovanja v odvisnosti od odbojne napetosti
+- izmerite moči, ki jih porablja termistor v vrhovih najmočnejših rodov
+- z osciloskom posnemite krivulji ubranost za valovod, ki je zaključen z bremenom in za kratko sklenjeni valovod.
+
+  Misc:
+Izbran maksimum za kratkostično steno je -220.0V
+Izbran maksimum za kratkostično steno je -223.1

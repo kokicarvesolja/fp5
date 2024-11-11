@@ -1,0 +1,3 @@
+\babel@toc {slovene}{}\relax 
+\contentsline {chapter}{\numberline {1}Poskus}{2}{chapter.1}%
+\contentsline {chapter}{Literatura}{4}{chapter*.2}%
