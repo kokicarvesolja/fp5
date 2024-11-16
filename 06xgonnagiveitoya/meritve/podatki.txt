@@ -1,0 +1,10 @@
+Podatki o ionizacijski celici
+
+Širina plošč: 8.5cm/14cm
+Dolžina plošč: 16cm
+Višina:3.5 cm
+Volumen ionizacijskega zraka: 125.4 cm^3
+Temperatura:22.6 
+Vlažnost: 27.2%
+
+Čas pri sipanju je bil 20s. Čas pri dvakratnem sipanju je bil 60s.
