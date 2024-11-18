@@ -1,0 +1,8 @@
+\babel@toc {slovene}{}\relax 
+\contentsline {section}{\numberline {1}Uvod}{2}{section.1}%
+\contentsline {section}{\numberline {2}Potrebščine}{4}{section.2}%
+\contentsline {section}{\numberline {3}Naloge}{4}{section.3}%
+\contentsline {section}{\numberline {4}Obdelava podatkov in izračuni}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Frekvenca mikrovalov}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Meritve ubranosti}{5}{subsection.4.2}%
+\contentsline {section}{Literatura}{9}{tabela.1}%
