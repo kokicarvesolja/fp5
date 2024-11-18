@@ -33,16 +33,20 @@ Reaktanco bremena \(  \eta_R \) normirano na karakteristično upornost lahko zap
 \frac{\eta_R}{Z_0} = \frac{(s ^2 - 1) \tan (\beta x_{min})}{1 + s ^2 \tan ^2(\beta x_{min})}
 \end{equation}
 
-kjer je \(  x_{min} \) določimo z dvojno meritvijo:
+kjer \(  x_{min} \) določimo z dvojno meritvijo:
 
 1) najprej izmerimo krivuljo ubranosti za vodnik, ki je zaključen z bremenom,
 2) nato pa še za vodnik, ki je kratko sklenjen
 
-in fazna konstanta \(  \beta = \omega \sqrt{LC} \).
+in fazna konstanta je  \(  \beta = \omega \sqrt{LC} \).
+Pri kratko sklenjenem vodniku je \( U_{min} = 0 \) pri \( x = 0 \), pri vodniku
+zaključenem z bremenom, pa različen od 0, se opazovani minimum ubranosti
+premakne proti bremenu ravno za vrednost \( x_{min} \).
+
 
 Enaka normirana rezistenca pa je
 
-\begin{equation}
+c\begin{equation}
 \label{eq:3}
 \frac{\xi_R}{Z_0} = (1 - \frac{\eta_R}{Z_0} \tan (\beta x_{min}))s
 \end{equation}
@@ -73,7 +77,83 @@ Termistorji so izdelani iz polprevodnikov, ki so pomešani z bakrenim prahom za 
 - posnemite rodove klinstronovega delovanja v odvisnosti od odbojne napetosti
 - izmerite moči, ki jih porablja termistor v vrhovih najmočnejših rodov
 - z osciloskom posnemite krivulji ubranost za valovod, ki je zaključen z bremenom in za kratko sklenjeni valovod.
+* Obdelava podatkov in izračuni
 
-  Misc:
-Izbran maksimum za kratkostično steno je -220.0V
-Izbran maksimum za kratkostično steno je -223.1
+Podatke sem shranil v .csv format in jih obdelal s pomočjo programerskega
+jezika Python in njegovih knjižnic matplotlib, pandas, numpy, cmasher ter
+uncertainties.
+
+** Frekvenca mikrovalov
+
+Frekvenco sem izmeril z uglaševanjem resonatorja vgrajenega v valovod. Pri
+meritvi lege vijaka sem dobil vrednost \( 414 \), iz česar po umeritveni
+krivulji \ref{slika} sledi, da je frekvenca mikrovalov
+
+\[ \nu = (8.43 \pm 0.01) \mathrm{GHz}
+\]
+
+[[file:/mnt/Data/02AreasLenovo/Sola/FMF/2letnik/1semester/FP5/04mikroval/figures/umeritev.png]]
+
+** Meritve ubranosti
+
+Z drsnim merilnikom sem lahko izmeril stoječe valovanje, kakor se vidi na
+slikah \ref{slika}, \ref{slika}. Označene so tudi odčitane vrednosti, iz
+katerih sem po enačbi \ref{eq:1} potem izračunal ubranost, ki je za bolometer
+znašala:
+
+\[s = 0.443 \pm 0.006
+\]
+
+[[file:/mnt/Data/02AreasLenovo/Sola/FMF/2letnik/1semester/FP5/04mikroval/figures/krivulja_ubranosti.png]]
+
+Za kratkostično steno je po navodilih ubranost enaka 0.
+
+Razdalja med dvema minima na krivulji, ki opisuje kratkosklenjen valovod,
+je enaka polovici valovne dolžine valovnja, v valovodu. Odčitane vrednosti so
+na sliki \ref{slika}. Dobim:
+
+\[ \lambda' = (2.58 \pm 0.02) \mathrm{cm}
+\]
+
+Razlika med lego izbranega minimuma krivulje, ki opisuje valovod z bremenom
+in ustreznega minima krivulje kratko sklenjenega valovoda je \( x_{min}' \).
+Odčitane vrednost so na sliki \ref{slika}.
+
+Izmeril sem
+
+\[ x_{min}' = (0.78 \pm 0.1) \mathrm{cm}
+\]
+
+Velja
+
+\begin{equation}
+\label{eq:5}
+\frac{x_{min}' }{\lambda'} = \frac{\beta x_{min}}{2 \pi}
+\end{equation}
+
+saj je razmerje je dano razmerje enako v vakuumu in znotraj valovoda.
+
+Iz dane enačbe tako dobimo vrednost
+
+\[ \beta x_{min} = 1.91 \pm 1
+\]
+
+
+Sedaj lahko po enačba \ref{eq:2} in \ref{eq:3} izračunamo relativno reaktanco
+bremena
+
+\[ \frac{\eta_R}{Z_0} = 0.88 \pm 0.3
+\]
+
+ter relativno rezistenco
+
+\[ \frac{\xi_R}{Z_0} = 1.55 \pm 0.55
+\]
+
+Refleksijski koeficient dan po enačbi \ref{eq:4} ima za bolometer vrednost
+
+\[ \left| r_R \right| ^2 = 0.149 \pm 0.004
+\]
+
+s katerim izračunamo pravo moč valovanja \( P \) in izračunane vrednosti
+so podane v tabeli \ref{tabela}.

@@ -6,7 +6,7 @@
 Elektrone iz katode pospešimo z visoko napetostjo proti kovinski tarči. Pri trku zaradi zaviranje elektronov v polju jeder pride do zavornega sevanja v spektru žarkov X.
 
 Elektroni, ki imajo zadosti energije, pa iz notranjih elektronskih lupin gradnikov izbijejo elektrone. Elektroni iz višjih stanj zapolnijo vrzel, pri tem pa izsevajo karakteristične X žarke, ki imajo točno določeno energijo.
-** Izonizacijska celica
+** Ionizacijska celica
 Najenostavnejša ionizacijska celica je ploščni kondenzator zvezan z izvorom visoke napetosti. Če v prostor med ploščama posvetimo z rentgenskimi žarki, ti na atomih zraka povzročijo fotoefekt. Fotoelektroni zaradi svoje visoke hitrosti ionizirajo molekule. Nastale ionske pare napetost na kondenzatorju usmeri k ploščam in dobimo tokovni sunek na tokokrogu. Ob zadostni količini fotonov, se sunki povprečijo v merljiv električni tok.
 
 V splošnem ne dosežejo vsi ionski pari elektrod, ker se jih nekaj že prej rekombinira. Pri majhnih jakosti je to znatno, pri višjih pa ne več. To pomeni, da z višanjem narašča tudi tok, nato pa nastopi nasičenje.
@@ -18,8 +18,7 @@ Pri rentgenskih napravah pogosto uporabljamo izraz ekspozicijske doze namesto š
 
 Enota za ekspozicijsko dozo je \(  \frac{\mathrm{As}}{\mathrm{kg}} \). Hitrost doze definiramo z odvodom doze po času in jo izrazimo s tokom:
 
-
-\[ \frac{\mathrm{d} X}{\mathrm{d} t} = \frac{\Delta I}{\delta m} = \frac{\Delta I }{\rho \Delta V}
+\[ \frac{\mathrm{d} X}{\mathrm{d} t} = \frac{\Delta I}{\Delta m} = \frac{\Delta I }{\rho \Delta V}
 \]
 ** Polarizacija žarkov X
 Žarki X nastanejo v rentgenski cevi kot posledica interakcije pospešenih elektronov z jedri v anodi.
@@ -37,10 +36,46 @@ Priročna je formula za izračun ustrezne valovne dolžine
 
 kjer je \(  U \) anodna napetost. Velja, da je pri napetosti \(  12.4 \mathrm{kV} \) minimalna valovna dolžina \(  0.1 \mathrm{nm} \).
 
-Spekter sevanja žarkov X je po večini zvezen, vendar ima tudi diskretne črte, ki so posledice skakanja višjih elektronov na prazna mesta. 
+Spekter sevanja žarkov X je po večini zvezen, vendar ima tudi diskretne črte, ki so posledice skakanja višjih elektronov na prazna mesta.
 
+Predpostavimo, da naboj niha v smeri osi \( y \) z nekim pospeškom. Pospeševanju naboja sledi sevanje elektromagnetnega valovanja, ki ga opišemo z vektorjem jakosti električnega polja \( \vec{E} \) (ki ima smer nihajočega naboja in je pravokoten na smer razširjanja valovanja). Ker naboj niha v smeri \( y \), je tja tudi usmerjen \( \vec{E} \). Pravimo, da je valovanje linearno polarizirano.
 
+Energijski tok valovanja, ki ga seva tak nihajoč naboj je največji v ekvatorialni ravnini, v smeri nihanja naboja pa je enak 0.
 
+Če imamo več istočasno nihajočih nabojev, katerih smeri nihanja so enakomerno porazdeljene v ravnini \( yz \), dobimo v smeri \( x \) nepolarizirano valovanje. Če ni enakomerno porazdeljeno, dobimo delno polarizirano svetlobo.
 
+Če bi elektroni v anodi zavirali le v smeri svojega gibanja, bi dobili linearno polarizirane žarke. V resnici se veliko elektronov odkloni od prvotne smeri že prej in zato so žarki le delno polarizirani.
 
+Z merjenjem jakosti elastičenga sipanja valovanja lahko določimo polariziranost rentgenske svetlobe. Gostota energijskega toka, ki ga seva nihajoči naboj se spreminja kot \( \sin ^2 \theta \), kjer je \( \theta \) kot med smerjo nihanja dipola in smerjo valovanja. Pri elastičnem sipanem odbojnem valovanju dobimo močno sevanje v ravnini, ki je pravokotna na smer nihanja naboja, v sami smeri nihanja pa sevanja ni. V snop, ki ima smer osi \( y \) postavimo sipalec, nato pa v ravnini \( xz \) z Geiger-Mullerjevim števcem izmerimo kotno porazdelitev sipanega valovanja. Merimo pravzaprav le dve pravokotni komponenti \( I_x \) in \( I_z \). Polariziranost tako definiramo kot
 
+\[ \eta = \frac{I_z - I_x}{I_z + I_x}
+\]
+** Presevno slikanje predmetov
+
+Žarki X se absorbirajo v snovi, kar opišemo
+
+\[I = I_0 e ^{- \mu d}
+\]
+
+kjer je \( \mu \) linearni absorpcijski koeficient in \( d \) dolžina poti žarka X v sredstvu. Ta pojav lahko izkoristimo za rentgensko slikanje.
+* Potrebščine
+
+- rentgenska naprava
+- ionizacijska celica
+- izvor napetosti
+- upor in voltmeter
+- 2 sipalca
+- GM števec
+- računalnik
+- fotoaparat
+* Naloge
+- Z ionizacijsko celico izmeri povprečno jakost doze v snopu žarkov X (ter hitrost ekspozicijske doze v odvisnosti od anodne napetosti)
+- Izmeri polariziranost primarni žarkov X
+- Izmeri polariziranost sipanih žarkov X
+- Slikaj čim več predmetov v praktikumu
+* Navodila
+Po navodilih rentgenske naprave sestavimo ionizacijsko celico.  Za nekaj vrednosti napetosti na rentgenski cevi izmerimo odvisnost toka od napetosti na ionizacijski celici. Zopet po navodili sestavimo postavitvi za enkratno in dvakratno sipanje in izmerimo sunke na GM števcu.
+* Opazke, pripombe, ipd
+
+Poglej temperaturo ter vlažnost učilnice (za gostoto zraka), ter mere ionizacijske celice.
+Uporabil sem /LEYBOLD Physics Leaflets/ na strani 3 za korake pri ionizacijski celici (zvezanka z modro platnico). Gumb power na spodnjem voltmetru je na sredini.

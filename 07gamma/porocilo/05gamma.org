@@ -1,0 +1,72 @@
+#+title: 05 Spektrometrija žarkov \(  \gamma \) s scintilacijskim spektrometrom
+#+startup: entitiespretty nil
+#+startup: nolatexpreview
+#+latex_header: \usepackage{amsmath}
+#+latex_header: \renewcommand{\theta}{\vartheta} \renewcommand{\phi}{\varphi}
+
+* Uvod
+
+Energije žarkov ne merimo neposredno, ampak le posredno tako, da izmerimo energijo elektronov, ki jo le ti prejmejo od žarkov \(  \gamma \) pri fotoefektu, Comptonovem sipanju ali pa energijo parov pozitron-elektron iz procesa tvorbe parov. Scintilator
+je material, ki je scintilabilen. To pomeni, da zažari, ko je vzburjen zaradi
+radioaktivnega sevanja. Pri scintilacijskem detektorju uporabljamo v ta namen monokristale natrijevega jodida (NaI) z dodatkom okrog \(  1 \% \) talija (Tl) kot nečistoče.
+
+Pri potovanju hitrih nabitih delcev skozi kristal ostane za njimi razdejanje v obliki sledi elektron-vrzel. Ponovno združevanje med elektroni in vrzelmi poteka energijsko ugodneje v bližini atoma nečistoče. Vrzeli vzamejo elektronom atomom Talija in jih ionizirajo. Elektroni se nato rekombinirajo s temi ioniziranimi atomi nečistoč. Odvečna energija gre bodisi sosednjim atomom v kristalni mreži, kar poveča termično gibanje ali pa z izsevanjem fotonov vidne svetlobe.
+
+Število scintilacijskih fotonov določimo s pomočjo fotopomnoževalke. Višina signala iz fotopomnoževalke, ki signal ojača, je sorazmerna številu fotonov in torej tudi energiji, ki jo hitri nabiti delec izgubi v scintilatorju.
+
+Sunek iz fotopomnoževalke pošljemo skozi predojačevalnik, ojačevalni ter mu izmerimo napetostno višino z amplitudnim analizatorjem.
+** Fotoefekt
+
+Pri fotoefektu žarek \(  \gamma \) izbije elektron iz enega od vezanih stanj. Najverjetneje je to elektron iz lupine K. Atom, ki je po emisiji elektrona K v vzbujenem stanju, se vrne v osnovno stanje tako, da zapolni vrzel z elektronom iz višjih, manj vezanih stanj.
+Pri tem izseva karakteristični žarek X. Tudi ta v scintilatorju lahko doživi
+fotoefekt na manj vezanih elektronih in dobimo dva elektrona, katerih
+energija je približno enaka prvotnemu fotonu \(  \gamma \). Nekateri
+karakteristični žarki pa uidejo iz
+scintilatorja in s tem dobimo vrh pobega fotona pri \(  E = E_{\gamma} - E_K \),
+kjer je \(  E_K \) vezavna energija elektrona.
+** Comptonovo sipanje
+
+Comptonovo sipanje je neelastično sipanje fotona na skoraj prostem elektronu.
+Pri sipanju se seveda ohranjata energija in gibalna količina. Spekter
+comptonsko sipanih elektronov je zvezen. Elektroni se sipajo pretežno naprej,
+fotoni pretežno nazaj. Izrazit rob t.i. Compton edge, izgine, saj se
+nekateri od nazaj sipanih žarkov \(  \gamma \) absorbirajo v scintilatorju in
+so vidni v fotovrhu (oz. vrh popolne absorbcije).
+Pri \(  E_{\gamma min}  \) se pojavi majhen vrh (vrh povratnega sipanja, ang.
+/back-scattering peak/). Ta pripada fotonomo, ki so se sipali nazaj v steklu,
+ki prekriva oscilator ali pa v steklu fotopomnoževalke in se nato absorbirali
+v scintilatorju.
+** Tvorba parov
+
+Kadar ima žarek \(  \gamma \) dovolj energije (\(  E_{\gamma} \ge 1.02 \mathrm{MeV} \)),
+se lahko v bližini jedra spremni v par pozitron-elektron s skupno kinetično
+energijo \(  E_{\gamma} - 2 m_0 c ^2 \), odvečno gibalno količino pa prevzame
+jedro. Nastala delca se gibljeta pretežno v smeri naprej. V scintilatorju se
+zaustavita in mu predata svojo kinetično energijo. Ob upočasnitvi se pozitron
+z enim od elektronov, ki jih sreča na svoji poti, anihilira. Nastaneta dva
+kolinearna žarka \(  \gamma \). Možno je, da pobegneta oba, samo en ali pa oba
+ostaneta v scintilatorju. Tako dobimo vrh dvojnega pobega, vrh pobega in vrh
+polne absorpcije.
+* Potrebščine
+- scintilacijski detektor
+- izvor visoke napetosti za napajanje fotopomnoževalke
+- ojačevalnik z enokanalnim analizatorjem
+- večkanalni analizator
+- radioaktivni izvor \(  ^{22} \mathrm{Na}, \ ^{137} \mathrm{Cs} \text{ in } ^{60} \mathrm{Co} \)
+* Naloge
+1. Ojačene signale iz scintilacijskega detektorja si poglej osciloskopu. K
+   poročilu priloži zaslon ali pa skico signalov.
+2. Z enokanalnim analizatorjem izmeri spekter natrija in nariši graf.
+3. S pomočjo dveh črt \(  \gamma \) iz natrija z energijo \(  E_1 = 0.51 \mathrm{MeV} \)
+   in \(  E_2 = 1.277 \mathrm{MeV} \) umeri energijsko skalo scintilacijskega
+   spektrometra (večkanalni analizator) in izmeri energijo Črt \(  \gamma \) iz
+   cezija in kobalta. Pri analizi od izmerjenega spektra odštej spekter ozadja.
+4. Izmeri energijsko ločljivost za vrh popolne absorpcije tako, da podatkom v
+   okolici vrha prilagajaš Gaussovo funkcijo. Izmeri ločljivost za vrhove pri
+   različnih energijah - uporabi meritve spektrov natrija, cezija in kobalta.
+5. Izračunaj izkoristek kristala za vrh popolne absorpcije (določi z izvorom
+   \(  ^{137} \mathrm{Cs} \))
+6. Oceni energijo vrha povratnega sipanja
+* TODO Šum ozadja (3x po 100s )
+* TODO Umeritev energijske skale
+* TODO
