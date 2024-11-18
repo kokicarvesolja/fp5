@@ -122,11 +122,143 @@ plt.hlines(short_bolometer[indeks_maksimuma], 2.0, 6.21, color=c3)
 plt.xlabel(r'Razdalja $[\mathrm{cm}]$')
 plt.ylabel(r'Signal $[\mathrm{V}]$')
 plt.legend()
-plt.title('Krivulja ubranosti')
-plt.savefig('../figures/krivulja_ubranost.png')
+plt.title('Krivulja ubranosti in uporabljene vrednosti za ubranost $s$')
+plt.savefig('../figures/krivulja_ubranosti.png')
 plt.close()
+
+# določanje x_min ', kar je razlika med minimumom bolometra in minimumom
+# kratkostične stene
+
+# minimum bolometra je določen od prej
+#
+# minimum kratkostične stene
+
+indeks_minimuma_kratko = np.argmin(short_kratko)
+
+
+# drawing that on a graph
+#
+fig_2, ax_2 = plt.subplots()
+
+# drawing data
+
+ax_2.scatter(short_length, short_bolometer, marker='.', c=c4, label='bolometer')
+ax_2.scatter(short_length, short_kratko, marker='.', c=c5,
+            label='kratkostična stena')
+
+# drawing vertical lines
+
+ax_2.vlines(short_length[indeks_minimuma], -0.21,0.001, color=c3)
+ax_2.vlines(short_length[indeks_minimuma_kratko], -0.21,0.001, color=c3)
+
+# annotation arrows
+
+# annotation, look for customizing annotation arrows section
+# https://matplotlib.org/stable/users/explain/text/annotations.html#annotations
+an1 = ax_2.annotate('',
+             xy=(short_length[indeks_minimuma], 0.0), xycoords='data',
+             xytext=(short_length[indeks_minimuma_kratko], 0.0),
+             textcoords='data', arrowprops=dict(arrowstyle="<->",
+             connectionstyle="arc3"))
+
+# text na polovici
+# I am referring to object, to create an arrow
+# docs: https://matplotlib.org/stable/users/explain/text/annotations.html#annotations
+# annotating an artist for text and
+ax_2.annotate(r"$x_{min}'$", xy=(.5, -3.5),
+              xycoords=an1, fontsize=10.0, textcoords=an1, ha='center',
+              va='bottom')
+
+# drawing \lambda '
+
+se_bolj_omejenen_interval_dolzine = bolometer.length()[4.5 <= bolometer.length()]
+se_bolj_omejenen_interval_kratko = kratko.ch2()[4.5 <= bolometer.length()]
+
+indeks_drugega_minimuma = np.argmin(se_bolj_omejenen_interval_kratko)
+ax_2.vlines(se_bolj_omejenen_interval_dolzine[indeks_drugega_minimuma], -0.21,0.001,
+            color=c3)
+
+# puscica in tekst za lambdo
+
+an2 = ax_2.annotate('', xy=(short_length[indeks_minimuma_kratko], 0.0),
+                    xycoords='data',
+                    xytext=(se_bolj_omejenen_interval_dolzine[indeks_drugega_minimuma], 0.0),
+                    textcoords='data', arrowprops=dict(arrowstyle="<->",
+                                                       connectionstyle='arc3'))
+# annotating this monster
+
+ax_2.annotate(r"$\frac{1}{2}\lambda_{min}'$", xy=(.5,.5), xycoords=an2,
+              fontsize=10.0, textcoords=an2, ha='center', va='bottom')
+
+# everything else for beautiful graphs
+plt.xlabel(r'Razdalja $[\mathrm{cm}]$')
+plt.ylabel(r'Signal $[\mathrm{V}]$')
+plt.legend()
+plt.title('Krivulja ubranosti in izmerjene vrednosti')
+plt.savefig('../figures/krivulja_ubranosti_x_min.png')
+plt.close()
+
+# --- kalkulacije ---
 
 # ubranost
 
 s = unp.sqrt(maksimum / minimum)
-print(s)
+print('Ubranost s:', s)
+
+# razlika vrednosti za x_min', v unumpy.uarray
+# I should have used uncertainties.ufloat, but I am too lazy
+
+x_min_crt = unp.uarray(short_length[indeks_minimuma_kratko] -\
+                       short_length[indeks_minimuma], 0.01)
+print(r"Vrednost x_min ': ", x_min_crt)
+
+# \lambda' vrednost, kar je vrednost valovanja pri vstopu v valovod
+
+lambda_min_crt = unp.uarray(se_bolj_omejenen_interval_dolzine[indeks_drugega_minimuma]\
+                            - short_length[indeks_minimuma_kratko], 0.01) * 2
+
+print("Lambda': ", lambda_min_crt)
+
+# vrednost zmnožka \beta x_min
+
+beta_x_xmin = 2 * np.pi * (x_min_crt / lambda_min_crt)
+
+print("Produkt beta x_min ': ", beta_x_xmin)
+
+# relativna reaktanca bremena
+
+def reaktanca(ubranost, produkt_beta_x):
+    return (((ubranost**2 - 1) * unp.tan(produkt_beta_x)) /\
+        (1 + (ubranost ** 2) * (unp.tan(produkt_beta_x) ** 2)))
+
+def rezistenca(ubranost, produkt_beta_x):
+    return (1 - reaktanca(ubranost, produkt_beta_x) * unp.tan(produkt_beta_x)) * ubranost
+
+print("Reaktanca: ", reaktanca(s, beta_x_xmin))
+print("Rezistenca: ", rezistenca(s, beta_x_xmin))
+
+# za moč potrebujem refleksivnost, ki je
+# |r_R| ^2 = ((1 - s)/ (1 + s)) ^2
+def refleksijski_koeficient(ubranost):
+    return ((1 - ubranost) / (1 + ubranost))**2
+
+print("refleksivnost: ", refleksijski_koeficient(s))
+
+# izračun realne moči
+
+def realna_moc(ubranost, moc):
+    return (moc / (1 - refleksijski_koeficient(ubranost)))
+
+data_moc = pd.read_csv(r'../meritve/rodovi.csv', delimiter=';')
+data_moc = np.array(pd.DataFrame(data_moc, columns=['N', 'U', 'P']))
+
+izracunana_moc = realna_moc(s, data_moc[:, 2])
+
+# print tabelo za latex, ki bo oblike
+# U_0 [V] & P_m [mW] & P[mW]
+print(str.join('',[f'{U_0:.2f} & {P_m:.2f} & {P:.2f} & \pm {P_err:.0f} \\\\\n'
+                   for U_0, P_m, P, P_err in zip(data_moc[:, 1], data_moc[:, 2] * 1e1,
+                                                 unp.nominal_values(izracunana_moc) * 1e1,
+                                                 unp.std_devs(izracunana_moc) * 1e3)]
+               ))
+

@@ -33,12 +33,16 @@ Reaktanco bremena \(  \eta_R \) normirano na karakteristično upornost lahko zap
 \frac{\eta_R}{Z_0} = \frac{(s ^2 - 1) \tan (\beta x_{min})}{1 + s ^2 \tan ^2(\beta x_{min})}
 \end{equation}
 
-kjer je \(  x_{min} \) določimo z dvojno meritvijo:
+kjer \(  x_{min} \) določimo z dvojno meritvijo:
 
 1) najprej izmerimo krivuljo ubranosti za vodnik, ki je zaključen z bremenom,
 2) nato pa še za vodnik, ki je kratko sklenjen
 
-in fazna konstanta \(  \beta = \omega \sqrt{LC} \).
+in fazna konstanta je  \(  \beta = \omega \sqrt{LC} \).
+Pri kratko sklenjenem vodniku je \( U_{min} = 0 \) pri \( x = 0 \), pri vodniku
+zaključenem z bremenom, pa različen od 0, se opazovani minimum ubranosti
+premakne proti bremenu ravno za vrednost \( x_{min} \).
+
 
 Enaka normirana rezistenca pa je
 
