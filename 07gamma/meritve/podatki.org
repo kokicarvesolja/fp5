@@ -1,0 +1,3 @@
+#+title: Podatki
+Window bo na 0.4 enot.
+Čas zajemanja je 10s za vse nivoje na \(  ^{22} \mathrm{Na} \).
