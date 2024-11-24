@@ -50,8 +50,10 @@ Energijski tok valovanja, ki ga seva tak nihajoč naboj je največji v ekvatoria
 
 Z merjenjem jakosti elastičenga sipanja valovanja lahko določimo polariziranost rentgenske svetlobe. Gostota energijskega toka, ki ga seva nihajoči naboj se spreminja kot \( \sin ^2 \theta \), kjer je \( \theta \) kot med smerjo nihanja dipola in smerjo valovanja. Pri elastičnem sipanem odbojnem valovanju dobimo močno sevanje v ravnini, ki je pravokotna na smer nihanja naboja, v sami smeri nihanja pa sevanja ni. V snop, ki ima smer osi \( y \) postavimo sipalec, nato pa v ravnini \( xz \) z Geiger-Mullerjevim števcem izmerimo kotno porazdelitev sipanega valovanja. Merimo pravzaprav le dve pravokotni komponenti \( I_x \) in \( I_z \). Polariziranost tako definiramo kot
 
-\[ \eta = \frac{I_z - I_x}{I_z + I_x}
-\]
+\begin{equation}
+\label{eq:2}
+ \eta = \frac{I_z - I_x}{I_z + I_x}
+\end{equation}
 ** Presevno slikanje predmetov
 
 Žarki X se absorbirajo v snovi, kar opišemo
@@ -109,3 +111,30 @@ Povprečil sem obe komponenti in dobil
   I_x &= 1509.7 \pm 1.9\\
 I_z &= 1697.8 \pm 1.7
 \end{align*}
+
+Iz tega po definiciji polarizacije \ref{eq:2}
+
+\[ \eta = (0.0586 \pm 0.0008)
+\]
+
+Napaka je le grobo ocenjena preko relativne napake obeh komponent.
+** Polarizacija sipanih žarkov
+
+Podobno kot za primarne žarke, sem dobil:
+
+\begin{align*}
+  I_x &= 2.8 \pm 0.2
+I_z &= 0.23 \pm 0.06
+\end{align*}
+
+Iz tega po definiciji polarizacije \ref{eq:2} dobim
+
+\[ \eta = 0.8 \pm 0.1
+\]
+** Presevno slikanje predmetov
+
+Predmete, ki sem si jih presevno slikal so nalivniki, ključavnica, kvadratasta škatla z neznano vsebino in pa kuli.
+
+[[file:figures/kuli.png]]
+[[file:figures/kroglice.png]]
+[[file:figures/nalivnikInključavnica.png]]

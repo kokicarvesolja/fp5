@@ -1,0 +1,47 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{noauthor_air_nodate}{online}{}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Use the online air density calculator to find out the density of air at any given temperature and pressure.}
+      \field{langid}{english}
+      \field{title}{Air Density Calculator {|} What is Air's Density?}
+      \field{urlday}{24}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/krobin/Zotero/storage/NZBLJ6T2/air-density.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.calctool.org/atmospheric-thermodynamics/air-density
+      \endverb
+      \verb{url}
+      \verb https://www.calctool.org/atmospheric-thermodynamics/air-density
+      \endverb
+      \keyw{{FP}5-xrays}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

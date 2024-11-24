@@ -1,0 +1,14 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is '06xrays.blg'
+[30] biber:340> INFO - === Sun Nov 24, 2024, 22:33:30
+[38] Biber.pm:419> INFO - Reading '06xrays.bcf'
+[64] Biber.pm:979> INFO - Found 1 citekeys in bib section 0
+[69] Biber.pm:4419> INFO - Processing section 0
+[74] Biber.pm:4610> INFO - Looking for bibtex file 'refs.bib' for section 0
+[75] bibtex.pm:1713> INFO - LaTeX decoding ...
+[76] bibtex.pm:1519> INFO - Found BibTeX data source 'refs.bib'
+[90] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[90] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'variable = shifted' with 'variable = non-ignorable'
+[90] Biber.pm:4239> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'sl-SI'
+[93] bbl.pm:660> INFO - Writing '06xrays.bbl' with encoding 'UTF-8'
+[94] bbl.pm:763> INFO - Output to 06xrays.bbl
