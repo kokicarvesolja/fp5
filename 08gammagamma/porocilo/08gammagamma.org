@@ -1,0 +1,41 @@
+#+title: 07 Kotna korelacija anihilacijski žarkov \( \gamma \)
+#+startup: entitiespretty nil
+
+* Uvod
+
+Pozitron \( e^+ \) se pri srečanju s svojim antidelcem elektronom \( e^- \) anihilira. Sproščena energija je v obliki elektromagnetnega valovanja.
+
+Zanima nas, ali mogoče nastane pozitronij, vodikovemu atomu podobna tvorba, v kateri elektron in pozitron krožita okoli skupnega težišča.
+
+V osnovnem stanju pozitronija sta si delca najbližje skupaj. Orbitalna vrtilna količina je \( l = 0 \). Tako pozitron kot elektron imata spin \( \frac{1}{2} \), zato se osnovno stanje razcepi na singletno stanje z vrtilno količino 0 ter tripletno stanje, ki ima vrtilno količino \( 1 \). Singletno stanje ima vezavno energijo \( 6.8 \mathrm{eV} \), medtem ko pa je tripletno za  \( 10^{-3} \mathrm{eV} \) manj vezano.
+
+Poglejmo si anihilacijo v singletnem stanju. Predpostavimo, da pozitronij miruje (če ne bi, bi pa obravnavali v CMS in pretvorili v laboratorijski sistem). Ker je vrtilna količina sistema enaka 0, so si v prostoru vse smeri enakovredne. Pri anihilaciji nastali foton torej odleti v katerokoli smer. Zaradi ohranjanja vrtilne količine pa mora nastati še en foton, ki odleti v nasprotno smer. Oba fotona sta ali levo ali desno cirkularno polarizirana.
+
+V tripletnem stanju ne more doseči ohranitve vrtilne in gibalne količine z dvema fotonoma in so potrebni trije.
+
+Bolj pogosto opazimo singletno anihilacijo, navkljub temu da ima tripletno stanje 1000-krat daljšo življenjsko dobo, \( \approx 10^{-7} \), kar tripletu da dovolj časa, da trka z atomi in pri tem preide v singletno stanje.
+
+Pri vaji se uporablja \( ^{22} \mathrm{Na} \), ki preko \( \beta^+ \) razpada služi kot vir pozitronov. Ta se anihilira z elektronom, pri čemer nastaneta dva kolinearna fotona z energijo \( 511 \mathrm{keV} \).
+* Potrebščine
+
+- \( ^{22} \mathrm{Na} \) sevalec
+- 2 scintilacijska detektorja
+- časovno-digitalni pretvornik (ang. /time-to-digital converter/ ali TDC) Red Pitaya
+- 2 modula
+- 8 kanalni razdelilec z zakasnilno enoto
+
+* Naloge
+
+- inicializiraj časovno-digitalni pretvornik na plošči Red Pitaya in opravi kalibracijo
+- izmeri ločljivost časovno-digitalnega pretvornika
+- izmeri porazdelitev časovnih intervalov med razpadi radioaktivnega vira
+- poišči koincidence anihilacijskih žarkov \( \gamma \) in izmeri njihovo kotno korelacijo
+
+* Opombe
+
+Ne spreminjaj povezave med pretvornikom nivojev in Red Pitayo.
+
+Z diskriminatorjem nastaviš nivo na vrednosti, ki v spektru ustreza dolini pod fotovrhom. Vrtiš gumb DISC LEVEL. Nastavi diskriminator na drugem kanalu.
+
+** TODO časovni potek signalov
+** TODO kalibracija TDC s sunki radioaktivnih razpadov

@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
+import numpy as n p
 import cmasher as cmr
 from uncertainties import unumpy as unp
 
