@@ -1,0 +1,11 @@
+\babel@toc {slovene}{}\relax 
+\contentsline {section}{\numberline {1}Uvod}{3}{section.1}%
+\contentsline {section}{\numberline {2}Potrebščine}{5}{section.2}%
+\contentsline {section}{\numberline {3}Naloge}{5}{section.3}%
+\contentsline {section}{\numberline {4}Meritve in obdelava podatkov}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Ocena \(T_2^{*}\) in nehomogenosti polja}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Umeritev časovne skale}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Spinsko-mrežni relaksacijski čas \(T_1\)}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Spinsko-spinski relaksacijski čas \(T_2\)}{10}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Komentar}{11}{section.5}%
+\contentsline {section}{Literatura}{12}{section.5}%

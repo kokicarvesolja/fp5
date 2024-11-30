@@ -76,9 +76,10 @@ M_{z'} = M(1 - e^{-\frac{t}{T_1}})
 Če imamo nehomogeno magnetno polje, projekcija magnetizacije v ravnino \(  x'y' \) ne pada več eksponento s časom \(  T_2 \), ampak kot neka druga krivulja \(  T_2^{*} \), ki je odvisna od \(  T_2 \), nehomogenosti magnetnega polja in od oblike vzorca.
 
 Ocenimo ga lahko kot
-
-\[ T_2^{*} \approx \frac{\pi}{2} \frac{1}{\gamma \Delta B_z} \approx \frac{1}{\gamma \Delta B_z}
-\]
+\begin{equation}
+\label{eq:5}
+T_2^{*} \approx \frac{\pi}{2} \frac{1}{\gamma \Delta B_z} \approx \frac{1}{\gamma \Delta B_z}
+\end{equation}
 
 Po sunku \(  \frac{\pi}{2} \) je magnetni moment obrnjen v smeri osi \(  y' \) in nato precesira okoli osi \(  z' \) z neko frekvenco \(  \omega \). V času \(  \tau \) se zavrti za kot \(  \phi = \omega \tau \) glede na os \(  y' \). S sunkom \(  \pi \) se magnetni moment zasuka v nasprotno smer \(  \pi - \omega \tau \). Po času \(  2\tau \) bodo magnetni momenti ponovno v smeri osi \(  -y' \), saj je \(  \phi(2\tau) = \pi - \omega \tau + \omega \tau \).
 
@@ -102,4 +103,67 @@ V merilni tuljavici se zato pojavi signal, ki ga imenujemo spinski odmev. Amplit
 - za vzorec vode s primešanimi paramagnetnimi ioni poišči signal proste precesije po sunku \(  \frac{\pi}{2} \) in signal spinskega odmeva po zaporedju sunkov \(  \frac{\pi}{2} \) in \(  \pi \). Z opazovanjem širine proste precesije in signala spinskega odmeva poišči takšno lego sonde, da bo magnetno polje v področju vzorca čimbolj homogeno. Iz obeh širin izračunaj \(  T_2^{*} \) in oceni nehomogenost magnetnega polja v vzorcu
 - Z opazovanjem odvisnost signala proste precesije med dvema sunkoma \(  \frac{\pi}{2} \) določi relaksacijski čas \(  T_1 \) za vzorec vode s primešanimi paramagnetnimi ioni in za vzorec vodovodne vode
 - Za vodo s primešanimi paramagnetnimi ioni poišči odvisnost višine signala spinskega odmeva od presledka \(  \tau \) med sunkoma \(  \frac{\pi}{2} \) in \(  \pi \) in določi spinsko-spinski relaksacijski čas \(  T_2 \).
-* Meritve
+* Meritve in obdelava podatkov
+Vse .csv datoteke sem obdelal v programerskem jeziku Python z njegovimi knjižnicami numpy, matplotlib, pandas, scipy, uncertainties in cmasher.
+** Ocena \(  T_2^{*} \) in nehomogenosti polja
+Vzorec vode s paramagnetnimi ioni sem postavil v magnet in iz širine grafov [cite] ocenil vrednost konstante \(  T_2^{*} \).
+
+[[file:figures/20241129_153343.jpg]]
+
+[[file:figures/spinski_odmev.jpg]]
+
+Graf proste precesije sem uvozil v WebPlotDigitizer (vir \cite), ročno poklikal točke in jih izvozil v .csv datoteko.
+
+Podatke sem potem logaritmiral in jih regresiral premici na grafu \ref ter dobil oceno
+
+[[file:figures/cas_t2_zvezdica.png]]
+
+\[ T_2^{*} \doteq (0.269 \pm 0.04 ) \mathrm{ms}
+\]
+
+Iz grafa spinskega odmeva \ref lahko prav tako ocenimo relaksacijski čas, saj je odmev širok \(  2 \cdot T_2^{*} \).
+
+\[ T_2^{*} \doteq 0.26 \mathrm{ms}
+\]
+
+Iz danih podatkov lahko sedaj po enačbi \ref{eq:5} ocenimo nehomogenost magnetnega polja, ki je enaka
+
+\[ \Delta B_z \doteq (1.39 \pm 0.02) \mu \mathrm{T}
+\]
+** Umeritev časovne skale
+
+Premik gumba na NMR spektrometru ni popolnoma enak časovni enoti na osciloskopu, zato je bilo potrebno to tudi umeriti. Narisal sem graf in iz točk regresiral premico, katere vrednost sem potem uporabljal v nadaljnem obdelovanju podatkov.
+
+[[file:figures/umeritev_skale.png]]
+
+
+
+** Spinsko-mrežni relaksacijski čas \(  T_1 \)
+Regresiral sem enačbo \ref{eq:6} izmerjene podatke za vodo z in brez paramagnetnih ionov. Grafa se lahko vidi na \ref in \ref.
+
+[[file:figures/t1_ion.png]]
+
+[[file:figures/t1_tap.png]]
+
+Dobil sem sledeči vrednosti
+
+\begin{align*}
+  T_{1 ion} &= (3.5 \pm 0.6) ms \\
+T_{1 tap} &= (0.15 \pm 0.01) s
+\end{align*}
+** Spinsko-spinski relaksacijski čas \(  T_2 \)
+Z logaritmirano meritvijo signala spinskega odmeva v odvisnosti od razmika \(  \tau \) med sunkoma \(  \frac{\pi}{2} \) in \(  \pi \) lahko s prileganjem premice določimo čas \(  T_2 \) za vodo s primešanimi ioni. Za vodovodno vodo je ta čas predolg in tako smo iz grafa \ref dobili
+
+[[file:figures/spinski_odmev_t2.png]]
+
+in vrednosti
+
+\[ T_2 = 5.6 \pm 0.4 ms
+\]
+* Komentar
+
+Pri oceni časa \(  T_2^{*} \) sem moral uporabiti logaritmirane podatke, saj je imela funkcija curve_fit težave najti prave vrednosti parametrov za eksponentno funkcijo. Ocena relaksacijskih časov iz spinskega odmeva ter proste precesije se precej dobro ujemata.
+
+Tako pri umeritvi časovne skale kot pri spinsko-mrežno relaksacijskem času \(  T_1 \) za vodo s paramagnetnimi ioni bi ob ponovitvi vaje, želel opraviti večje število meritev. Že pri danih podatkih je regresirana funkcija za čas \(  T_1 \) izjemno slaba. Medtem ko se pri vodovodni vodi precej bolje ujema.
+
+Kot je pisalo v navodilih je je krivulja \(  T_2^{*} \) samo podobna krivulji \(  T_2 \), kar razloži neujemanje vrednosti. Bi pa rekel, da je nekega smiselnega velikostnega reda.
