@@ -1,4 +1,4 @@
-#+title: 05 Spektrometrija žarkov \(  \gamma \) s scintilacijskim spektrometrom
+#+title: 07 Spektrometrija žarkov \(  \gamma \) s scintilacijskim spektrometrom
 #+startup: entitiespretty nil
 #+startup: nolatexpreview
 #+latex_header: \usepackage{amsmath}
@@ -54,8 +54,7 @@ polne absorpcije.
 - večkanalni analizator
 - radioaktivni izvor \(  ^{22} \mathrm{Na}, \ ^{137} \mathrm{Cs} \text{ in } ^{60} \mathrm{Co} \)
 * Naloge
-1. Ojačene signale iz scintilacijskega detektorja si poglej osciloskopu. K
-   poročilu priloži zaslon ali pa skico signalov.
+1. Ojačene signale iz scintilacijskega detektorja si poglej osciloskopu. K poročilu priloži zaslon ali pa skico signalov.
 2. Z enokanalnim analizatorjem izmeri spekter natrija in nariši graf.
 3. S pomočjo dveh črt \(  \gamma \) iz natrija z energijo \(  E_1 = 0.51 \mathrm{MeV} \)
    in \(  E_2 = 1.277 \mathrm{MeV} \) umeri energijsko skalo scintilacijskega

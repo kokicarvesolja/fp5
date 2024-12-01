@@ -1,0 +1,54 @@
+#+title: 09 Hallov pojav
+#+startup: entitiespretty nil
+
+* Uvod
+** Hallov pojav
+
+Hallov pojav je pojav napetosti v prevodniku v smeri \(  y \), če skozi prevodnik v smeri \(  x \) teče tok ter je prevodnik postavljen v magnetno polje v smeri \(  z \). Ta napetost uravnovesi magnetno silo na gibajoče se elektrone.
+
+Prevodnik z dolžino \(  a \) v smeri \(  x \), s širino \(  b \) v smeri \(  y \) ter z višino \(  c \) v smeri \(  z \) postavimo v magnetno polje. Skozi prevodnik teče tok in predpostavimo, da so nosilci naboja elektroni z nabojem \(  -e_0 \). Gostota toka \(  j = \frac{I}{bc} \) je za elektrone podana tudi z \(  j = - ne_0v \), kjer sta \(  n \) in \(  v \) gostota in hitrost nosilcev naboja.
+
+Elektroni se zaradi magnetne sile \(  F_m = - e_0v B \), ki deluje v smeri \(  -y \) začnejo kopičiti na robu prevodnika. Tako se na nasprotnih smereh robov prevodnika nabereta nasprotna naboja. Dobimo prečno napetost \(  E_y \) v smeri \(  -y \) ter električno silo \(  F_2 = -e_0 (-E_y) = e_0E_y \), ki uravnovesi magnetno silo.
+
+Po vzpostavitvi ravnovesja, kjer velja \(  F_m + F_e = 0 \) dobimo izraz za Hallovo napetost
+
+\begin{equation}
+\label{eq:1}
+U_H = E_y b = - \frac{jBb}{ne_0} = - \frac{I B}{ne_0 c}
+\end{equation}
+
+Kvocient \(  \frac{E_y}{jB} \) imenujemo Hallova konstanta in ga označimoz \(  R_H \). Lahko jo tudi izrazimo kot
+
+\begin{equation}
+\label{eq:2}
+R_H = - \frac{1}{ne_0} = \frac{U_H c}{IB}
+\end{equation}
+
+Iz enačbe \ref{eq:1} sledi, da lahko Hallov pojav uporabimo za merjenje gostote magnetnega polja \(  B \). Skozi Hallovo sondo, ki je bila umerjena v znanem magnetnem polju pošljemo isti električni tok in tako lahko izmerimo \(  B \). Iz enačbe \ref{eq:2} pa sledi, da lahko z merjenjem Hallove konstante določimo predznak in gostoto nosilcev naboja v raznih materialih, kar bomo pri tej vaji tudi počeli.
+** Polprevodniki
+Kristal z \(  N \) atomi ima \(  N \) energijskih nivojev kot posledici prekrivanja atomskih orbital. Kristal je izolator, če ima do neke energije vse energijske pasove polne, ostali pa so prazni in ločeni z dovolj širokim prepovedanim pasom.
+
+V prevodniku je najvišje ležeči neprazni energijski pas le delno zaseden. Elektroni tako prejmejo kinetično energijo, ko se gibljejo v električnem polju. 
+
+Če je energijska reža prepovedanega pasu \(  1 \mathrm{eV} \), lahko pri dovolj visoki temperaturi del elektronov preide v prevodni pas in s tem prevaja električni tok - govorimo o polprevodnikih.
+
+Če polprevodniku primešamo nečistoče v obliki petvalentnih elektronov, imajo primesi en odvečni elektron. Potrebuje zelo nizko energijo, da preskoči v prevodni pas. Temu dodatnemu nivoju rečemo donorski pas in ima energijo \(  E_d \) in leži tik po prevodnim pasom. Večinski nosilci naboja so elektroni in zato mu rečemo polprevodnik tipa n. Če so večinski nosilci naboja vrzeli, primes je trivalentni atom, pa govorimo o polprevodniku tipa p.  
+
+H gostoti elektronov v prevodnem pasu pri polprevodniku n prispevajo tudi termično dvignjeni elektroni iz donorskega pasu, lahko preko merjenja Hallove napetosti izmerimo temperaturno odvisnost gostote nosilcev naboja.
+** Eksperiment
+Izmerimo Hallovo napetost \(  U_H \) pri znani vrednosti polja \(  B \), debeline vzorca germanija \(  c \) in znanem toku \(  I \) skozi vzorec. Iz tega izračunamo tudi Hallovo konstanto \(  R_H \). Na temperaturnem območju \(  [20 ^{\circ}, 80^{\circ}] \) se občutno spremeni razmerje med donorskimi in valenčnimi elektroni v prevodnem pasu.
+
+Če narišemo graf \(  \ln n_p (\frac{1}{k_B T}) \), dobimo pri nizkih temperaturah premico z naklonom \(  - \frac{1}{2} E_d \), potem konstanto in nato naklon premice \(  - \frac{1}{2}E_g \). Pri našem germaniju sta vrednosti \(  E_g = 0.66eV \) in \(  E_d \approx 0.01 eV \).
+* Pripomočki
+- Vzorec germanijevega polprevodnika tipa n s pripravljeno vezavo na kontakte
+- izolirano posodo olja z grelcem, mešalcem in magnetom 
+- napajalnik za grelec in mešalec
+- digitalni voltmeter
+- digitalni ampermeter
+- termometer
+* Naloge
+- izmeri temperaturno odvisnost Hallove napetosti vzorca polprevodnika tipa n na temperaturnem območju \(  [20^{\circ}, 80^{\circ}] \). 
+- nariši graf ohmske upornosti \(  R \) v odvisnosti od temperature \(  T \) 
+- nariši graf Hallove konstante \(  R_H \) v odvisnost od temperature \(  T \)
+- S pomočjo enačbe \ref{eq:2} nariši graf \(  \ln n_p\left(\frac{1}{k_B T}\right) \)
+- določi vrsto nosilcev naboja v germanijevem vzorcu na tem temperaturnem območju
