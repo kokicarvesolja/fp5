@@ -52,3 +52,7 @@ Izmerimo Hallovo napetost \(  U_H \) pri znani vrednosti polja \(  B \), debelin
 - nariši graf Hallove konstante \(  R_H \) v odvisnost od temperature \(  T \)
 - S pomočjo enačbe \ref{eq:2} nariši graf \(  \ln n_p\left(\frac{1}{k_B T}\right) \)
 - določi vrsto nosilcev naboja v germanijevem vzorcu na tem temperaturnem območju
+* Opombe
+** TODO Izmeri napetost na napetostnem izvoru
+** TODO Hallovo napetost za obe orientaciji polprevodnika
+** TODO zabeleži si tudi tok na polprevodniku
