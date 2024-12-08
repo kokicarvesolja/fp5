@@ -33,4 +33,9 @@ Pri vaji se uporablja \( ^{22} \mathrm{Na} \), ki preko \( \beta^+ \) razpada sl
 
 * Opombe
 
-Ne spreminjaj povezave med pretvornikom nivojev in Red Pitayo
+Ne spreminjaj povezave med pretvornikom nivojev in Red Pitayo.
+
+Z diskriminatorjem nastaviš nivo na vrednosti, ki v spektru ustreza dolini pod fotovrhom. Vrtiš gumb DISC LEVEL. Nastavi diskriminator na drugem kanalu.
+
+** TODO časovni potek signalov
+** TODO kalibracija TDC s sunki radioaktivnih razpadov

@@ -1,0 +1,5 @@
+Meritev časovne ločljivosti: casovna_locljivost.txt in pa statistični podatki:
+
+Mean: 4.59133ps in stddev: 20ps
+
+Meritev za radioaktivni razpad je trajala 31.5s.
