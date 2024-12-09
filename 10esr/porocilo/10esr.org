@@ -27,4 +27,23 @@ V našem primeru imamo vzorec *DPPH* (2, 2-diphenil-1-pikrilhidrazil), ki se nah
 
 Dodatno si olajšamo z modulacijo magnetnega polja. Amplituda modulacije je običajno manjša od širine črte, kar pomeni, da dobimo signal modulacijske, katerega amplituda je proporcianalna odvodu absorcpijske črte v odvisnosti od statične komponente polja.
 
-Signal na osciloskopu je šibek in ne izstopa od šuma, zato uporabimo fazni detektor.
+Signal na osciloskopu je šibek in ne izstopa od šuma, zato uporabimo fazni detektor. Ta ima na voljo referenčni signal \( U_{ref} = U_0 \cos (\omega t + \phi) \), kar je v našem primeru napetosti, ki napaja modulacijske tuljave. Signal \( U_{sig} = A(t) \cos (\omega t) \) je usmerjen izhod regenerativnega oscilatorja delno prekrit s šumom in iste frekvence \( \omega \). Med njima je fazna razlika \( \phi \).
+
+Fazni detektor napravi produkt obeh singalov kot analogni množilec
+
+\[ U_{out} = U_{ref} U_{sig} = \frac{1}{2} A(t) \left[ \cos \phi + \cos (2\omega + \phi) \right]
+\]
+S tem smo dosegli, da je nosilna frekvenca signala \( A(t) \) enaka nič. Drugega člea pa se preprosto znebimo z RC filtrom.
+* Potrebščine
+- vzorec 
+- refenerrativni oscilator 
+- osciloskoop
+- modulacijske tuljave in njihov napajalec
+- fazni detektor
+* Naloge
+ - z vzorcem DPPH kot merjencem določi \( g \) faktor prostega elektrona in razmerje \( B/ \nu \). 
+ - izmeri širino absorcpijske črte
+* Opombe
+** TODO izmeri \( r_1, r_2 \text{ in } l \)
+ 
+
