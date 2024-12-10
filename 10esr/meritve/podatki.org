@@ -1,1 +1,10 @@
 #+title: Podatki meritev ESR
+Število navojev 1775,
+
+Premer žice je \(  \phi = 1.71 \mathrm{mm} \).
+
+Premer velike tuljave \(  r_2 = 8.7 \pm 0.1 \)
+
+Premer majhne tuljave \(  r_1 = 4.5 \pm 0.1 \)
+
+Dolžina tuljave je \(  l = 13.2 \pm 0.1 \)
