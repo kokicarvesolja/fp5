@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>06xrays.bcf</file>
+      <file>09hall.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>06xrays.bbl</file>
+      <file>09hall.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,22 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>06xrays</infile>
+      <infile>09hall</infile>
     </cmdline>
     <input>
-      <file>06xrays.bcf</file>
+      <file>09hall.bcf</file>
     </input>
     <output>
-      <file>06xrays.bbl</file>
+      <file>09hall.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>06xrays.bbl</file>
+      <file>09hall.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>06xrays.bcf</file>
-    </requires>
-    <requires type="editable">
-      <file>refs.bib</file>
+      <file>09hall.bcf</file>
     </requires>
   </external>
 </requests>

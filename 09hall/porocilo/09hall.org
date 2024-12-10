@@ -38,7 +38,7 @@ H gostoti elektronov v prevodnem pasu pri polprevodniku n prispevajo tudi termi�
 ** Eksperiment
 Izmerimo Hallovo napetost \(  U_H \) pri znani vrednosti polja \(  B \), debeline vzorca germanija \(  c \) in znanem toku \(  I \) skozi vzorec. Iz tega izračunamo tudi Hallovo konstanto \(  R_H \). Na temperaturnem območju \(  [20 ^{\circ}, 80^{\circ}] \) se občutno spremeni razmerje med donorskimi in valenčnimi elektroni v prevodnem pasu.
 
-Če narišemo graf \(  \ln n_p (\frac{1}{k_B T}) \), dobimo pri nizkih temperaturah premico z naklonom \(  - \frac{1}{2} E_d \), potem konstanto in nato naklon premice \(  - \frac{1}{2}E_g \). Pri našem germaniju sta vrednosti \(  E_g = 0.66eV \) in \(  E_d \approx 0.01 eV \).
+Če narišemo graf \(  \ln n_p (\frac{1}{k_B T}) \), dobimo pri nizkih temperaturah premico z naklonom \(  - \frac{1}{2} E_g \), potem konstanto in nato naklon premice \(  - \frac{1}{2}E_d \). Pri našem germaniju sta vrednosti \(  E_g = 0.66eV \) in \(  E_d \approx 0.01 eV \).
 * Pripomočki
 - Vzorec germanijevega polprevodnika tipa n s pripravljeno vezavo na kontakte
 - izolirano posodo olja z grelcem, mešalcem in magnetom 
@@ -52,6 +52,40 @@ Izmerimo Hallovo napetost \(  U_H \) pri znani vrednosti polja \(  B \), debelin
 - nariši graf Hallove konstante \(  R_H \) v odvisnost od temperature \(  T \)
 - S pomočjo enačbe \ref{eq:2} nariši graf \(  \ln n_p\left(\frac{1}{k_B T}\right) \)
 - določi vrsto nosilcev naboja v germanijevem vzorcu na tem temperaturnem območju
+* Meritve in obdelava
+** Ohmska upornost v odvisnosti od temperature
+Za vsako usmerjenost polprevodnika sem izmeril tok in napetost. Iz Ohmovega zakona \( R = \frac{U}{I} \) sem izračunal upornost in dobil graf \( R(T) \). Graf je v skladu s pričakovanji, saj upornost za polprevodnike pada s temperaturo, ker se zaradi termičnih pojavov vzbudi več elektronov v prevodni pas.
+
+[[file:figures/r_od_T.png]]
+** Graf \( R_H (T) \)
+
+Po enačbi \ref{eq:1} lahko z znanima \( c = 0.95 \mathrm{mm} \) in \( B = 0.173 \mathrm{T} \) izračunamo \( R_H \) pri različnih temperaturah in s tem dobimo željeni graf.
+
+[[file:figures/hallovaKonstanta.png]]
+
+Graf načeloma ustreza regresiji, razen pri predpredzadnjem členu, kjer je meritev podatkov nanesla, da je tok \( U_2 \) bil večji od \( U_1 \) in posledično je bila razlika pozitivna. Tudi v nadaljni obravnavi mi je to povzročalo težave, saj sem imel tako negativno vrednost v logaritmu, česar pa v realnem prostoru ne znamo izračunati.
+** Graf logaritma gostote nosilcev naboja v odvisnosti od \( \frac{1}{k_B T} \)
+
+S pomočjo enačbe \ref{eq:1} lahko zapišemo enačbo
+
+\[ \ln{n} = \ln \left( - \frac{IB}{U_H c e_0} \right)
+\]
+
+To na graf narišemo v odvisnost od \( \frac{1}{k_B T} \) in prilagodimo dve premici na dobljeno krivuljo. Dobil sem vrednosti
+
+\begin{align*}
+  E_g &\approx (0.65 \pm 0.03) \mathrm{eV} \\
+E_D &\approx (0.17 \pm 0.03) \mathrm{eV}
+\end{align*}
+
+V skladu z literaturo omenjeno v razdelku \ref{} se podatki za donorsko režo drastično razlikujejo. Energijska reža pa se ujema z literaturo.
+* Komentar
+
+Vaja je bila načeloma uspešna, je pa potrebno omeniti drastično različen rezultat donorske reže od literature. Prav tako so se močno poznale napake pri meritvi.
+
+Smiselno bi bilo v okolici visokih temperatur meritve znova opraviti, da bi razrešili, kaj se je tu zalomilo.
+
+
 * Opombe
 ** TODO Izmeri napetost na napetostnem izvoru
 ** TODO Hallovo napetost za obe orientaciji polprevodnika

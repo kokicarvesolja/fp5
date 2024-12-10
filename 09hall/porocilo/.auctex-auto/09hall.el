@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (TeX-add-style-hook
- "05nmr"
+ "09hall"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-class-options
                      '(("article" "11pt")))
@@ -18,29 +18,18 @@
     "article"
     "art11")
    (LaTeX-add-labels
-    "sec:orgf006394"
+    "sec:org4245ae2"
+    "sec:orgfbbc1a9"
     "eq:1"
     "eq:2"
-    "eq:3"
-    "eq:4"
-    "eq:6"
-    "eq:5"
-    "sec:org02fc6c0"
-    "sec:org4d45467"
-    "sec:org93542d4"
-    "sec:org135c7a5"
-    "fig:prosta_procesija"
-    "fig:spinski_odmev"
-    "fig:t2_zvezdica"
-    "sec:orgd2f454d"
-    "fig:umeritev"
-    "sec:org45f3957"
-    "fig:t1_ion"
-    "fig:t1_tap"
-    "sec:orgefcfe41"
-    "fig:spinski_t2"
-    "sec:org50e2e3d")
-   (LaTeX-add-bibliographies
-    "refs"))
+    "sec:org1c9d802"
+    "sec:orgb97d12e"
+    "sec:org054ebb6"
+    "sec:org46b2437"
+    "sec:org6fdafc2"
+    "sec:orgb67dd5c"
+    "sec:org1e5d2b3"
+    "sec:org895ea45"
+    "sec:org24f504a"))
  :latex)
 
