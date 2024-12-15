@@ -96,6 +96,7 @@ plt.title(r'Spekter $^{22} \mathrm{Na}$')
 plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/kalibracija.png')
+plt.close()
 
 print('done calibrating')
 
@@ -112,11 +113,38 @@ plt.savefig('../porocilo/figures/ozadje.png')
 
 print('done background noise')
 
-# natrij brez šuma
-
-
-
 # aktivnost označena z R
 
-
 r_bg = data_bg / time_bg
+
+# natrij brez šuma
+
+data_na22 = np.loadtxt('../meritve/Na22_1.txt')
+time_na22 = 54.15
+
+# aktivnost brez ozadja
+
+r_na22 = data_na22 / time_na22 - r_bg
+
+# plotting Gaussian curves
+# first peak at 1493
+
+start_peak1 = 1493 - 500
+end_peak1 = 1493 + 500
+fitna22_peak1 = gauss_indeks(r_na22, start_peak1, end_peak1)
+
+# omejim x_cal za lažji plot
+xcal_Na22_p1 = x_cal[start_peak1, end_peak1]
+
+plt.plot(xcal_Na22_p1)
+
+plt.bar(x_cal, r_na22, width=0.001, color=d1)
+plt.vlines(0.51, 0, 2.0, color=d2, ls = '--')
+plt.vlines(1.277, 0, 2.0, color=d2, ls = '--')
+plt.title(r'Spekter $^{22} \mathrm{Na}$ brez ozadja')
+plt.xlabel(r'$E [\mathrm{MeV}]$')
+plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
+plt.savefig('../porocilo/figures/na22_no_bg.png')
+plt.close()
+
+print('Done plot of natrij without background')
