@@ -61,6 +61,8 @@ def comptonpeak(energy):
 
 d1, d2, d3 = cmr.take_cmap_colors('cmr.cosmic', 3, cmap_range=(.3, .8),
                               return_fmt='hex')
+e1, e2, e3 = cmr.take_cmap_colors('cmr.ember', 3, cmap_range=(.3, 1),
+                              return_fmt='hex')
 
 # kalibracija z natrijem
 
@@ -130,16 +132,27 @@ end_peak1 = 1493 + 150
 # omejim x_cal za lažji plot
 xcal_Na22_p1 = x_cal[start_peak1: end_peak1]
 
-fitpar_na22_p1, fitcov_na22_p2 = curve_fit(gauss, xcal_Na22_p1, r_na22[start_peak1:end_peak1], p0=[1,1,1])
+fitpar_na22_p1, fitcov_na22_p2 = curve_fit(gauss, xcal_Na22_p1,
+                                           r_na22[start_peak1:end_peak1], p0=[1,1,1])
 
-plt.plot(xcal_Na22_p1, gauss(xcal_Na22_p1, *fitpar_na22_p1), color=d3)
+plt.plot(xcal_Na22_p1, gauss(xcal_Na22_p1, *fitpar_na22_p1), color=e2)
 
-plt.bar(xcal_Na22_p1, r_na22[start_peak1:end_peak1], width=0.001, color=d2)
-#plt.vlines(0.51, 0, 2.0, color=d2, ls = '--')
-#plt.vlines(1.277, 0, 2.0, color=d2, ls = '--')
-#plt.title(r'Spekter $^{22} \mathrm{Na}$ brez ozadja')
-#plt.xlabel(r'$E [\mathrm{MeV}]$')
-#plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
+# second peak at 3625
+
+start_peak2 = drugi_max - 250
+end_peak2 = drugi_max + 200
+xcal_Na22_p2 = x_cal[start_peak2:end_peak2]
+
+fitpar_na22_p2, fitcov_na22_p2 = curve_fit(gauss, xcal_Na22_p2,
+                                           r_na22[start_peak2:end_peak2])
+plt.plot(xcal_Na22_p2, gauss(xcal_Na22_p2, *fitpar_na22_p2), color=e3)
+
+plt.bar(x_cal, r_na22, width=0.001, color=d1)
+plt.vlines(0.51, 0, 2.0, color=d2, ls = '--', zorder=1)
+plt.vlines(1.277, 0, 2.0, color=d2, ls = '--', zorder=1)
+plt.title(r'Spekter $^{22} \mathrm{Na}$ brez ozadja')
+plt.xlabel(r'$E [\mathrm{MeV}]$')
+plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/na22_no_bg.png')
 plt.close()
 
