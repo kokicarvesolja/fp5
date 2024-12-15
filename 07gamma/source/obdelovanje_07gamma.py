@@ -16,7 +16,7 @@ data_eno = np.array(pd.read_csv('../meritve/enokanalne.csv',
                                 delimiter=';'))
 
 # calculating average and std devs
-
+'''
 enokanalne = unp.uarray(np.average(data_eno[:, 1:], axis=1),
                         np.std(data_eno[:, 1:], axis=1))
 
@@ -38,6 +38,7 @@ plt.legend()
 plt.title('enokanalni spekter Na')
 plt.savefig('../porocilo/figures/enokanalni_na.png')
 plt.close()
+'''
 
 #--- večkanalne meritve ---
 
@@ -46,14 +47,9 @@ plt.close()
 def linearna(x, k, n):
     return k * x + n
 
-def gauss(x, mi, sigma, C):
-    return (C / sigma * np.sqrt(2 * np.pi)) *\
-        np.exp(- (1 / 2) * (x - mi) ** 2 / (sigma ** 2))
+def gauss(x, C, mi, sigma):
+    return C * np.exp(- (x - mi) ** 2 / (2 * sigma ** 2))
 
-def gauss_indeks(array, start_indeks, end_indeks):
-    indeks = np.arange(len(array))
-    fitpar_g, fitcov_g = curve_fit(gauss, indeks[a:b], array[a:b])
-    return fitpar_g
 
 def backscatter(energy):
     return energy/(1 + 2 * energy/0.51)
@@ -73,12 +69,8 @@ data_cal = np.loadtxt('../meritve/nacal.txt')
 
 # indeksi znanih maksimumov
 maks1, argmax = np.max(data_cal), np.argmax(data_cal)
-#print('arg max: ', argmax)
-#print('maks1: ', maks1)
 
 maks2, argmax2 = np.max(data_cal[1800:]), np.argmax(data_cal[1800:])
-#print('arg max: ', argmax2)
-#print('maks1: ', maks2)
 
 # indeksa vrhov 0.51 in 1.277 MeV sta pri indeksih
 prvi_max = 1493
@@ -89,6 +81,7 @@ fitpar, fitcov = curve_fit(linearna, [prvi_max, drugi_max],\
 # Marko's Chest ni. Ampak se mi ne da ponovno delati stvari.
 x_cal = linearna(np.arange(0, len(data_cal)), *fitpar)
 
+'''
 plt.bar(x_cal, data_cal/calna_cas, width=0.001, color=d1)
 plt.vlines(0.51, 0, 2.0, color=d2, ls = '--')
 plt.vlines(1.277, 0, 2.0, color=d2, ls = '--')
@@ -97,7 +90,7 @@ plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/kalibracija.png')
 plt.close()
-
+'''
 print('done calibrating')
 
 # šum ozadja
@@ -105,11 +98,13 @@ print('done calibrating')
 data_bg = np.loadtxt('../meritve/bg.txt') # real data doesn't start until line 85
 time_bg = 657
 
+'''
 plt.bar(x_cal, data_bg/time_bg, width=0.001, color=d1)
 plt.title('Šum ozadja')
 plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/ozadje.png')
+'''
 
 print('done background noise')
 
@@ -117,33 +112,34 @@ print('done background noise')
 
 r_bg = data_bg / time_bg
 
-# natrij brez šuma
+# ---  natrij brez šuma ---
 
 data_na22 = np.loadtxt('../meritve/Na22_1.txt')
 time_na22 = 54.15
 
-# aktivnost brez ozadja
+# aktivnost natrija brez ozadja
 
 r_na22 = data_na22 / time_na22 - r_bg
 
 # plotting Gaussian curves
 # first peak at 1493
 
-start_peak1 = 1493 - 500
-end_peak1 = 1493 + 500
-fitna22_peak1 = gauss_indeks(r_na22, start_peak1, end_peak1)
+start_peak1 = 1493 - 150
+end_peak1 = 1493 + 150
 
 # omejim x_cal za lažji plot
-xcal_Na22_p1 = x_cal[start_peak1, end_peak1]
+xcal_Na22_p1 = x_cal[start_peak1: end_peak1]
 
-plt.plot(xcal_Na22_p1)
+fitpar_na22_p1, fitcov_na22_p2 = curve_fit(gauss, xcal_Na22_p1, r_na22[start_peak1:end_peak1], p0=[1,1,1])
 
-plt.bar(x_cal, r_na22, width=0.001, color=d1)
-plt.vlines(0.51, 0, 2.0, color=d2, ls = '--')
-plt.vlines(1.277, 0, 2.0, color=d2, ls = '--')
-plt.title(r'Spekter $^{22} \mathrm{Na}$ brez ozadja')
-plt.xlabel(r'$E [\mathrm{MeV}]$')
-plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
+plt.plot(xcal_Na22_p1, gauss(xcal_Na22_p1, *fitpar_na22_p1), color=d3)
+
+plt.bar(xcal_Na22_p1, r_na22[start_peak1:end_peak1], width=0.001, color=d2)
+#plt.vlines(0.51, 0, 2.0, color=d2, ls = '--')
+#plt.vlines(1.277, 0, 2.0, color=d2, ls = '--')
+#plt.title(r'Spekter $^{22} \mathrm{Na}$ brez ozadja')
+#plt.xlabel(r'$E [\mathrm{MeV}]$')
+#plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/na22_no_bg.png')
 plt.close()
 
