@@ -66,10 +66,4 @@ polne absorpcije.
 5. Izračunaj izkoristek kristala za vrh popolne absorpcije (določi z izvorom
    \(  ^{137} \mathrm{Cs} \))
 6. Oceni energijo vrha povratnega sipanja
-* TODO Šum ozadja (3x po 100s )
-* TODO Umeritev energijske skale
-* TODO
 
-
-Pri histogramu lahko std_devs prikažem tako, da dam za povprečno vrednost dam hladno barvo,
-za std_devs pa lower alpha warm colour.
