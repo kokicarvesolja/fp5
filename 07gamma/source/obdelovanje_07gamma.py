@@ -50,12 +50,11 @@ def linearna(x, k, n):
 def gauss(x, C, mi, sigma):
     return C * np.exp(- (x - mi) ** 2 / (2 * sigma ** 2))
 
-
 def backscatter(energy):
     return energy/(1 + 2 * energy/0.51)
 
 def comptonpeak(energy):
-    return energy * 2 * (energy/0.51) * ( 1 + 2 * energy / 0.51 )
+    return energy * 2 * (energy/0.51) / ( 1 + 2 * energy / 0.51 )
 
 # more colors
 
@@ -169,20 +168,27 @@ print("R drugega vrha natrija: ", 2.355 * sigma_Na2 / E0_Na2)
 
 plt.plot(xcal_Na22_p2, gauss(xcal_Na22_p2, *fitpar_na22_p2), color=e3)
 
-# backscatter and Compton peak
+# backscatter and Compton peak, v enačbo vstaviš energijo prvega (ali edinega) vrha
 
 backscatterNa22 = backscatter(0.511)
 comptonPeakNa22 = comptonpeak(0.511)
 
-plt.vlines(backscatterNa22, 0, 2.0, color=d3, label="predvideno povratno sipanje")
-plt.vlines(comptonPeakNa22, 0, 2.0, color=e1, label='predviden Comptonski vrh')
+plt.vlines(backscatterNa22, 0, 2.0, color=d3, ls='dotted',
+           label="predvideno povratno sipanje")
+plt.vlines(comptonPeakNa22, 0, 2.0, color=e1, ls='dotted',
+           label='predviden Comptonski vrh')
+
+# plot of bars and energy
 
 plt.bar(x_cal, r_na22, width=0.001, color=d1)
-plt.vlines(0.51, 0, 2.0, color=d2, ls = '--', zorder=1)
-plt.vlines(1.277, 0, 2.0, color=d2, ls = '--', zorder=1)
+plt.vlines(0.51, 0, 2.0, color=d2, ls = '--', zorder=1,
+           label=r'$E_1 = 0.51 \mathrm{MeV}$')
+plt.vlines(1.277, 0, 2.0, color=d2, ls = '--', zorder=1,
+           label=r'$E_2 = 1.27 \mathrm{MeV}$')
 plt.title(r'Spekter $^{22} \mathrm{Na}$ brez ozadja')
 plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
+plt.legend()
 plt.savefig('../porocilo/figures/na22_no_bg.png')
 plt.close()
 
@@ -211,15 +217,26 @@ xCalCs137 = x_cal[startPeakCs:endPeakCs]
 fitparCs137, fitcovCs137 = curve_fit(gauss, xCalCs137,
                                      r_cs137[startPeakCs:endPeakCs])
 
+sigmaCs =  unp.uarray(fitparCs137[2], np.sqrt(np.diag(fitcovCs137))[2])
+E0Cs = unp.uarray(fitparCs137[1], np.sqrt(np.diag(fitcovCs137))[2])
+
 # širina vrha
 
-print("Širina prvega vrha cezija: ", unp.uarray(fitparCs137[2],
-                                                np.sqrt(np.diag(fitcovCs137))[2]))
+print("Širina prvega vrha cezija: ", sigmaCs)
+print("R cezija: ", 2.355 * sigmaCs / E0Cs)
 
-print("Plot of Cs")
+# backscatter and Compton peak
+
+backscatterCs = backscatter(unp.nominal_values(E0Cs))
+comptonPeakCs = comptonpeak(unp.nominal_values(E0Cs))
+
+plt.vlines(backscatterCs, 0, 3.5, color=d3, ls='dotted',
+           label="predvideno povratno sipanje")
+plt.vlines(comptonPeakCs, 0, 3.5, color=e1, ls='dotted',
+           label='predviden Comptonski vrh')
+
 # plot of Gauss function
 
-'''
 plt.plot(xCalCs137, gauss(xCalCs137, *fitparCs137), color=e3)
 
 # bar plot of cezij
@@ -227,7 +244,7 @@ plt.bar(x_cal, r_cs137, width=0.001, color=d1)
 
 # the maximum of cezij
 plt.vlines(x_cal[argmaxCs], 0, 3.5, color=d2, ls = '--', zorder=1,
-           label=r'$E_1 = (0.66 \pm 0.04) \mathrm{eV}$')
+           label=r'$E_1 = (0.66 \pm 0.04) \mathrm{MeV}$')
 
 # miscs for matplotlib
 plt.legend()
@@ -236,7 +253,7 @@ plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/Cs137_no_bg.png')
 plt.close()
-'''
+
 print("Finished plot of Cs")
 
 # --- kobalt brez šuma ---
