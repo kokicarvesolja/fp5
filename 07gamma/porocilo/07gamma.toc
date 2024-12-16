@@ -1,0 +1,18 @@
+\babel@toc {slovene}{}\relax 
+\contentsline {section}{\numberline {1}Uvod}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Fotoefekt}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Comptonovo sipanje}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Tvorba parov}{3}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Potrebščine}{3}{section.2}%
+\contentsline {section}{\numberline {3}Naloge}{3}{section.3}%
+\contentsline {section}{\numberline {4}Izračuni in obdelava}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Enokanalne meritve}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Umeritev energijske skale}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Šum ozadja}{5}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Spekter \(^{22} \mathrm {Na}\)}{6}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Spekter \(^{60} \mathrm {Co}\)}{8}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Spekter \(^{137} \mathrm {Cs}\)}{8}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Energijska ločljivost}{9}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Ocena izkoristka}{10}{subsection.4.8}%
+\contentsline {section}{\numberline {5}Komentar}{10}{section.5}%
+\contentsline {section}{Literatura}{10}{section.5}%
