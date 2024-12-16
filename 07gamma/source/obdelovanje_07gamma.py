@@ -173,6 +173,9 @@ plt.plot(xcal_Na22_p2, gauss(xcal_Na22_p2, *fitpar_na22_p2), color=e3)
 backscatterNa22 = backscatter(0.511)
 comptonPeakNa22 = comptonpeak(0.511)
 
+print("Backscatter peak natrija: ", backscatterNa22)
+print("Compton peak natrija: ", comptonPeakNa22)
+
 plt.vlines(backscatterNa22, 0, 2.0, color=d3, ls='dotted',
            label="predvideno povratno sipanje")
 plt.vlines(comptonPeakNa22, 0, 2.0, color=e1, ls='dotted',
@@ -229,6 +232,9 @@ print("R cezija: ", 2.355 * sigmaCs / E0Cs)
 
 backscatterCs = backscatter(unp.nominal_values(E0Cs))
 comptonPeakCs = comptonpeak(unp.nominal_values(E0Cs))
+
+print("Backscatter peak Cs: ", backscatterCs)
+print("Compton peak Cs: ", comptonPeakCs)
 
 plt.vlines(backscatterCs, 0, 3.5, color=d3, ls='dotted',
            label="predvideno povratno sipanje")
@@ -288,12 +294,29 @@ xCalCo1 = x_cal[startPeakCo1:endPeakCo1]
 fitparCo1, fitcovCo1 = curve_fit(gauss, xCalCo1,
                                  r_Co60[startPeakCo1:endPeakCo1])
 
+# energijska ločljivost prvega vrha
+sigmaCo1 =  unp.uarray(fitparCo1[2], np.sqrt(np.diag(fitcovCo1))[2])
+E0Co1 = unp.uarray(fitparCo1[1], np.sqrt(np.diag(fitcovCo1))[2])
+
 # širina prvega vrha kobalta
 
-print("Širina prvega vrha kobalt: ", unp.uarray(fitparCo1[2],
-                                                np.sqrt(np.diag(fitcovCo1))[2]))
+print("Širina prvega vrha kobalt: ", sigmaCo1)
+print('R prvega vrha Co: ', 2.355 * sigmaCo1 / E0Co1)
 
 plt.plot(xCalCo1, gauss(xCalCo1, *fitparCo1), color=e2)
+
+# backscatter and compton peak of Co
+backscatterCo = backscatter(E0Co1)
+comptonPeakCo = comptonpeak(E0Co1)
+
+print("Backscatter peak kobalta: ", backscatterCo)
+print("Compton peak kobalta: ", comptonPeakCo)
+
+
+plt.vlines(unp.nominal_values(backscatterCo), 0, 1.5, color=d3, ls='dotted',
+           label="predvideno povratno sipanje")
+plt.vlines(unp.nominal_values(comptonPeakCo), 0, 1.5, color=e1, ls='dotted',
+           label='predviden Comptonski vrh')
 
 # fitting for the second peak of Co
 
@@ -305,10 +328,14 @@ xCalCo2 = x_cal[startPeakCo2:endPeakCo2]
 fitparCo2, fitcovCo2 = curve_fit(gauss, xCalCo2,
                                  r_Co60[startPeakCo2:endPeakCo2])
 
+# energijska ločljivost drugega vrha kobalta
+sigmaCo2 =  unp.uarray(np.abs(fitparCo2[2]), np.sqrt(np.diag(fitcovCo2))[2])
+E0Co2 = unp.uarray(fitparCo2[1], np.sqrt(np.diag(fitcovCo2))[2])
+
 # širina prvega vrha kobalta
 
-print("Širina drugega vrha kobalta: ", unp.uarray(fitparCo2[2],
-                                                np.sqrt(np.diag(fitcovCo2))[2]))
+print("Širina drugega vrha kobalta: ", sigmaCo2)
+print("R drugega vrha Co: ", 2.355 * E0Co2/sigmaCo2)
 
 plt.plot(xCalCo2, gauss(xCalCo2, *fitparCo2), color=e3)
 
