@@ -360,7 +360,7 @@ plt.close()
 
 # --- izkoristek ---
 
-aktivnost = unp.uarray(np.max(dataCs), 2)
+aktivnost = unp.uarray(np.sum(r_cs137), 2)
 A0 = 9250 # podatki iz leta 2013
 tau = 30.07 # in years
 trenutno = 2024 - 2013

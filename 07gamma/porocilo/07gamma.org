@@ -176,5 +176,7 @@ Po 11 letih naj bi bila aktivnost \( A = 6416 \pm 100 s ^{-1} \). Izkoristek, ki
 \]
 * Komentar
 
+Vaja je bila uspešna. Grafi in energijske vrednosti vrhov se ujemajo z literaturo in tudi energijska ločljivost je smiselna. Edina stvar, ki ni smiselna je nizka ocena izkorista, saj je pri pičlih \( 3 \%  \). Smiselno bi bilo meritev ponoviti in ponovno opraviti izračun koeficient. Možno pa je tudi, da je pri izračunih prišlo do napake, vendar je jaz nisem našel.
+
 
 #+print_bibliography:
