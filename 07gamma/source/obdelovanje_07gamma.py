@@ -55,7 +55,7 @@ def backscatter(energy):
     return energy/(1 + 2 * energy/0.51)
 
 def comptonpeak(energy):
-    return energy * 2 * (energy/0.51) ( 1 + 2 * energy / 0.51 )
+    return energy * 2 * (energy/0.51) * ( 1 + 2 * energy / 0.51 )
 
 # more colors
 
@@ -130,7 +130,7 @@ start_peak1 = 1493 - 150
 end_peak1 = 1493 + 150
 
 # omejim x_cal za lažji plot
-xcal_Na22_p1 = x_cal[start_peak1: end_peak1]
+xcal_Na22_p1 = x_cal[start_peak1:end_peak1]
 
 fitpar_na22_p1, fitcov_na22_p1 = curve_fit(gauss, xcal_Na22_p1,
                                            r_na22[start_peak1:end_peak1], p0=[1,1,1])
@@ -139,13 +139,16 @@ sigma_Na1 = unp.uarray(fitpar_na22_p1[2], np.sqrt(np.diag(fitcov_na22_p1))[2])
 # širina vrhov je sigma
 print('Širina prvega vrha za natrij: ', sigma_Na1)
 
-# calculating energijsko ločljivost
+# calculating energijsko ločljivost according to
 
 E0_Na1 = unp.uarray(fitpar_na22_p1[1], np.sqrt(np.diag(fitcov_na22_p1))[1])
 
+# 2.355 * FWHM je enako sigma Gaussove funkcije
 print("R natrija: ", 2.355 * sigma_Na1/E0_Na1)
 
-#plt.plot(xcal_Na22_p1, gauss(xcal_Na22_p1, *fitpar_na22_p1), color=e2)
+# računanje preko np.sum(r_na22) ali pa preko np.sqrt(np.sum(r_na22)) ne dela
+
+plt.plot(xcal_Na22_p1, gauss(xcal_Na22_p1, *fitpar_na22_p1), color=e2)
 
 # second peak at 3625
 
@@ -156,10 +159,23 @@ xcal_Na22_p2 = x_cal[start_peak2:end_peak2]
 fitpar_na22_p2, fitcov_na22_p2 = curve_fit(gauss, xcal_Na22_p2,
                                            r_na22[start_peak2:end_peak2])
 
-print('Širina drugega vrhu za natrij: ', unp.uarray(fitpar_na22_p2[2],
-                                                    np.sqrt(np.diag(fitcov_na22_p2))[2]))
-'''
+sigma_Na2 = unp.uarray(fitpar_na22_p2[2], np.sqrt(np.diag(fitcov_na22_p2))[2])
+print('Širina drugega vrhu za natrij: ', sigma_Na2)
+
+# Energijska ločljivost drugega vrha natrija
+E0_Na2 = unp.uarray(fitpar_na22_p2[1], np.sqrt(np.diag(fitcov_na22_p2))[1])
+
+print("R drugega vrha natrija: ", 2.355 * sigma_Na2 / E0_Na2)
+
 plt.plot(xcal_Na22_p2, gauss(xcal_Na22_p2, *fitpar_na22_p2), color=e3)
+
+# backscatter and Compton peak
+
+backscatterNa22 = backscatter(0.511)
+comptonPeakNa22 = comptonpeak(0.511)
+
+plt.vlines(backscatterNa22, 0, 2.0, color=d3, label="predvideno povratno sipanje")
+plt.vlines(comptonPeakNa22, 0, 2.0, color=e1, label='predviden Comptonski vrh')
 
 plt.bar(x_cal, r_na22, width=0.001, color=d1)
 plt.vlines(0.51, 0, 2.0, color=d2, ls = '--', zorder=1)
@@ -169,7 +185,7 @@ plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/na22_no_bg.png')
 plt.close()
-'''
+
 print('Done plot of natrij without background')
 
 # --- cezij brez šuma ---
