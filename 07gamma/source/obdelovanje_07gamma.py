@@ -179,11 +179,29 @@ r_cs137 = dataCs / timeCs - r_bg
 argmaxCs = np.argmax(r_cs137[150:]) + 150
 print(x_cal[argmaxCs])
 
+startPeakCs = argmaxCs - 200
+endPeakCs = argmaxCs + 200
+
+# adjusting x axis
+xCalCs137 = x_cal[startPeakCs:endPeakCs]
+
+fitparCs137, fitcovCs137 = curve_fit(gauss, xCalCs137,
+                                     r_cs137[startPeakCs:endPeakCs])
+
+# širina vrha
+
+print("Širina prvega vrha cezija: ", unp.uarray(fitparCs137[2],
+                                                np.sqrt(np.diag(fitcovCs137))[2]))
+
+# plot of Gauss function
+
+plt.plot(xCalCs137, gauss(xCalCs137, *fitparCs137), color=e3)
+
 # bar plot of cezij
 plt.bar(x_cal, r_cs137, width=0.001, color=d1)
 print("Plot of Cs")
 # the maximum of cezij
-#plt.vlines(x_cal[argmaxCs], 0, 2.0, color=d2, ls = '--', zorder=1)
+plt.vlines(x_cal[argmaxCs], 0, 2.0, color=d2, ls = '--', zorder=1)
 
 # miscs for matplotlib
 plt.title(r'Spekter $^{137} \mathrm{Cs}$ brez ozadja')
