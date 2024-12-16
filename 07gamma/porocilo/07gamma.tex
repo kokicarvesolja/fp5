@@ -1,38 +1,27 @@
 % Created 2024-12-17 Tue 00:14
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{graphicx}
-\usepackage{longtable}
-\usepackage{wrapfig}
-\usepackage{rotating}
-\usepackage[normalem]{ulem}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{capt-of}
-\usepackage{hyperref}
-\usepackage{amsmath}
-\renewcommand{\theta}{\vartheta} \renewcommand{\phi}{\varphi}
-\author{Kristofer Robin}
-\date{\today}
-\title{07 Spektrometrija žarkov \(\gamma\) s scintilacijskim spektrometrom}
-\hypersetup{
- pdfauthor={Kristofer Robin},
- pdftitle={07 Spektrometrija žarkov \(\gamma\) s scintilacijskim spektrometrom},
- pdfkeywords={},
- pdfsubject={},
- pdfcreator={Emacs 29.4 (Org mode 9.7.11)}, 
- pdflang={English}}
-\usepackage[style=numeric,]{biblatex}
+\input{../../../preamble.tex}
+% setting up title page
+\title{
+  \includegraphics[width=0.4\textwidth]{fmf_logo}\\
+  {\small Oddelek za fiziko} \\
+  {Osnove mikrovalovne tehnike}\\
+  {\small Poročilo pri FP5}\\
+
+}
+\date{}
+\author{ Kristofer Č. Povšič, 28211104 \\[5 cm]
+ \small  Asistent: Tilen Knaflič \\
+}
+
 \addbibresource{refs.bib}
 \begin{document}
 
 \maketitle
 \tableofcontents
 
-\section{Uvod}
-\label{sec:orge7c61fa}
+\section{Uvod}\label{sec:orge7c61fa}
 
 Energije žarkov ne merimo neposredno, ampak le posredno tako, da izmerimo energijo elektronov, ki jo le ti prejmejo od žarkov \(\gamma\) pri fotoefektu, Comptonovem sipanju ali pa energijo parov pozitron-elektron iz procesa tvorbe parov. Scintilator
 je material, ki je scintilabilen. To pomeni, da zažari, ko je vzburjen zaradi
@@ -43,8 +32,7 @@ Pri potovanju hitrih nabitih delcev skozi kristal ostane za njimi razdejanje v o
 Število scintilacijskih fotonov določimo s pomočjo fotopomnoževalke. Višina signala iz fotopomnoževalke, ki signal ojača, je sorazmerna številu fotonov in torej tudi energiji, ki jo hitri nabiti delec izgubi v scintilatorju.
 
 Sunek iz fotopomnoževalke pošljemo skozi predojačevalnik, ojačevalni ter mu izmerimo napetostno višino z amplitudnim analizatorjem.
-\subsection{Fotoefekt}
-\label{sec:orgf12cecc}
+\subsection{Fotoefekt}\label{sec:orgf12cecc}
 
 Pri fotoefektu žarek \(\gamma\) izbije elektron iz enega od vezanih stanj. Najverjetneje je to elektron iz lupine K. Atom, ki je po emisiji elektrona K v vzbujenem stanju, se vrne v osnovno stanje tako, da zapolni vrzel z elektronom iz višjih, manj vezanih stanj.
 Pri tem izseva karakteristični žarek X. Tudi ta v scintilatorju lahko doživi
@@ -53,8 +41,7 @@ energija je približno enaka prvotnemu fotonu \(\gamma\). Nekateri
 karakteristični žarki pa uidejo iz
 scintilatorja in s tem dobimo vrh pobega fotona pri \(E = E_{\gamma} - E_K\),
 kjer je \(E_K\) vezavna energija elektrona.
-\subsection{Comptonovo sipanje}
-\label{sec:org322b661}
+\subsection{Comptonovo sipanje}\label{sec:org322b661}
 
 Comptonovo sipanje je neelastično sipanje fotona na skoraj prostem elektronu.
 Pri sipanju se seveda ohranjata energija in gibalna količina. Spekter
@@ -66,8 +53,7 @@ Pri \(E_{\gamma min}\) se pojavi majhen vrh (vrh povratnega sipanja, ang.
 \emph{back-scattering peak}). Ta pripada fotonom, ki so se sipali nazaj v steklu,
 ki prekriva oscilator ali pa v steklu fotopomnoževalke in se nato absorbirali
 v scintilatorju.
-\subsection{Tvorba parov}
-\label{sec:org4af1b3a}
+\subsection{Tvorba parov}\label{sec:org4af1b3a}
 
 Kadar ima žarek \(\gamma\) dovolj energije (\(E_{\gamma} \ge 1.02 \mathrm{MeV}\)),
 se lahko v bližini jedra spremni v par pozitron-elektron s skupno kinetično
@@ -78,8 +64,7 @@ z enim od elektronov, ki jih sreča na svoji poti, anihilira. Nastaneta dva
 kolinearna žarka \(\gamma\). Možno je, da pobegneta oba, samo en ali pa oba
 ostaneta v scintilatorju. Tako dobimo vrh dvojnega pobega, vrh pobega in vrh
 polne absorpcije.
-\section{Potrebščine}
-\label{sec:orgaba5d65}
+\section{Potrebščine}\label{sec:orgaba5d65}
 \begin{itemize}
 \item scintilacijski detektor
 \item izvor visoke napetosti za napajanje fotopomnoževalke
@@ -87,8 +72,8 @@ polne absorpcije.
 \item večkanalni analizator
 \item radioaktivni izvor \(^{22} \mathrm{Na}, \ ^{137} \mathrm{Cs} \text{ in } ^{60} \mathrm{Co}\)
 \end{itemize}
-\section{Naloge}
-\label{sec:org6346c70}
+
+\section{Naloge}\label{sec:org6346c70}
 \begin{enumerate}
 \item Ojačene signale iz scintilacijskega detektorja si poglej osciloskopu. K poročilu priloži zaslon ali pa skico signalov.
 \item Z enokanalnim analizatorjem izmeri spekter natrija in nariši graf.
@@ -103,43 +88,54 @@ različnih energijah - uporabi meritve spektrov natrija, cezija in kobalta.
 \(^{137} \mathrm{Cs}\))
 \item Oceni energijo vrha povratnega sipanja
 \end{enumerate}
-\section{Izračuni in obdelava}
-\label{sec:org8f92a5e}
+\section{Izračuni in obdelava}\label{sec:org8f92a5e}
 Za obdelavo podatkov sem uporabil Python in njegove knjižnice numpy, matplotlib, cmasher, scipy, uncertainties ter pandas. Poleg tega sem uporabljal tudi AMPTEK Display and Acquisition Software.
-\subsection{Enokanalne meritve}
-\label{sec:orgb677120}
 
-Podatke sem za vsak interval energije zbiral desetkrat po \(10 \mathrm{s}\), kar sem potem izpovprečil in dobil tudi standardno deviacijo, kakor lahko vidimo na \ref{fig:}.
+\subsection{Enokanalne meritve}\label{sec:orgb677120}
+
+Podatke sem za vsak interval energije zbiral desetkrat po \(10 \mathrm{s}\), kar sem potem izpovprečil in dobil tudi standardno deviacijo, kakor lahko vidimo na \ref{fig:eno}.
 
 Globalen interval energije je bil 8 enot na merilni napravi, okno (ang. window) na napravi pa je bilo 0.4, zato da sem pomeril 20 meritev.
 
+\begin{slika}[H]
 \begin{center}
 \includegraphics[width=.9\linewidth]{figures/enokanalni_na.png}
+\caption{\small Graf prikazuje enokanalne meritve $^{22} \mathrm{Na}$. Meritev je bila opravljena desetkrat po $10 \mathrm{s}$, kar sem potem izpovprečil ter izračunal tudi standardno deviacijo. } \label{fig:eno}
 \end{center}
-\subsection{Umeritev energijske skale}
-\label{sec:orgb47b656}
+\end{slika}
+
+\subsection{Umeritev energijske skale}\label{sec:orgb47b656}
 
 Energijsko skalo sem umeril s pomočjo znanih vrhov energij natrija, ki sta bila napisana v navodilih.
 
+\begin{slika}[H]
 \begin{center}
 \includegraphics[width=.9\linewidth]{figures/kalibracija.png}
+\caption{\small Graf kalibracije meritev. Kalibrirali smo s pomočjo znanih vrhov natrija. }
 \end{center}
-\subsection{Šum ozadja}
-\label{sec:org39e42a5}
+\end{slika}
 
-Podatke za šum ozadja sem zbiral 11 minut in tako dobil graf \ref{fig}
+\subsection{Šum ozadja}\label{sec:org39e42a5}
 
+Podatke za šum ozadja sem zbiral 11 minut in tako dobil graf \ref{fig:sum}
+
+\begin{slika}[H]
 \begin{center}
 \includegraphics[width=.9\linewidth]{figures/ozadje.png}
+\caption{\small Graf prikazuje šum ozadja, ki se ga je merilo 11 minut. }\label{fig:sum}
 \end{center}
-\subsection{Spekter \(^{22} \mathrm{Na}\)}
-\label{sec:org0586687}
+\end{slika}
 
-Z umerjeno energijsko skalo sem sedaj narisal skalibriran spekter natrija z regresiranimi krivuljami za obe energijska vrhova.
+\subsection{Spekter \(^{22} \mathrm{Na}\)}\label{sec:org0586687}
 
+Z umerjeno energijsko skalo sem sedaj narisal skalibriran spekter natrija z regresiranimi krivuljami za oba energijska vrhova.
+
+\begin{slika}[H]
 \begin{center}
 \includegraphics[width=.9\linewidth]{figures/na22_no_bg.png}
+\caption{\small Graf spektra $^{22} \mathrm{Na}$ z regresiranimi Gaussovimi funkcijami na energijskih vrhovih}
 \end{center}
+\end{slika}
 
 S pomočjo \ref{eq:1} sem izračunal pri vseh spektrih, kje naj bi bila energija Comptonovega roba
 
@@ -163,8 +159,8 @@ Za natrij dobim vrednosti:
 E_{Compt} &= (0.34 \pm 0.01) \mathrm{MeV} \\
 E_{min} &= (0.17 \pm 0.01) \mathrm{MeV}
 \end{align*}
-\subsection{Spekter \(^{60} \mathrm{Co}\)}
-\label{sec:org51e535e}
+
+\subsection{Spekter \(^{60} \mathrm{Co}\)}\label{sec:org51e535e}
 
 S prej umerjeno energijsko skalo sem sedaj lahko narisal in tudi dobil vrednosti energijskih vrhov kobalta. Energiji, ki sem jih dobil, sta
 
@@ -175,17 +171,19 @@ E_2 &= (1.33 \pm 0.01) \mathrm{MeV}
 
 Po viru \autocite{noauthor_cobalt-60_nodate} naj bi bila energijska vrhova pri vrednostih \(E_{1vir} = 1.173 \mathrm{MeV}\) in \(E_{2vir} = 1.332 \mathrm{MeV}\), kar se znotraj napake ujema z danima rezultatoma.
 
+\begin{slika}[H]
 \begin{center}
 \includegraphics[width=.9\linewidth]{figures/Co60_no_bg.png}
+\caption{\small Graf spektra $^{60} \mathrm{Co}$ z regresiranimi Gaussovimi funkcijami na energijskih vrhovih. }
 \end{center}
+\end{slika}
 
 Za kobalt sem dobil sledeče vrednosti energije Comptonovega roba in povratnega sipanja
 \begin{align*}
   E_{Compt} &= (0.95 \pm 0.01) \mathrm{MeV} \\
 E_{min} &= (0.20 \pm 0.01) \mathrm{MeV}
 \end{align*}
-\subsection{Spekter \(^{137} \mathrm{Cs}\)}
-\label{sec:org8835c43}
+\subsection{Spekter \(^{137} \mathrm{Cs}\)}\label{sec:org8835c43}
 
 Podobno kot za kobalt, sem tudi za cezij dobil energijo
 
@@ -194,9 +192,12 @@ Podobno kot za kobalt, sem tudi za cezij dobil energijo
 
 Prav tako je v okviru napake v redu z virom \autocite{noauthor_rich_2020}, katere vrednost je \(E_{1vir} = 0.66 \mathrm{MeV}\)
 
+\begin{slika}[H]
 \begin{center}
 \includegraphics[width=.9\linewidth]{figures/Cs137_no_bg.png}
+\caption{\small Graf spektra $^{137} \mathrm{Cs}$ z regresirano Gaussovo krivuljo na energijskem vrhu. }
 \end{center}
+\end{slika}
 
 Za cezij sem dobil sledeče vrednosti
 
@@ -204,8 +205,7 @@ Za cezij sem dobil sledeče vrednosti
   E_{Compt} &= (0.47 \pm 0.01) \mathrm{MeV} \\
 E_{min} &= (0.18 \pm 0.01) \mathrm{MeV}
 \end{align*}
-\subsection{Energijska ločljivost}
-\label{sec:orgfb9b95f}
+\subsection{Energijska ločljivost}\label{sec:orgfb9b95f}
 
 Energijska ločljivost se spreminja z energijo in sicer narašča z energijo zaradi lastnosti napake pri Poissonovih procesih. Dobil sem
 
@@ -216,8 +216,7 @@ R_{Co1} &= 0.083 \pm 0.001 \\
 R_{Co2} &= 0.064 \pm 0.001 \\
 R_{Cs} &= 0.078 \pm 0.001
 \end{align*}
-\subsection{Ocena izkoristka}
-\label{sec:orgb8fc457}
+\subsection{Ocena izkoristka}\label{sec:orgb8fc457}
 
 Za vzorec cezija imamo podan začetno aktivnost \(A_0 = 9250 s^{-1}\) leta 2013. Aktivnost pada s časom kot
 
@@ -228,11 +227,9 @@ Po 11 letih naj bi bila aktivnost \(A = 6416 \pm 100 s ^{-1}\). Izkoristek, ki j
 
 \[ \eta = (0.034 \pm 0.001)
 \]
-\section{Komentar}
-\label{sec:orgacaf9d4}
+\section{Komentar}\label{sec:orgacaf9d4}
 
 Vaja je bila uspešna. Grafi in energijske vrednosti vrhov se ujemajo z literaturo in tudi energijska ločljivost je smiselna. Edina stvar, ki ni smiselna je nizka ocena izkorista, saj je pri pičlih \(3 \%\). Smiselno bi bilo meritev ponoviti in ponovno opraviti izračun koeficient. Možno pa je tudi, da je pri izračunih prišlo do napake, vendar je jaz nisem našel.
-
 
 \printbibliography
 \end{document}
