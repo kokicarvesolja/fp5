@@ -196,6 +196,7 @@ print("Širina prvega vrha cezija: ", unp.uarray(fitparCs137[2],
 print("Plot of Cs")
 # plot of Gauss function
 
+'''
 plt.plot(xCalCs137, gauss(xCalCs137, *fitparCs137), color=e3)
 
 # bar plot of cezij
@@ -212,7 +213,7 @@ plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/Cs137_no_bg.png')
 plt.close()
-
+'''
 print("Finished plot of Cs")
 
 # --- kobalt brez šuma ---
@@ -228,7 +229,6 @@ r_Co60 = dataCo / timeCo - r_bg
 # getting first index of Co
 
 argmaxCo1 = np.argmax(r_Co60)
-print("Printing argmaxCo1: ", argmaxCo1)
 print("Vrh 1 od kobalta: ", x_cal[argmaxCo1])
 
 # getting second index of Co
@@ -236,8 +236,28 @@ print("Vrh 1 od kobalta: ", x_cal[argmaxCo1])
 argmaxCo2 = np.argmax(r_Co60[(argmaxCo1 + 100):]) + (argmaxCo1 + 100)
 print("Vrh 2 od Co: ", x_cal[argmaxCo2])
 
+# fitting for the first peak of Co
+
+startPeakCo1 = argmaxCo1 - 300
+endPeakCo1 = argmaxCo1 + 300
+
+# adjusting x axis
+
+xCalCo1 = x_cal[startPeakCo1:endPeakCo1]
+
+fitparCo1, fitcovCo1 = curve_fit(gauss, xCalCo1,
+                                 r_Co60[startPeakCo1:endPeakCo1])
+
+# širina prvega vrha kobalta
+
+print("Širina prvega vrha cezija: ", unp.uarray(fitparCo1[2],
+                                                np.sqrt(np.diag(fitcovCo1))[2]))
+
+plt.plot(xCalCo1, gauss(xCalCo1, *fitparCo1), color=e3)
+
 plt.bar(x_cal, r_Co60, width=0.001, color=d1)
 
+'''
 # first peak
 plt.vlines(x_cal[argmaxCo1], 0, 1.5, color=d2, ls='--', zorder=1,
            label=r'$E_1 = (1.16 \pm 0.1) \mathrm{eV}$')
@@ -246,6 +266,7 @@ plt.vlines(x_cal[argmaxCo1], 0, 1.5, color=d2, ls='--', zorder=1,
 
 plt.vlines(x_cal[argmaxCo2], 0, 1.5, color=d2, ls='--', zorder=1,
            label=r'$E_2 = (1.33 \pm 0.1) \mathrm{eV}$')
+'''
 # miscs for matplotlib
 plt.legend()
 plt.title(r'Spekter $^{60} \mathrm{Co}$ brez ozadja')
