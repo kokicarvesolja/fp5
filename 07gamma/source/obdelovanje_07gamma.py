@@ -230,15 +230,15 @@ print("R cezija: ", 2.355 * sigmaCs / E0Cs)
 
 # backscatter and Compton peak
 
-backscatterCs = backscatter(unp.nominal_values(E0Cs))
-comptonPeakCs = comptonpeak(unp.nominal_values(E0Cs))
+backscatterCs = backscatter(E0Cs)
+comptonPeakCs = comptonpeak(E0Cs)
 
 print("Backscatter peak Cs: ", backscatterCs)
 print("Compton peak Cs: ", comptonPeakCs)
 
-plt.vlines(backscatterCs, 0, 3.5, color=d3, ls='dotted',
+plt.vlines(unp.nominal_values(backscatterCs), 0, 3.5, color=d3, ls='dotted',
            label="predvideno povratno sipanje")
-plt.vlines(comptonPeakCs, 0, 3.5, color=e1, ls='dotted',
+plt.vlines(unp.nominal_values(comptonPeakCs), 0, 3.5, color=e1, ls='dotted',
            label='predviden Comptonski vrh')
 
 # plot of Gauss function
@@ -335,7 +335,7 @@ E0Co2 = unp.uarray(fitparCo2[1], np.sqrt(np.diag(fitcovCo2))[2])
 # širina prvega vrha kobalta
 
 print("Širina drugega vrha kobalta: ", sigmaCo2)
-print("R drugega vrha Co: ", 2.355 * E0Co2/sigmaCo2)
+print("R drugega vrha Co: ", 2.355 * sigmaCo2 / E0Co2)
 
 plt.plot(xCalCo2, gauss(xCalCo2, *fitparCo2), color=e3)
 
@@ -357,3 +357,16 @@ plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/Co60_no_bg.png')
 plt.close()
+
+# --- izkoristek ---
+
+aktivnost = unp.uarray(np.max(dataCs), 2)
+A0 = 9250 # podatki iz leta 2013
+tau = 30.07 # in years
+trenutno = 2024 - 2013
+
+izracunanaAktivnost = A0 * np.exp( - trenutno / tau)
+print(izracunanaAktivnost)
+
+effective = aktivnost / izracunanaAktivnost
+print('\eta = ', effective)
