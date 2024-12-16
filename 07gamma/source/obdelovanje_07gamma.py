@@ -177,7 +177,7 @@ r_cs137 = dataCs / timeCs - r_bg
 # getting the index of Cs
 
 argmaxCs = np.argmax(r_cs137[150:]) + 150
-print(x_cal[argmaxCs])
+print("Vrh cezija: ", x_cal[argmaxCs])
 
 startPeakCs = argmaxCs - 200
 endPeakCs = argmaxCs + 200
@@ -193,19 +193,63 @@ fitparCs137, fitcovCs137 = curve_fit(gauss, xCalCs137,
 print("Širina prvega vrha cezija: ", unp.uarray(fitparCs137[2],
                                                 np.sqrt(np.diag(fitcovCs137))[2]))
 
+print("Plot of Cs")
 # plot of Gauss function
 
 plt.plot(xCalCs137, gauss(xCalCs137, *fitparCs137), color=e3)
 
 # bar plot of cezij
 plt.bar(x_cal, r_cs137, width=0.001, color=d1)
-print("Plot of Cs")
+
 # the maximum of cezij
-plt.vlines(x_cal[argmaxCs], 0, 2.0, color=d2, ls = '--', zorder=1)
+plt.vlines(x_cal[argmaxCs], 0, 3.5, color=d2, ls = '--', zorder=1,
+           label=r'$E_1 = (0.66 \pm 0.04) \mathrm{eV}$')
 
 # miscs for matplotlib
+plt.legend()
 plt.title(r'Spekter $^{137} \mathrm{Cs}$ brez ozadja')
 plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/Cs137_no_bg.png')
+plt.close()
+
+print("Finished plot of Cs")
+
+# --- kobalt brez šuma ---
+
+print("Plot of Co")
+dataCo = np.loadtxt('../meritve/Co60.txt')
+timeCo = 54.8
+
+# aktivnost kobalta
+
+r_Co60 = dataCo / timeCo - r_bg
+
+# getting first index of Co
+
+argmaxCo1 = np.argmax(r_Co60)
+print("Printing argmaxCo1: ", argmaxCo1)
+print("Vrh 1 od kobalta: ", x_cal[argmaxCo1])
+
+# getting second index of Co
+
+argmaxCo2 = np.argmax(r_Co60[(argmaxCo1 + 100):]) + (argmaxCo1 + 100)
+print("Vrh 2 od Co: ", x_cal[argmaxCo2])
+
+plt.bar(x_cal, r_Co60, width=0.001, color=d1)
+
+# first peak
+plt.vlines(x_cal[argmaxCo1], 0, 1.5, color=d2, ls='--', zorder=1,
+           label=r'$E_1 = (1.16 \pm 0.1) \mathrm{eV}$')
+
+# second peak
+
+plt.vlines(x_cal[argmaxCo2], 0, 1.5, color=d2, ls='--', zorder=1,
+           label=r'$E_2 = (1.33 \pm 0.1) \mathrm{eV}$')
+# miscs for matplotlib
+plt.legend()
+plt.title(r'Spekter $^{60} \mathrm{Co}$ brez ozadja')
+plt.xlabel(r'$E [\mathrm{MeV}]$')
+plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
+plt.savefig('../porocilo/figures/Co60_no_bg.png')
 plt.close()
