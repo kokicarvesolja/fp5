@@ -134,9 +134,16 @@ xcal_Na22_p1 = x_cal[start_peak1: end_peak1]
 
 fitpar_na22_p1, fitcov_na22_p1 = curve_fit(gauss, xcal_Na22_p1,
                                            r_na22[start_peak1:end_peak1], p0=[1,1,1])
+
+sigma_Na1 = unp.uarray(fitpar_na22_p1[2], np.sqrt(np.diag(fitcov_na22_p1))[2])
 # širina vrhov je sigma
-print('Širina prvega vrha za natrij: ', unp.uarray(fitpar_na22_p1[2],
-                                                   np.sqrt(np.diag(fitcov_na22_p1))[2]))
+print('Širina prvega vrha za natrij: ', sigma_Na1)
+
+# calculating energijsko ločljivost
+
+E0_Na1 = unp.uarray(fitpar_na22_p1[1], np.sqrt(np.diag(fitcov_na22_p1))[1])
+
+print("R natrija: ", 2.355 * sigma_Na1/E0_Na1)
 
 #plt.plot(xcal_Na22_p1, gauss(xcal_Na22_p1, *fitpar_na22_p1), color=e2)
 
@@ -250,14 +257,30 @@ fitparCo1, fitcovCo1 = curve_fit(gauss, xCalCo1,
 
 # širina prvega vrha kobalta
 
-print("Širina prvega vrha cezija: ", unp.uarray(fitparCo1[2],
+print("Širina prvega vrha kobalt: ", unp.uarray(fitparCo1[2],
                                                 np.sqrt(np.diag(fitcovCo1))[2]))
 
-plt.plot(xCalCo1, gauss(xCalCo1, *fitparCo1), color=e3)
+plt.plot(xCalCo1, gauss(xCalCo1, *fitparCo1), color=e2)
+
+# fitting for the second peak of Co
+
+startPeakCo2 = argmaxCo2 - 200
+endPeakCo2 = argmaxCo2 + 200
+
+xCalCo2 = x_cal[startPeakCo2:endPeakCo2]
+
+fitparCo2, fitcovCo2 = curve_fit(gauss, xCalCo2,
+                                 r_Co60[startPeakCo2:endPeakCo2])
+
+# širina prvega vrha kobalta
+
+print("Širina drugega vrha kobalta: ", unp.uarray(fitparCo2[2],
+                                                np.sqrt(np.diag(fitcovCo2))[2]))
+
+plt.plot(xCalCo2, gauss(xCalCo2, *fitparCo2), color=e3)
 
 plt.bar(x_cal, r_Co60, width=0.001, color=d1)
 
-'''
 # first peak
 plt.vlines(x_cal[argmaxCo1], 0, 1.5, color=d2, ls='--', zorder=1,
            label=r'$E_1 = (1.16 \pm 0.1) \mathrm{eV}$')
@@ -266,7 +289,7 @@ plt.vlines(x_cal[argmaxCo1], 0, 1.5, color=d2, ls='--', zorder=1,
 
 plt.vlines(x_cal[argmaxCo2], 0, 1.5, color=d2, ls='--', zorder=1,
            label=r'$E_2 = (1.33 \pm 0.1) \mathrm{eV}$')
-'''
+
 # miscs for matplotlib
 plt.legend()
 plt.title(r'Spekter $^{60} \mathrm{Co}$ brez ozadja')
