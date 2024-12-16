@@ -37,7 +37,7 @@ S tem smo dosegli, da je nosilna frekvenca signala \( A(t) \) enaka nič. Drugeg
 * Potrebščine
 - vzorec 
 - refenerrativni oscilator 
-- osciloskoop
+- osciloskop
 - modulacijske tuljave in njihov napajalec
 - fazni detektor
 * Naloge

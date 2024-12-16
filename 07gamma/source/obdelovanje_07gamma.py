@@ -16,7 +16,7 @@ data_eno = np.array(pd.read_csv('../meritve/enokanalne.csv',
                                 delimiter=';'))
 
 # calculating average and std devs
-
+'''
 enokanalne = unp.uarray(np.average(data_eno[:, 1:], axis=1),
                         np.std(data_eno[:, 1:], axis=1))
 
@@ -38,6 +38,7 @@ plt.legend()
 plt.title('enokanalni spekter Na')
 plt.savefig('../porocilo/figures/enokanalni_na.png')
 plt.close()
+'''
 
 #--- večkanalne meritve ---
 
@@ -46,14 +47,9 @@ plt.close()
 def linearna(x, k, n):
     return k * x + n
 
-def gauss(x, mi, sigma, C):
-    return (C / sigma * np.sqrt(2 * np.pi)) *\
-        np.exp(- (1 / 2) * (x - mi) ** 2 / (sigma ** 2))
+def gauss(x, C, mi, sigma):
+    return C * np.exp(- (x - mi) ** 2 / (2 * sigma ** 2))
 
-def gauss_indeks(array, start_indeks, end_indeks):
-    indeks = np.arange(len(array))
-    fitpar_g, fitcov_g = curve_fit(gauss, indeks[a:b], array[a:b])
-    return fitpar_g
 
 def backscatter(energy):
     return energy/(1 + 2 * energy/0.51)
@@ -65,6 +61,8 @@ def comptonpeak(energy):
 
 d1, d2, d3 = cmr.take_cmap_colors('cmr.cosmic', 3, cmap_range=(.3, .8),
                               return_fmt='hex')
+e1, e2, e3 = cmr.take_cmap_colors('cmr.ember', 3, cmap_range=(.3, 1),
+                              return_fmt='hex')
 
 # kalibracija z natrijem
 
@@ -73,12 +71,8 @@ data_cal = np.loadtxt('../meritve/nacal.txt')
 
 # indeksi znanih maksimumov
 maks1, argmax = np.max(data_cal), np.argmax(data_cal)
-#print('arg max: ', argmax)
-#print('maks1: ', maks1)
 
 maks2, argmax2 = np.max(data_cal[1800:]), np.argmax(data_cal[1800:])
-#print('arg max: ', argmax2)
-#print('maks1: ', maks2)
 
 # indeksa vrhov 0.51 in 1.277 MeV sta pri indeksih
 prvi_max = 1493
@@ -89,6 +83,7 @@ fitpar, fitcov = curve_fit(linearna, [prvi_max, drugi_max],\
 # Marko's Chest ni. Ampak se mi ne da ponovno delati stvari.
 x_cal = linearna(np.arange(0, len(data_cal)), *fitpar)
 
+'''
 plt.bar(x_cal, data_cal/calna_cas, width=0.001, color=d1)
 plt.vlines(0.51, 0, 2.0, color=d2, ls = '--')
 plt.vlines(1.277, 0, 2.0, color=d2, ls = '--')
@@ -96,7 +91,8 @@ plt.title(r'Spekter $^{22} \mathrm{Na}$')
 plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/kalibracija.png')
-
+plt.close()
+'''
 print('done calibrating')
 
 # šum ozadja
@@ -104,19 +100,94 @@ print('done calibrating')
 data_bg = np.loadtxt('../meritve/bg.txt') # real data doesn't start until line 85
 time_bg = 657
 
+'''
 plt.bar(x_cal, data_bg/time_bg, width=0.001, color=d1)
 plt.title('Šum ozadja')
 plt.xlabel(r'$E [\mathrm{MeV}]$')
 plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
 plt.savefig('../porocilo/figures/ozadje.png')
+'''
 
 print('done background noise')
 
-# natrij brez šuma
-
-
-
 # aktivnost označena z R
 
-
 r_bg = data_bg / time_bg
+
+# ---  natrij brez šuma ---
+
+data_na22 = np.loadtxt('../meritve/Na22_1.txt')
+time_na22 = 54.15
+
+# aktivnost natrija brez ozadja
+
+r_na22 = data_na22 / time_na22 - r_bg
+
+# plotting Gaussian curves
+# first peak at 1493
+
+start_peak1 = 1493 - 150
+end_peak1 = 1493 + 150
+
+# omejim x_cal za lažji plot
+xcal_Na22_p1 = x_cal[start_peak1: end_peak1]
+
+fitpar_na22_p1, fitcov_na22_p1 = curve_fit(gauss, xcal_Na22_p1,
+                                           r_na22[start_peak1:end_peak1], p0=[1,1,1])
+# širina vrhov je sigma
+print('Širina prvega vrha za natrij: ', unp.uarray(fitpar_na22_p1[2],
+                                                   np.sqrt(np.diag(fitcov_na22_p1))[2]))
+
+#plt.plot(xcal_Na22_p1, gauss(xcal_Na22_p1, *fitpar_na22_p1), color=e2)
+
+# second peak at 3625
+
+start_peak2 = drugi_max - 250
+end_peak2 = drugi_max + 200
+xcal_Na22_p2 = x_cal[start_peak2:end_peak2]
+
+fitpar_na22_p2, fitcov_na22_p2 = curve_fit(gauss, xcal_Na22_p2,
+                                           r_na22[start_peak2:end_peak2])
+
+print('Širina drugega vrhu za natrij: ', unp.uarray(fitpar_na22_p2[2],
+                                                    np.sqrt(np.diag(fitcov_na22_p2))[2]))
+'''
+plt.plot(xcal_Na22_p2, gauss(xcal_Na22_p2, *fitpar_na22_p2), color=e3)
+
+plt.bar(x_cal, r_na22, width=0.001, color=d1)
+plt.vlines(0.51, 0, 2.0, color=d2, ls = '--', zorder=1)
+plt.vlines(1.277, 0, 2.0, color=d2, ls = '--', zorder=1)
+plt.title(r'Spekter $^{22} \mathrm{Na}$ brez ozadja')
+plt.xlabel(r'$E [\mathrm{MeV}]$')
+plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
+plt.savefig('../porocilo/figures/na22_no_bg.png')
+plt.close()
+'''
+print('Done plot of natrij without background')
+
+# --- cezij brez šuma ---
+
+dataCs = np.loadtxt('../meritve/Cs137_1.txt')
+timeCs = 59.92
+
+# aktivnost cezija
+
+r_cs137 = dataCs / timeCs - r_bg
+
+# getting the index of Cs
+
+argmaxCs = np.argmax(r_cs137[150:]) + 150
+print(x_cal[argmaxCs])
+
+# bar plot of cezij
+plt.bar(x_cal, r_cs137, width=0.001, color=d1)
+print("Plot of Cs")
+# the maximum of cezij
+#plt.vlines(x_cal[argmaxCs], 0, 2.0, color=d2, ls = '--', zorder=1)
+
+# miscs for matplotlib
+plt.title(r'Spekter $^{137} \mathrm{Cs}$ brez ozadja')
+plt.xlabel(r'$E [\mathrm{MeV}]$')
+plt.ylabel(r'$R [\mathrm{s} ^{-1}]$')
+plt.savefig('../porocilo/figures/Cs137_no_bg.png')
+plt.close()
