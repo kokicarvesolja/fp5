@@ -1,0 +1,66 @@
+#+title: 11difuzija
+#+startup: entitiespretty nil
+
+* Uvod
+** Pot žarka v nehomogene, plastovitem sredstvu
+Lomni zakon se posploši na sredstvo z zvezno spremenljivim lomnim količnikom
+
+\[ \cos \phi = \frac{\text{konst}}{n(x)}
+\]
+
+Prehod žarka skozi kiveto izračunamo kot
+
+\begin{equation}
+\label{eq:1}
+\frac{\mathrm{d} \phi}{\mathrm{d} x} = \frac{1}{n} \frac{\mathrm{d} n}{\mathrm{dz} }
+\end{equation}
+
+Žarki se torej odklonijo za kot \(  \alpha_N = \frac{d}{n} \frac{\mathrm{d} n}{\mathrm{dz}} \). Po izstopu iz kivete se odklon še poveča za \(  \alpha_Z = n \alpha_N \) Na zaslonu dobimo odmik \(  Y = bd \frac{\mathrm{d} n}{\mathrm{dz}} \). Če je sredstvo homogeno, dobimo na zaslonu premico.
+
+Koncentracija difundirajoče snovi \(  f \) je funkcija kraja in časa. Difuzijski tok je sorazmeren gradientu koncetracije \(  \vec{Q} = - D \nabla f \). Ob upoštevanju še konitnuitetne enačbe \(  \nabla \vec{Q} = -\frac{\partial f}{\partial t}  \) dobimo /difuzijsko enačbo/:
+
+\begin{equation}
+\label{eq:2}
+D \nabla ^2 f = \frac{\partial f}{\partial t}
+\end{equation}
+
+oz. v našem primeru:
+
+\begin{equation}
+\label{eq:3}
+D \frac{\partial ^2 f}{\partial z ^2} = \frac{\partial f}{\partial t}
+\end{equation}
+
+Osnovna rešitev te enačbe je
+
+\begin{equation}
+\label{eq:4}
+f = \frac{1}{\sqrt{4 \pi Dt}} e^{- \frac{z ^2}{4Dt}}
+\end{equation}
+
+To je rešitev za porazdelitev, ko je ob času \(  t = 0 \) vsa difundirajoča snov zbrana na mestu \(  z=0 \). Rešitev za poljubno začetno porazdelitev snovi dobimo iz osnovne rešitve z integriranjem. V našem primeru imamo na začetku snov, ki je enakomerno porazdeljena po polprostoru \(  z > 0 \), kjer je \(  f(z) = 1 \) in \(  f(z) = 0 \) za \(  z< 0 \). Rešitev je neka čudna funkcija. Ob sklepanju, da je lomni količnih linearna funkcija koncentracije dobimo odmik kot
+
+\begin{equation}
+\label{eq:5}
+Y = bd (n_1 - n_0)
+\end{equation}
+
+Ploščina pod krivuljo pa je od časa neodvisna:
+
+\begin{equation}
+\label{eq:6}
+S = \int\limits_{}^{} y \,\mathrm{d z} = kbd(n_1 - n_0), \quad k = \frac{a + b}{a}
+\end{equation}
+** Potrebščine
+
+- zaslon
+- optična klop
+- kiveta z alkoholom in vodo
+- steklena palčka
+- laser
+- milimetrski papir
+
+** Naloge
+
+- preveri časovno neodvisnost ploščine \(  S \)
+- določi difuzijsko konstanto \(  D \)
