@@ -64,3 +64,5 @@ S = \int\limits_{}^{} y \,\mathrm{d z} = kbd(n_1 - n_0), \quad k = \frac{a + b}{
 
 - preveri časovno neodvisnost ploščine \(  S \)
 - določi difuzijsko konstanto \(  D \)
+** Opombe
+Mešaj tekočini na pultu pri umivalniku, kjer lahko nasloniš komolce na mizo. Kapalko postavi pod kotom na sredino kivete in počasi dodajaj vodo k alkoholu. Meni je uspelo zelo dobro.
