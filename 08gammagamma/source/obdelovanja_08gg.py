@@ -31,12 +31,14 @@ dataCasLoc = np.loadtxt('../meritve/casovna_locljivost_data.txt')
 plt.bar(dataCasLoc[:, 0], dataCasLoc[:, 1], width=0.005, color=c1)
 
 # omejitev x osi za lepši, more concise graf
+'''
 plt.xlim(-0.1, 0.1)
 
 plt.xlabel(r'$t [\mathrm{ns}]$')
 plt.ylabel(r'$N$')
 plt.title('Časovna ločljivost TDC')
 plt.savefig('../porocilo/figures/casovna_locljivost.png')
+'''
 plt.close()
 
 # --- radioaktivni razpad ---
@@ -88,4 +90,40 @@ plt.title(r'Lineariziran graf radioaktivnega razpada $^{22} \mathrm{Na}$')
 plt.xlabel(r'$t [\mathrm{ms}]$')
 plt.ylabel(r'$ \ln \left( \frac{\Delta p}{\Delta t} \right)$')
 plt.savefig('../porocilo/figures/log_radio_razpad.png')
+plt.close()
+
+print(unp.uarray(fitparRadRaz[0], napake[0]) * 1e3)
+
+# --- koincidenčni vrh in naključne koincidence ---
+
+# koincidenčni vrh
+
+dataKoinc = np.loadtxt('../meritve/stevilo_koincidenc_data.txt')
+
+timeKoinc = 30.0 #sekund
+
+casKoinc = dataKoinc[:, 0] / 1e6
+meritveKoinc = dataKoinc[:, 1] / timeKoinc
+
+plt.bar(casKoinc, meritveKoinc, width=0.5e-5, color=c1)
+plt.xlabel(r'$t [\mathrm{ms}]$')
+plt.ylabel(r'$R [\mathrm{s}^{-1}]$')
+plt.title('Koincidenčni vrh')
+plt.savefig('../porocilo/figures/koincidencni_vrh.png')
+plt.close()
+
+# nakljucni koincidencni vrh
+
+dataRandKoinc = np.loadtxt('../meritve/nakljucne_koincidence_data.txt')
+
+timeRandKoinc = 30.1 # sekund
+
+casRandKoinc = dataRandKoinc[:, 0] / 1e6
+meritveRandKoinc = dataRandKoinc[:, 1] / timeRandKoinc
+
+plt.bar(casRandKoinc, meritveRandKoinc, width=0.5e-5, color=c1)
+plt.xlabel(r'$t [\mathrm{ms}]$')
+plt.ylabel(r'$R [\mathrm{s}^{-1}]$')
+plt.title('Nakljucni koincidenčni vrh')
+plt.savefig('../porocilo/figures/nakljucne_koincidence.png')
 plt.close()
