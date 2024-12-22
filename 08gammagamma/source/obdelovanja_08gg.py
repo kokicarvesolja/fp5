@@ -58,12 +58,14 @@ plt.close()
 
 casMeritve = 31.6 # sekund
 
-casRadRaz = dataRadRaz[:, 0]
+casRadRaz = dataRadRaz[:, 0] / 1e9
 meritveRadRaz = dataRadRaz[:, 1] / casMeritve # delim s casom zato, da dobim aktivnost
 
 novRadRaz, novCasRadRaz = masking(meritveRadRaz, casRadRaz)
 
 fitparRadRaz, fitcovRadRaz = curve_fit(linear, novCasRadRaz, np.log(novRadRaz))
+
+napake = np.sqrt(np.diag(fitcovRadRaz))
 
 # plotting fit
 # Upoštevam Markov nasvet in naredim osi bolj goste za lepši graf
@@ -71,29 +73,16 @@ fitparRadRaz, fitcovRadRaz = curve_fit(linear, novCasRadRaz, np.log(novRadRaz))
 abscisa = np.linspace(0, novCasRadRaz[-1], num=10000)
 ordinataRadRaz = linear(abscisa, *fitparRadRaz)
 
-plt.plot(abscisa, ordinataRadRaz, color=c1)
-plt.scatter(novCasRadRaz, np.log(novRadRaz), color=c3)
+plt.plot(abscisa, ordinataRadRaz, color=c2)
+plt.scatter(novCasRadRaz, np.log(novRadRaz), color=c1, s=3)
 
-# fill between
+fittext= "Linear fit 1: $y = kx + n$\n$k_1$ = {} ± {}\n$n_1$ = {} ± {}".format(format(fitparRadRaz[0], ".2e"),
+                                                                               format(napake[0], ".2e"),
+                                                                               format(fitparRadRaz[1], ".2e"),
+                                                                               format(napake[1], ".2e"))
 
-vrednostNaklona = fitparRadRaz[0]
-vrednostZacetne = fitparRadRaz[1]
-
-napake = np.sqrt(np.diag(fitcovRadRaz))
-
-# spodnja meja
-
-ordinataRadRazLow = linear(abscisa, fitparRadRaz[0], fitparRadRaz[1] - napake[1])
-
-# zgornja meja
-
-ordinataRadRazUp = linear(abscisa, fitparRadRaz[0], fitparRadRaz[1] + napake[1])
-
-plt.fill_between(abscisa, ordinataRadRazLow, ordinataRadRazUp, color=c2,
-                 alpha=0.05)
-plt.plot(abscisa, ordinataRadRazLow, color=c2, alpha=0.75)
-plt.plot(abscisa, ordinataRadRazUp, color=c2, alpha=0.75, ls='--')
-
+plt.text(8.0, 3.0, fittext, ha='left', va='center', size=10,
+         bbox=dict(facecolor=c3, alpha=0.5))
 
 plt.title(r'Lineariziran graf radioaktivnega razpada $^{22} \mathrm{Na}$')
 plt.xlabel(r'$t [\mathrm{ms}]$')
