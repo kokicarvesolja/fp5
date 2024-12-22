@@ -1,4 +1,4 @@
-#+title: 07 Kotna korelacija anihilacijski žarkov \( \gamma \)
+#+title: 08 Kotna korelacija anihilacijski žarkov \( \gamma \)
 #+startup: entitiespretty nil
 
 * Uvod

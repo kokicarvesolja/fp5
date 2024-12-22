@@ -1,0 +1,5 @@
+#+title: Podatki
+
+Razdalja leča - kiveta \(  a = (41 \pm 0.5)cm \)
+Debelina kivete \(  d = (1.8 \pm 0.1)cm \)
+Razdalja kiveta - zaslon \( b = (110 \pm 0.5)cm  \)
