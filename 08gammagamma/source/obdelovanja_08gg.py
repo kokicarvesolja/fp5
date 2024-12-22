@@ -127,3 +127,32 @@ plt.ylabel(r'$R [\mathrm{s}^{-1}]$')
 plt.title('Nakljucni koincidenčni vrh')
 plt.savefig('../porocilo/figures/nakljucne_koincidence.png')
 plt.close()
+
+# --- koincidenčna odvisnost ---
+
+
+class Koincidenca:
+    def __init__(self, data):
+        self.data = np.loadtxt(data)
+
+    def cas(self):
+        return self.data[:, 0] /1e6
+
+    def meritve(self, time):
+        return self.data[:, 1] / time
+
+sez = ['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55', '60']
+colors = cmr.take_cmap_colors('cmr.cosmic', len(sez), cmap_range=(.3, 1.),
+                              return_fmt='hex')
+
+for num, col in zip(sez, colors):
+    # instanca razreda
+    kot = Koincidenca(f'../meritve/koincidence_kot{num}_data.txt')
+    plt.bar(kot.cas(), kot.meritve(30.1), color=col, width=0.5e-5, label=(fr'$\varphi =$ {num}' + r'$^{\circ}$'))
+
+plt.xlabel(r'$t [\mathrm{ms}]$')
+plt.ylabel(r'$R [\mathrm{s}^{-1}]$')
+plt.title('Kotna korelacija koincidenčnih vrhov')
+plt.legend()
+plt.savefig('../porocilo/figures/koincidence_kot.png')
+plt.close()
