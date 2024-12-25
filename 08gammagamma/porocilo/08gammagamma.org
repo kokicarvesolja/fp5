@@ -66,7 +66,28 @@ Vidimo, da se moja regresija ujema s podatki iz RedPitayje.
 [[file:figures/casovna_locljivost.png]]
 ** Radioaktivni razpad
 
+Sedaj sem priklopil vsak kanal na svoj scintilacijski detektor in zanimala nas je naključna narava radioaktivne razpada, ki velja za Poissonov proces. Meritev sem opravljal \(  t = 31.5 \mathrm{s} \).
 
+Verjetnost, da zaznamo razpad pada eksponentno s časom \(  t \)
+
+\begin{equation}
+\label{eq:1}
+p = 1 - e^{-Rt}
+\end{equation}
+
+[[file:figures/radio_razpad.png]]
+
+Verjetnostno gostoto dobimo z odvajanjem po času, kar nam po logaritmiranju da
+
+\begin{equation}
+\label{eq:2}
+\ln \left( \frac{\mathrm{d} p}{\mathrm{dt}} \right) = \ln R - Rt
+\end{equation}
+
+[[file:figures/log_radio_razpad.png]]
+
+Z logaritmiranjem vrednosti smo dobili potrditev, da je porazdelitev zares eksponenta.
+** Kotna korelacija anihilacijskih žarkov \(  \gamma \)
 
 * Opombe
 
