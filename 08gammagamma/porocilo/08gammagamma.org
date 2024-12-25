@@ -47,6 +47,27 @@ Na diskriminatorju smo prav tako širino signalov nastavili na približno \(  10
 
 Pri merjenju časovne ločljivosti je na oba kanala pretvornika poslan isti signal in pričakovali bi, da je ob vsake sunku izmerjen identični časovni interval. V praksi so izmerki razstreseni okoli povprečja ločljivosti TDCja.
 
+Oblika časovne ločljivosti je Gaussova krivulja in se jo vidi na sliki \ref. Lastnosti Gaussove krivuljo so bili
+
+\begin{align*}
+x_{0RP} &= 4.59 \mathrm{ps} \\
+\sigma_{RP} &= 20 \mathrm{ps}
+\end{align*}
+
+Iz zanimanja sem narisal še svojo Gaussovo krivuljo na podatke in dobil sledeče vrednosti
+
+\begin{align*}
+x_{0fit} &= (2.6 \pm 0.7) \mathrm{ps} \\
+\sigma_{fit} &= (19.6 \pm 0.7) \mathrm{ps}
+\end{align*}
+
+Vidimo, da se moja regresija ujema s podatki iz RedPitayje.
+
+[[file:figures/casovna_locljivost.png]]
+** Radioaktivni razpad
+
+
+
 * Opombe
 
 Ne spreminjaj povezave med pretvornikom nivojev in Red Pitayo.
