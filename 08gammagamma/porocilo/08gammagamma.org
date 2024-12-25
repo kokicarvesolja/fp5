@@ -7,7 +7,7 @@ Pozitron \( e^+ \) se pri srečanju s svojim antidelcem elektronom \( e^- \) ani
 
 Zanima nas, ali mogoče nastane pozitronij, vodikovemu atomu podobna tvorba, v kateri elektron in pozitron krožita okoli skupnega težišča.
 
-V osnovnem stanju pozitronija sta si delca najbližje skupaj. Orbitalna vrtilna količina je \( l = 0 \). Tako pozitron kot elektron imata spin \( \frac{1}{2} \), zato se osnovno stanje razcepi na singletno stanje z vrtilno količino 0 ter tripletno stanje, ki ima vrtilno količino \( 1 \). Singletno stanje ima vezavno energijo \( 6.8 \mathrm{eV} \), medtem ko pa je tripletno za  \( 10^{-3} \mathrm{eV} \) manj vezano.
+V osnovnem stanju pozitronija sta si delca najbližje skupaj. Orbitalna vrtilna količina je \( l = 0 \). Tako pozitron kot elektron imata spin \( \frac{1}{2} \), zato se osnovno stanje razcepi na singletno stanje z vrtilno količino \( 0 \) ter tripletno stanje, ki ima vrtilno količino \( 1 \). Singletno stanje ima vezavno energijo \( 6.8 \mathrm{eV} \), medtem ko pa je tripletno za  \( 10^{-3} \mathrm{eV} \) manj vezano.
 
 Poglejmo si anihilacijo v singletnem stanju. Predpostavimo, da pozitronij miruje (če ne bi, bi pa obravnavali v CMS in pretvorili v laboratorijski sistem). Ker je vrtilna količina sistema enaka 0, so si v prostoru vse smeri enakovredne. Pri anihilaciji nastali foton torej odleti v katerokoli smer. Zaradi ohranjanja vrtilne količine pa mora nastati še en foton, ki odleti v nasprotno smer. Oba fotona sta ali levo ali desno cirkularno polarizirana.
 
@@ -30,6 +30,19 @@ Pri vaji se uporablja \( ^{22} \mathrm{Na} \), ki preko \( \beta^+ \) razpada sl
 - izmeri ločljivost časovno-digitalnega pretvornika
 - izmeri porazdelitev časovnih intervalov med razpadi radioaktivnega vira
 - poišči koincidence anihilacijskih žarkov \( \gamma \) in izmeri njihovo kotno korelacijo
+* Meritve in izračuni
+
+Na diskriminatorju ORTEC 9302 sem nastavil nivo na vrednost, ki ustreza dolini pod fotovrhom in s tem se izločil ostale signale, ki niso bili pomembni.
+
+Slika na oscilatorju, ko so že nastavili nivo je bila takšna kot na sliki \ref{}
+
+[[file:figures/casovni_potek.png]]
+
+S pomočjo modula EG&G-ESN GG8000, ki služi kot oblikovalnik sunkov, zakasnilna enota in razdelilec smo napeljali signal na Red Pitaya.
+
+Na diskriminatorju smo prav tako širino signalov nastavili na približno \(  100 \mathrm{ns} \), kar je pomenilo, da signal izgleda tako kot na sliki \ref
+
+[[file:figures/pripravljen_signal.png]]
 
 * Opombe
 
