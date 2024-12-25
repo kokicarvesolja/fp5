@@ -87,7 +87,34 @@ Verjetnostno gostoto dobimo z odvajanjem po času, kar nam po logaritmiranju da
 [[file:figures/log_radio_razpad.png]]
 
 Z logaritmiranjem vrednosti smo dobili potrditev, da je porazdelitev zares eksponenta.
+
+Prav tako je vrednost iz logaritmiranja premice enaka
+
+\[ R = (667 \pm 13) \mathrm{s}^{-1}
+\]
+
 ** Kotna korelacija anihilacijskih žarkov \(  \gamma \)
+
+Z scintilatorskima detektorjema na isti premici sem najprej izmeril meritev koincidenčnih žarkov. Ko se elektron in pozitron anihilirata nastaneta \(  \gamma \) žarka v nasprotnih smereh. Če v nekem časovnem obdobju zaznamo sunek toka na obeh scintilatorjih, to smatramo kot koincidenco.
+
+Dobim graf na sliki \ref
+
+[[file:figures/koincidencni_vrh.png]]
+
+Zanimajo nas tudi naključne koincidence. Če je hitrost sunkov na prvem kanalu \(  R_1 \) in na drugem kanalu \(  R_2 \) in je širina merilnega okna \(  \tau \), potem je hitrost naključnih koincidenc enaka
+
+\begin{equation}
+\label{eq:3}
+R_{12} = \tau R_1 R_2
+\end{equation}
+
+[[file:figures/nakljucne_koincidence.png]]
+
+Za zadnji del vaje sem izmeril še kotno korelacijo žarkov z zamikanjem enega od scintilacijskih detektorjev. Meril sem v intervalu \(  \varphi = [0, \frac{\pi}{3}] \), kjer je interval med vsako meritvijo 5. Izkaže se, da je število koincidenc močno odvisno od kota, kar se tudi pozna na grafu \ref
+
+[[file:figures/koincidence_kot.png]]
+* Komentar
+
 
 * Opombe
 
