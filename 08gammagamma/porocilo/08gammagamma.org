@@ -115,6 +115,9 @@ Za zadnji del vaje sem izmeril še kotno korelacijo žarkov z zamikanjem enega o
 [[file:figures/koincidence_kot.png]]
 * Komentar
 
+Sama izvedba vaje je predstavljala problem, saj sem se zaradi nepoznavanja naprav precej lovil. Prav tako je bilo potrebno RedPitayjo večkrat ponovno ugasniti in znova prižgati.
+Vaja je bila v splošnem uspešna. Uspeli smo določiti časovno ločljivost TDCja, potrdili naključno naravo radioaktivnega razpada, opazovali naključne koincidence ter odvisnost koincidenčnega vrhu v odvisnost od kota med scintilatorjema.
+
 
 * Opombe
 
