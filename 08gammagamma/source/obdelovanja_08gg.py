@@ -18,6 +18,11 @@ c1, c2, c3 =  cmr.take_cmap_colors('cmr.cosmic', 3, cmap_range=(.5, 1.),
 def linear(x, k, n):
     return k * x + n
 
+# testing casovna locljivost z Gaussom
+
+def gauss(x, C, mi, sigma):
+    return C * np.exp(- (x - mi) ** 2 / (2 * sigma ** 2))
+
 # for eliminating zero and negative values
 
 def masking(x, y):
@@ -30,15 +35,20 @@ dataCasLoc = np.loadtxt('../meritve/casovna_locljivost_data.txt')
 
 plt.bar(dataCasLoc[:, 0], dataCasLoc[:, 1], width=0.005, color=c1)
 
+fitparCasLoc, fitcovCasLoc = curve_fit(gauss, dataCasLoc[:, 0], dataCasLoc[:, 1])
+
+print("C, mi, sigma: ", fitparCasLoc, np.sqrt(np.diag(fitcovCasLoc)))
+
+gauss_fit = gauss(dataCasLoc[:, 0], *fitparCasLoc)
+
+plt.plot(dataCasLoc[:, 0], gauss_fit, color=c3, label='regresija')
 # omejitev x osi za lepši, more concise graf
-'''
 plt.xlim(-0.1, 0.1)
 
 plt.xlabel(r'$t [\mathrm{ns}]$')
 plt.ylabel(r'$N$')
 plt.title('Časovna ločljivost TDC')
 plt.savefig('../porocilo/figures/casovna_locljivost.png')
-'''
 plt.close()
 
 # --- radioaktivni razpad ---
@@ -46,12 +56,15 @@ plt.close()
 dataRadRaz = np.loadtxt('../meritve/radioaktivni_razpad_data.txt')
 casMerjenjaRadRaz = 31.6
 
+casRadRaz = dataRadRaz[:, 0] /1e9
+meritveRadRaz = dataRadRaz[:, 1] / casMerjenjaRadRaz
+
 # Graf radioaktivnih razpadov
 
-plt.bar(dataRadRaz[:, 0], dataRadRaz[:, 1] / casMerjenjaRadRaz, width=0.005, color=c1)
+plt.bar(casRadRaz, meritveRadRaz, width=0.1, color=c1)
 
-plt.xlabel(r'$t [\mathrm{ns}]$')
-plt.ylabel(r'$R [\mathrm{ns}^{-1}]$')
+plt.xlabel(r'$t [\mathrm{ms}]$')
+plt.ylabel(r'$R [\mathrm{s}^{-1}]$')
 plt.title(r'Radioaktivni razpad $^{22} \mathrm{Na}$ ')
 plt.savefig('../porocilo/figures/radio_razpad.png')
 plt.close()

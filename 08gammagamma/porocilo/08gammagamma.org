@@ -43,6 +43,9 @@ S pomočjo modula EG&G-ESN GG8000, ki služi kot oblikovalnik sunkov, zakasnilna
 Na diskriminatorju smo prav tako širino signalov nastavili na približno \(  100 \mathrm{ns} \), kar je pomenilo, da signal izgleda tako kot na sliki \ref
 
 [[file:figures/pripravljen_signal.png]]
+** Časovna ločljivost TDC
+
+Pri merjenju časovne ločljivosti je na oba kanala pretvornika poslan isti signal in pričakovali bi, da je ob vsake sunku izmerjen identični časovni interval. V praksi so izmerki razstreseni okoli povprečja ločljivosti TDCja.
 
 * Opombe
 
