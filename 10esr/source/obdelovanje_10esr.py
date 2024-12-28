@@ -38,11 +38,11 @@ def magnetno_polje(I, dolzina=d):
 # 80MHz
 
 nu = 80 #MHz
-data_80MHz = pd.read_csv('../meritve/80MHz.csv', delimiter=',')
+data_80MHz = np.array(pd.read_csv('../meritve/80MHz.csv', delimiter=','))
 # dolzina seznama
-len80 = len(data[:, 0])
+len80 = len(data_80MHz[:, 0])
 tok_80MHz = unp.uarray(data_80MHz[:, 0], len80 * [1])
-volt_80MHz = unp.uarray(data_80MHz[:, 1], data_80MHz[:, 1] * 0.05)
+volt_80MHz = unp.uarray(data_80MHz[:, 1], 0.05 * np.abs(data_80MHz[:, 1]))
 
 # extracting maximum and minimum for \Delta B
 
@@ -55,4 +55,4 @@ deltaI = tok_80MHz[min80] - tok_80MHz[max80]
 
 deltaB = magnetno_polje(deltaI)
 
-print('Vrednost \Delta B for 80MHz: ', deltaB)
+print('Vrednost Delta B for 80MHz: ', deltaB)
