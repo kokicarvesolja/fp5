@@ -8,8 +8,9 @@ from uncertainties import unumpy as unp
 
 # colors
 
-c1, c2, c3 = cmr.take_cmap_colors('cmr.lavender', 3, cmap_range=(0.3, 1.0),
-                                  return_fmt='hex')
+c1, c2, c3, d1, d2, d3 = cmr.take_cmap_colors('cmr.lavender', 6,
+                                              cmap_range=(0.3, 1.0),
+                                              return_fmt='hex')
 
 # diagonala tuljave
 # krajsi polmer
@@ -63,44 +64,35 @@ def abs_crte(nu, I0, color):
     # podano kot argument funkciji
     B0 = magnetno_polje(I0)
     print(f'Vrednost B0 pri {nu} v m', B0)
+
+    nuOverB0 = nu/(B0 * 1e-3)
+    print(f'Vrednost nu/B0 v GHz / T pri {nu}: ', nuOverB0 * 1e-3)
     # se plot za to vrednost
 
     plt.plot(unp.nominal_values(tok), unp.nominal_values(volt),
              color=color[0])
     plt.errorbar(unp.nominal_values(tok), unp.nominal_values(volt),
                  xerr=unp.std_devs(tok), yerr=unp.std_devs(volt),
-                 color=color[0], label=fr'$\nu = {nu} MHz$', marker='.', capsize=2, ls=None)
-    plt.plot(I0, 0, marker='x', label=r'$I_0$: $U = 0$', color=color[1])
+                 color=color[0], label=fr'$\nu =$ {nu}' + r'$\mathrm{MHz}$',
+                 marker='.', capsize=2, ls=None)
+    # putting it on top
+    plt.plot(I0, 0, marker='x', label=r'$I_0$: $U = 0$', color=color[1], zorder=1)
 
-# 80MHz
+    return B0
 
-nu = 80 #MHz
-data_80MHz = np.array(pd.read_csv('../meritve/80MHz.csv', delimiter=','))
-# dolzina seznama
-len80 = len(data_80MHz[:, 0])
-tok_80MHz = unp.uarray(data_80MHz[:, 0], len80 * [1])
-volt_80MHz = unp.uarray(data_80MHz[:, 1], 0.05 * np.abs(data_80MHz[:, 1]))
+frekv = [80, 85, 90]
+# I went and guesstimated from measurements, where it crossed the x axis
+# for example in 90MHz.csv in line 69 is I = 290 mA and U = 280, and in line
+# 70 is I = 291 mA and U =-260
+# Also funny number ^-^
+tokI0 = [273.75, 290.5, 308.5]
 
-# extracting maximum and minimum for \Delta B
+barve = [(c1, d1), (c2, d2), (c3, d3)]
 
-max80 = np.argmax(unp.nominal_values(volt_80MHz))
-min80 = np.argmin(unp.nominal_values(volt_80MHz))
+vrednostB0 = []
 
-# calculating \Delta B
-
-deltaI = tok_80MHz[min80] - tok_80MHz[max80]
-
-deltaB = magnetno_polje(deltaI)
-
-print('Vrednost Delta B for 80MHz v mT: ', deltaB)
-
-# calculating nu/ B_0
-# I_0 for nu = 80MHz je 273.75, U = 0
-I080MHz = 273.5
-
-B080MHz = magnetno_polje(I080MHz)
-
-print('Vrednost B0 pri 80 MHz v mT: ', B080MHz)
+for f, I, b in zip(frekv, tokI0, barve):
+    vrednostB0.append(abs_crte(f, I, b))
 
 # miscs
 plt.axhline(alpha=1, ls=":", c="#adadad")
