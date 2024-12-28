@@ -43,7 +43,19 @@ S tem smo dosegli, da je nosilna frekvenca signala \( A(t) \) enaka nič. Drugeg
 * Naloge
  - z vzorcem DPPH kot merjencem določi \( g \) faktor prostega elektrona in razmerje \( B/ \nu \). 
  - izmeri širino absorcpijske črte
-* Opombe
-** TODO izmeri \( r_1, r_2 \text{ in } l \)
- 
+* Meritve
 
+Vrednost \(  g = 1.96 \pm 0.04 \)
+Vrednost diagonale:  [0.18667619023324855+/-0.0012247448713915891]
+
+Vrednost za Delta B pri 80 v mT:  [0.12571021494856024+/-0.014838030418430835]
+Vrednost B0 pri 80 MHz v m [2.8677642785140307+/-0.01881482361559623]
+Vrednost nu/B0 v GHz / T pri 80:  [27.896295591439976+/-0.18302197464899134]
+
+Vrednost za Delta B pri 85 v mT:  [0.1361860661942736+/-0.014842009360139954]
+Vrednost B0 pri 85 MHz v m [3.0432347868797294+/-0.019966050266048238]
+Vrednost nu/B0 v GHz / T pri 85:  [27.930805853843328+/-0.18324838952726832]
+
+Vrednost za Delta B pri 90 v mT:  [0.1361860661942736+/-0.014842009360139954]
+Vrednost B0 pri 90 MHz v m [3.23180010930257+/-0.021203189353101143]
+Vrednost nu/B0 v GHz / T pri 90:  [27.848256994898797+/-0.1827068030962125]

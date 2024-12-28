@@ -73,7 +73,7 @@ def abs_crte(nu, I0, color):
     plt.errorbar(unp.nominal_values(tok), unp.nominal_values(volt),
                  xerr=unp.std_devs(tok), yerr=unp.std_devs(volt),
                  color=color[0], label=fr'$\nu =$ {nu}' + r'$\mathrm{MHz}$',
-                 marker='.', capsize=2, ls=None)
+                 marker='.', capsize=2, zorder=2)
     # putting it on top
     plt.plot(I0, 0, marker='x', label=r'$I_0$: $U = 0$', color=color[1], zorder=1)
 
@@ -86,14 +86,13 @@ frekv = [80, 85, 90]
 # Also funny number ^-^
 tokI0 = [273.75, 290.5, 308.5]
 
-barve = [(c1, d1), (c2, d2), (c3, d3)]
+barve = [(d1, c1), (d2, c2), (d3, c3)]
 
 vrednostB0 = np.ones(3)
 stdB0 = np.ones(3)
 
 for f, I, b, no in zip(frekv, tokI0, barve, range(0, 3)):
     temp = abs_crte(f, I, b)
-    print(temp)
     vrednostB0[no] = unp.nominal_values(temp)
     stdB0[no] = unp.std_devs(temp)
 
