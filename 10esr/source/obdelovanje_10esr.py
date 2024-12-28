@@ -13,11 +13,11 @@ c1, c2, c3 = cmr.take_cmap_colors('cmr.lavender', 3, cmap_range=(0.3, 1.0),
 
 # diagonala tuljave
 # krajsi polmer
-r_1 = unp.uarray([4.5], [0.1]) # cm
+r_1 = unp.uarray([4.5], [0.1]) * 1e-2 # cm
 # daljsi polmer
-r_2 = unp.uarray([8.7], [0.1]) # cm
+r_2 = unp.uarray([8.7], [0.1]) * 1e-2 # cm
 # dolzina tuljave
-l = unp.uarray([13.2], [0.1]) # cm
+l = unp.uarray([13.2], [0.1]) * 1e-2 # cm
 # vrednost diagonale
 d = unp.sqrt(l**2 + (r_1 + r_2)**2)
 
@@ -34,6 +34,8 @@ def magnetno_polje(I, dolzina=d):
     return (N * mi_0 * I) / dolzina
 
 # --- odvod absorpcijskega vrha ---
+
+# definiram funkcijo za obdelovanje podatkov
 
 # 80MHz
 
@@ -55,4 +57,12 @@ deltaI = tok_80MHz[min80] - tok_80MHz[max80]
 
 deltaB = magnetno_polje(deltaI)
 
-print('Vrednost Delta B for 80MHz: ', deltaB)
+print('Vrednost Delta B for 80MHz v mT: ', deltaB)
+
+# calculating nu/ B_0
+# I_0 for nu = 80MHz je 273.75, U = 0
+I080MHz = 273.5
+
+B080MHz = magnetno_polje(I080MHz)
+
+print('Vrednost B0 pri 80 MHz v mT: ', B080MHz)
