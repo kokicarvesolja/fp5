@@ -66,3 +66,20 @@ I080MHz = 273.5
 B080MHz = magnetno_polje(I080MHz)
 
 print('Vrednost B0 pri 80 MHz v mT: ', B080MHz)
+
+# se plot za to vrednost
+
+plt.plot(unp.nominal_values(tok_80MHz), unp.nominal_values(volt_80MHz),
+         color=c1)
+
+plt.errorbar(unp.nominal_values(tok_80MHz), unp.nominal_values(volt_80MHz),
+             xerr=unp.std_devs(tok_80MHz), yerr=unp.std_devs(volt_80MHz),
+             color=c1, label=r'$\nu = 80 MHz$', marker='.', capsize=2, ls=None)
+plt.plot(I080MHz, 0, marker='x', label=r'$I_0$: $U = 0$')
+# miscs
+plt.axhline(alpha=1, ls=":", c="#adadad")
+plt.title("Odvod absorpcijske črte pri 80 MHz")
+plt.xlabel("I [mA]")
+plt.ylabel("U [mV]")
+plt.legend()
+plt.savefig('../porocilo/figures/abs_crte.png')
