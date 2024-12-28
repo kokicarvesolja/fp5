@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import cmasher as cmr
 from uncertainties import unumpy as unp
+from scipy.optimize import curve_fit
 
 # colors
 
@@ -30,7 +31,7 @@ def linear(x, k, n):
     return k * x + n
 
 def magnetno_polje(I, dolzina=d):
-    mi_0 = 4 * np.pi * 1e-7 # Vs/Am
+    mi_0 = 4 * 3.14 * 1e-7 # Vs/Am
     N = 1557
     return (N * mi_0 * I) / dolzina
 
@@ -63,14 +64,12 @@ def abs_crte(nu, I0, color):
     # crte
     # podano kot argument funkciji
     B0 = magnetno_polje(I0)
-    print(f'Vrednost B0 pri {nu} v m', B0)
+    print(f'Vrednost B0 pri {nu} MHz v m', B0)
 
     nuOverB0 = nu/(B0 * 1e-3)
     print(f'Vrednost nu/B0 v GHz / T pri {nu}: ', nuOverB0 * 1e-3)
     # se plot za to vrednost
 
-    plt.plot(unp.nominal_values(tok), unp.nominal_values(volt),
-             color=color[0])
     plt.errorbar(unp.nominal_values(tok), unp.nominal_values(volt),
                  xerr=unp.std_devs(tok), yerr=unp.std_devs(volt),
                  color=color[0], label=fr'$\nu =$ {nu}' + r'$\mathrm{MHz}$',
@@ -89,10 +88,17 @@ tokI0 = [273.75, 290.5, 308.5]
 
 barve = [(c1, d1), (c2, d2), (c3, d3)]
 
-vrednostB0 = []
+vrednostB0 = np.ones(3)
+stdB0 = np.ones(3)
 
-for f, I, b in zip(frekv, tokI0, barve):
-    vrednostB0.append(abs_crte(f, I, b))
+for f, I, b, no in zip(frekv, tokI0, barve, range(0, 3)):
+    temp = abs_crte(f, I, b)
+    print(temp)
+    vrednostB0[no] = unp.nominal_values(temp)
+    stdB0[no] = unp.std_devs(temp)
+
+B0array = unp.uarray(vrednostB0, stdB0)
+
 
 # miscs
 plt.axhline(alpha=1, ls=":", c="#adadad")
@@ -101,3 +107,38 @@ plt.xlabel("I [mA]")
 plt.ylabel("U [mV]")
 plt.legend()
 plt.savefig('../porocilo/figures/abs_crte.png')
+plt.close()
+
+# --- g value ---
+# finding out the g (spot) value
+
+fitpar, fitcov = curve_fit(linear, frekv, unp.nominal_values(B0array))
+
+fit = linear(np.linspace(80, 90, 100), *fitpar)
+
+plt.errorbar(frekv, unp.nominal_values(B0array), yerr=unp.std_devs(B0array),
+             ls='None',
+             color=c1, marker='.', capsize=2, label='izracunano')
+plt.plot(np.linspace(80, 90, 100), fit, color=d1, label='regresija')
+
+plt.title(r'$B_0$ v odvisnosti od resonančne frekvence $\nu$')
+plt.xlabel(r'$\nu [\mathrm{MHz}]$')
+plt.ylabel(r'$B_0 [\mathrm{T}]$')
+plt.legend()
+plt.savefig('../porocilo/figures/gfaktor.png')
+plt.close()
+
+# konstante
+# Bohrov magneton
+mu_B = 9.27e-24
+maxwellH = 6.62e-34
+
+naklon = unp.uarray(fitpar[0], np.sqrt(np.diag(fitcov))[0])
+
+# naklon je definiran kot (B1 - B0)/(nu1 - nu0), kar najdemo v g = maxwellH / (mu_B * naklon)
+
+# calculating g
+
+gFaktor = maxwellH / (mu_B * naklon)
+
+print(gFaktor)
