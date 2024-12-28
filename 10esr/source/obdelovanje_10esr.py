@@ -37,6 +37,41 @@ def magnetno_polje(I, dolzina=d):
 
 # definiram funkcijo za obdelovanje podatkov
 
+def abs_crte(nu, I0, color):
+    # reading the data
+    data = np.array(pd.read_csv(f'../meritve/{nu}MHz.csv', delimiter=','))
+    # for uncertainties package to produce STD devs
+    lenData = len(data[:, 0])
+
+    tok = unp.uarray(data[:, 0], lenData * [1])
+    volt = unp.uarray(data[:, 1], 0.05 * np.abs(data[:, 1]))
+
+    # getting min and max value for \Delta B (look at the definition)
+
+    maxData = np.argmax(unp.nominal_values(volt))
+    minData = np.argmin(unp.nominal_values(volt))
+
+    # calculating \Delta B
+
+    deltaI = tok[minData] - tok[maxData] # v mA
+
+    deltaB = magnetno_polje(deltaI) # v mT
+    print(f'Vrednost za Delta B pri {nu} v mT: ', deltaB)
+
+    # vrednost B0 pri I0, kar je pri U = 0 med maksimumom in minimumom absorpcijske
+    # crte
+    # podano kot argument funkciji
+    B0 = magnetno_polje(I0)
+    print(f'Vrednost B0 pri {nu} v m', B0)
+    # se plot za to vrednost
+
+    plt.plot(unp.nominal_values(tok), unp.nominal_values(volt),
+             color=color[0])
+    plt.errorbar(unp.nominal_values(tok), unp.nominal_values(volt),
+                 xerr=unp.std_devs(tok), yerr=unp.std_devs(volt),
+                 color=color[0], label=fr'$\nu = {nu} MHz$', marker='.', capsize=2, ls=None)
+    plt.plot(I0, 0, marker='x', label=r'$I_0$: $U = 0$', color=color[1])
+
 # 80MHz
 
 nu = 80 #MHz
@@ -67,15 +102,6 @@ B080MHz = magnetno_polje(I080MHz)
 
 print('Vrednost B0 pri 80 MHz v mT: ', B080MHz)
 
-# se plot za to vrednost
-
-plt.plot(unp.nominal_values(tok_80MHz), unp.nominal_values(volt_80MHz),
-         color=c1)
-
-plt.errorbar(unp.nominal_values(tok_80MHz), unp.nominal_values(volt_80MHz),
-             xerr=unp.std_devs(tok_80MHz), yerr=unp.std_devs(volt_80MHz),
-             color=c1, label=r'$\nu = 80 MHz$', marker='.', capsize=2, ls=None)
-plt.plot(I080MHz, 0, marker='x', label=r'$I_0$: $U = 0$')
 # miscs
 plt.axhline(alpha=1, ls=":", c="#adadad")
 plt.title("Odvod absorpcijske črte pri 80 MHz")
