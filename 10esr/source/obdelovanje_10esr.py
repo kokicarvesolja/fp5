@@ -6,11 +6,6 @@ import pandas as pd
 import cmasher as cmr
 from uncertainties import unumpy as unp
 
-# function I need
-
-def linear(x, k, n):
-    return k * x + n
-
 # colors
 
 c1, c2, c3 = cmr.take_cmap_colors('cmr.lavender', 3, cmap_range=(0.3, 1.0),
@@ -28,19 +23,21 @@ d = unp.sqrt(l**2 + (r_1 + r_2)**2)
 
 print("Vrednost diagonale: ", d)
 
-# --- konstante ---
+# --- functions I need ---
 
-mi_0 = 4 * np.pi * 1e-7 # Vs/Am
-N = 1557
+def linear(x, k, n):
+    return k * x + n
 
-# B0 = N mi_0 I / d, kjer je N = 1557
-C = N * mi_0 / d
+def magnetno_polje(I, dolzina=d):
+    mi_0 = 4 * np.pi * 1e-7 # Vs/Am
+    N = 1557
+    return (N * mi_0 * I) / dolzina
 
 # --- odvod absorpcijskega vrha ---
 
-# getting data
 # 80MHz
 
+nu = 80 #MHz
 data_80MHz = pd.read_csv('../meritve/80MHz.csv', delimiter=',')
 # dolzina seznama
 len80 = len(data[:, 0])
@@ -48,3 +45,14 @@ tok_80MHz = unp.uarray(data_80MHz[:, 0], len80 * [1])
 volt_80MHz = unp.uarray(data_80MHz[:, 1], data_80MHz[:, 1] * 0.05)
 
 # extracting maximum and minimum for \Delta B
+
+max80 = np.argmax(unp.nominal_values(volt_80MHz))
+min80 = np.argmin(unp.nominal_values(volt_80MHz))
+
+# calculating \Delta B
+
+deltaI = tok_80MHz[min80] - tok_80MHz[max80]
+
+deltaB = magnetno_polje(deltaI)
+
+print('Vrednost \Delta B for 80MHz: ', deltaB)
