@@ -1,0 +1,14 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is '11difuzija.blg'
+[74] biber:340> INFO - === Fri Jan  3, 2025, 18:59:11
+[92] Biber.pm:420> INFO - Reading '11difuzija.bcf'
+[223] Biber.pm:994> INFO - Found 1 citekeys in bib section 0
+[240] Biber.pm:4463> INFO - Processing section 0
+[251] Biber.pm:4654> INFO - Looking for bibtex file 'refs.bib' for section 0
+[252] bibtex.pm:1713> INFO - LaTeX decoding ...
+[255] bibtex.pm:1519> INFO - Found BibTeX data source 'refs.bib'
+[290] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'variable = shifted' with 'variable = non-ignorable'
+[290] UCollate.pm:68> INFO - Overriding locale 'sl-SI' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[290] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'sl-SI'
+[297] bbl.pm:676> INFO - Writing '11difuzija.bbl' with encoding 'UTF-8'
+[298] bbl.pm:779> INFO - Output to 11difuzija.bbl
