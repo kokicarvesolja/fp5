@@ -9,14 +9,19 @@ from uncertainties import ufloat
 import pandas as pd
 
 # izmerjeni podatki
-a = ufloat(41, 0.5) # razdalja leca - kiveta
-b = ufloat(110, 0.5) # razdalja kiveta - zaslon
-d = ufloat(1.8, 0.1) # debelina kivete
+a = ufloat(41, 0.5) * 1e-2 # razdalja leca - kiveta
+b = ufloat(110, 0.5) * 1e-2 # razdalja kiveta - zaslon
+d = ufloat(1.8, 0.1) * 1e-2 # debelina kivete
 
 # colours
 
 c1, c2, c3 = cmr.take_cmap_colors("cmr.gem", 3, cmap_range=(0.2, 1),
                                   return_fmt="hex")
+
+# for linear fit
+
+def linear(x, u, n): # k is already used so u will have to do
+    return u * x + n
 # --- casovna neodvisnost ploscine S ---
 # za ploscino sem uporabil web plot digitizer (https://apps.automeris.io/wpd4/)
 # File > Load Image. Calibrate by choosing two (x, y) points, than under section
@@ -49,6 +54,37 @@ print('ploscina S glede na y_max: ', (povrsina/ kvadratniCm))
 data =np.array(pd.read_csv('../meritve/data.csv', delimiter=','))
 
 time = data[:, 0] / 60
-meritve = unp.uarray(data[:, 1], 13 * [0.5]) * 1e-4
+meritve = unp.uarray(data[:, 1], 13 * [0.5]) * 1e-2
 
 meritve = 1 / (4 * np.pi * k ** 2) * (ploscina / meritve) ** 2
+
+# calculating the linear fit
+
+fitpar, fitcov = curve_fit(linear, time, unp.nominal_values(meritve))
+
+# drawing the errorbar
+
+plt.errorbar(time, unp.nominal_values(meritve), yerr=unp.std_devs(meritve),
+             markersize=2, color=c1, ls='None', marker='o', capsize=2,
+             label=r'Meritve')
+
+# plot of the linear fit
+
+timeLin = np.linspace(0, 9000/60, num=100)
+fit = linear(timeLin, *fitpar)
+
+# fit error
+napaka = np.sqrt(np.diag(fitcov))
+print('Difuzijska konstanta ', ufloat(fitpar[0], napaka[0]))
+
+fitLower = linear(timeLin, fitpar[0] - napaka[0], fitpar[1])
+fitUpper = linear(timeLin, fitpar[0] + napaka[0], fitpar[1])
+
+# plotting the fits
+plt.plot(timeLin, fit, color=c3, label='regresija')
+plt.fill_between(timeLin, fitLower, fitUpper, alpha=0.5, color=c2)
+
+plt.title(r'Časovna odvisnost $\frac{1}{4 \pi k ^2} \left( \frac{S}{Y_{max}}\right)$')
+plt.xlabel(r'$t [\mathrm{min}]$')
+plt.ylabel(r'$\frac{1}{4  \pi k ^2} \left( \frac{S}{Y_{max}}\right)$')
+plt.savefig('../porocilo/figures/DifKonstanta.png')
