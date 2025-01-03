@@ -61,7 +61,6 @@ S = \int\limits_{}^{} y \,\mathrm{d z} = kbd(n_1 - n_0), \quad k = \frac{a + b}{
 - milimetrski papir
 
 ** Naloge
-
 - preveri časovno neodvisnost ploščine \(  S \)
 - določi difuzijsko konstanto \(  D \)
 ** Opombe
