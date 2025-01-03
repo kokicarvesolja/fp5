@@ -52,14 +52,12 @@ Ploščina pod krivuljo pa je od časa neodvisna:
 S = \int\limits_{}^{} y \,\mathrm{d z} = kbd(n_1 - n_0), \quad k = \frac{a + b}{a}
 \end{equation}
 ** Potrebščine
-
 - zaslon
 - optična klop
 - kiveta z alkoholom in vodo
 - steklena palčka
 - laser
 - milimetrski papir
-
 ** Naloge
 - preveri časovno neodvisnost ploščine \(  S \)
 - določi difuzijsko konstanto \(  D \)
