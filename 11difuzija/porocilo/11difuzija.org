@@ -1,5 +1,6 @@
 #+title: 11difuzija
 #+startup: entitiespretty nil
+#+bibliography:refs.bib
 
 * Uvod
 ** Pot žarka v nehomogene, plastovitem sredstvu
@@ -61,5 +62,43 @@ S = \int\limits_{}^{} y \,\mathrm{d z} = kbd(n_1 - n_0), \quad k = \frac{a + b}{
 ** Naloge
 - preveri časovno neodvisnost ploščine \(  S \)
 - določi difuzijsko konstanto \(  D \)
-** Opombe
-Mešaj tekočini na pultu pri umivalniku, kjer lahko nasloniš komolce na mizo. Kapalko postavi pod kotom na sredino kivete in počasi dodajaj vodo k alkoholu. Meni je uspelo zelo dobro.
+* Meritve in izračuni
+** Konstanta ploščine
+
+S pomočjo Web Plot Digitizerja (vir [cite:@noauthor_webplotdigitizer_nodate]) sem označil točke na grafu in dobil vrednost grafov v pikslih. Izmeril sem tudi, koliko pikslov vsebuje en kvadratni centimeter in preko tega dobil površino grafa v kvadratnih centimetrih.
+
+Za 3 različne čase sem dobil konstantne vrednosti znotraj napake
+
+#+begin_src latex
+\[
+\begin{tabela}
+  \centering
+  \begin{array}
+    t [\mathrm{min}] & S [\mathrm{cm} ^2] \\
+   0 & (18.6 \pm 0.1) \\
+    33.5 & (18.0 \pm 0.4) \\
+    70.0 & (19.5 \pm 0.7)
+  \end{array}
+\end{tabela}
+\]
+#+end_src
+
+Preko enačbe \ref{eq:6} dobimo pa vrednost
+
+\[ S = (19.2 \pm 0.1) \mathrm{cm} ^2
+\]
+** Difuzijska konstanta
+
+Z izmerjenimi vrednosti \(  Y_{max} \) sem narisal graf \(  \frac{1}{4 \pi k ^2} \left( \frac{S}{Y_{max}} \right)^2 \) v odvisnosti od časa.
+
+Naklon premice je difuzijska konstanta \( D \) in v našem primeru je vrednost naklona regresivne premice enak
+
+\[ k = (1.8 \pm 0.1) 10^{-8} \frac{\mathrm{m} ^2}{s}
+\]
+* Komentar
+
+Postavitev vaje je bila precej enostavna, ampak samo zaradi tega, ker sem imel dobre nasvete: difuzijo sem pripravil pri umivalniku, kjer lahko komolce postaviš na tla in imaš tako precej bolj mirne roke.
+
+Iskal sem difuzijsko konstanto na spletu za primerjavo, vendar nisem našel nič vrednega.
+
+#+print_bibliography: biblatex
