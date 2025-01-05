@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.25)  3 JAN 2025 19:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.25)  5 JAN 2025 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1207,40 +1207,50 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [2]
-Package hyperref Info: bookmark level for unknown tabela defaults to 0 on input
- line 109.
+
+LaTeX Warning: Reference `fig:meritve' on page 3 undefined on input line 93.
+
+<../meritve/20250103_163621.jpg, id=79, 4143.48pt x 3107.61pt>
+File: ../meritve/20250103_163621.jpg Graphic file (type jpg)
+<use ../meritve/20250103_163621.jpg>
+Package pdftex.def Info: ../meritve/20250103_163621.jpg  used on input line 97.
+
+(pdftex.def)             Requested size: 376.42575pt x 282.28084pt.
+Package hyperref Info: bookmark level for unknown slika defaults to 0 on input 
+line 98.
 
 
 [3{/opt/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Package hyperref Info: bookmark level for unknown tabela defaults to 0 on input
+ line 116.
 <./figures/DifKonstanta.png, id=94, 462.528pt x 346.896pt>
 File: ./figures/DifKonstanta.png Graphic file (type png)
 <use ./figures/DifKonstanta.png>
-Package pdftex.def Info: ./figures/DifKonstanta.png  used on input line 122.
+Package pdftex.def Info: ./figures/DifKonstanta.png  used on input line 129.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
 
-Overfull \hbox (44.27318pt too wide) in paragraph at lines 122--123
+Overfull \hbox (44.27318pt too wide) in paragraph at lines 129--130
  [][] 
  []
 
-Package hyperref Info: bookmark level for unknown slika defaults to 0 on input 
-line 123.
 
 
-[4]
+[4 <../meritve/20250103_163621.jpg>]
+
+[5 <./figures/DifKonstanta.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-36.
- (/opt/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
+43.
+
+(/opt/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-Overfull \hbox (18.64789pt too wide) in paragraph at lines 136--136
+Overfull \hbox (18.64789pt too wide) in paragraph at lines 143--143
 []\T1/cmr/m/it/10.95 WebPlotDigitizer - Co-pyri-ght 2010-2024 An-kit Ro-ha-tgi\
 T1/cmr/m/n/10.95 . \T1/cmr/m/sc/10.95 url\T1/cmr/m/n/10.95 : [][]$\T1/cmtt/m/n/
 10.95 https : / / apps . automeris .
  []
 
 
-
-[5 <./figures/DifKonstanta.png>]
 
 [6] (./11difuzija.aux)
  ***********
@@ -1249,7 +1259,7 @@ L3 programming layer <2024-09-10>
  ***********
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `11difuzija.out' has not changed.
 (rerunfilecheck)             Checksum: 4CDFD59F523EABF3BFBCB5E8BA6B7F30;1202.
@@ -1258,13 +1268,13 @@ Package logreq Info: Writing requests to '11difuzija.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38515 strings out of 473579
- 779613 string characters out of 5704593
- 1542083 words of memory out of 5000000
- 60862 multiletter control sequences out of 15000+600000
+ 38524 strings out of 473579
+ 779891 string characters out of 5704593
+ 1542109 words of memory out of 5000000
+ 60870 multiletter control sequences out of 15000+600000
  574992 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,8n,100p,1195b,1868s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,8n,100p,1195b,1508s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </opt/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></opt
 /texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></opt/texliv
 e/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></opt/texlive/2024/t
@@ -1283,10 +1293,10 @@ pe1/public/cm-super/sfrm1200.pfb></opt/texlive/2024/texmf-dist/fonts/type1/publ
 ic/cm-super/sfrm1728.pfb></opt/texlive/2024/texmf-dist/fonts/type1/public/cm-su
 per/sfti1095.pfb></opt/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt
 1095.pfb>
-Output written on 11difuzija.pdf (6 pages, 357099 bytes).
+Output written on 11difuzija.pdf (6 pages, 5760645 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 95 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 207 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
+ 100 words of extra memory for PDF output out of 10000 (max. 10000000)
 

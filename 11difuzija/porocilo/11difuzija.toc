@@ -4,7 +4,7 @@
 \contentsline {subsection}{\numberline {1.2}Potrebščine}{3}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Naloge}{3}{subsection.1.3}%
 \contentsline {section}{\numberline {2}Meritve in izračuni}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Konstanta ploščine}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Difuzijska konstanta}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.1}Konstanta ploščine}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Difuzijska konstanta}{5}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Komentar}{5}{section.3}%
 \contentsline {section}{Literatura}{6}{section.3}%
