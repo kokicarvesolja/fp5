@@ -1,0 +1,9 @@
+\babel@toc {slovene}{}\relax 
+\contentsline {section}{\numberline {1}Uvod}{2}{section.1}%
+\contentsline {section}{\numberline {2}Potrebščine}{3}{section.2}%
+\contentsline {section}{\numberline {3}Naloge}{3}{section.3}%
+\contentsline {section}{\numberline {4}Meritve in izračuni}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Časovna ločljivost TDC}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Radioaktivni razpad}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Kotna korelacija anihilacijskih žarkov $\gamma $}{8}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Komentar}{11}{section.5}%

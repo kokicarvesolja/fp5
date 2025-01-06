@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>11difuzija.bcf</file>
+      <file>10esr.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>11difuzija.bbl</file>
+      <file>10esr.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,22 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>11difuzija</infile>
+      <infile>10esr</infile>
     </cmdline>
     <input>
-      <file>11difuzija.bcf</file>
+      <file>10esr.bcf</file>
     </input>
     <output>
-      <file>11difuzija.bbl</file>
+      <file>10esr.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>11difuzija.bbl</file>
+      <file>10esr.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>11difuzija.bcf</file>
-    </requires>
-    <requires type="editable">
-      <file>refs.bib</file>
+      <file>10esr.bcf</file>
     </requires>
   </external>
 </requests>

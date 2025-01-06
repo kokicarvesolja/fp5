@@ -101,7 +101,7 @@ B0array = unp.uarray(vrednostB0, stdB0)
 
 # miscs
 plt.axhline(alpha=1, ls=":", c="#adadad")
-plt.title("Odvod absorpcijske črte pri 80 MHz")
+plt.title(r"Odvod absorpcijske črte pri $80, 85, 90$ MHz")
 plt.xlabel("I [mA]")
 plt.ylabel("U [mV]")
 plt.legend()

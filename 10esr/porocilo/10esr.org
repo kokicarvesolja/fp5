@@ -43,19 +43,64 @@ S tem smo dosegli, da je nosilna frekvenca signala \( A(t) \) enaka nič. Drugeg
 * Naloge
  - z vzorcem DPPH kot merjencem določi \( g \) faktor prostega elektrona in razmerje \( B/ \nu \). 
  - izmeri širino absorcpijske črte
-* Meritve
+* Meritve in izračuni
 
-Vrednost \(  g = 1.96 \pm 0.04 \)
-Vrednost diagonale:  [0.18667619023324855+/-0.0012247448713915891]
+Diagonalo tuljave sem izračunal po formuli
 
-Vrednost za Delta B pri 80 v mT:  [0.12571021494856024+/-0.014838030418430835]
-Vrednost B0 pri 80 MHz v m [2.8677642785140307+/-0.01881482361559623]
-Vrednost nu/B0 v GHz / T pri 80:  [27.896295591439976+/-0.18302197464899134]
+\[ d = \sqrt{l ^2 + (r_1 ^2 + r_2 ^2)}
+\]
 
-Vrednost za Delta B pri 85 v mT:  [0.1361860661942736+/-0.014842009360139954]
-Vrednost B0 pri 85 MHz v m [3.0432347868797294+/-0.019966050266048238]
-Vrednost nu/B0 v GHz / T pri 85:  [27.930805853843328+/-0.18324838952726832]
+in dobil za izmerjene \( r_1 = (4.5 \pm 0.1) \mathrm{cm} \), \( r_2 = (8.7 \pm 0.1) \mathrm{cm} \) in dolžina tuljave \( l = (13.2 \pm 0.1) \)
 
-Vrednost za Delta B pri 90 v mT:  [0.1361860661942736+/-0.014842009360139954]
-Vrednost B0 pri 90 MHz v m [3.23180010930257+/-0.021203189353101143]
-Vrednost nu/B0 v GHz / T pri 90:  [27.848256994898797+/-0.1827068030962125]
+\[ d = (18.6 \pm 0.1) \mathrm{cm}
+\]
+
+Prav tako \( g \) faktor izrazimo kot
+
+\[ g = \frac{h \nu}{\mu_B B_0}
+\]
+
+Magnetno poljsko gostoto izrazimo z
+
+\begin{equation}
+\label{eq:1}
+B_0 = \frac{N \mu_0 I}{d}
+\end{equation}
+
+Izmeril in naredil sem grafe odvoda absorpcijske črte pri \( 80, 85, 90 \ \mathrm{MHz} \).
+
+[[file:figures/abs_crte.png]]
+
+Za \( B_0 \) sem vzel vrednost toka, ki je označena z \( \times \) na grafu in je točka, kjer naj bi bila napetost med maksimumom in minimumom enaka 0. Preko enačbe \ref{eq:1} sem dobil vrednosti
+
+\begin{align*}
+  B_{080} &= (2.86 \ pm 0.02) \mathrm{mT} \\
+B_{085} &= (3.04 \pm 0.02) \mathrm{mT} \\
+B_{090} &= (3.23 \pm 0.02) \mathrm{mT}
+\end{align*}
+
+Za razdalja med ekstremoma sem odčital in izračunal preko enačbe \ref{eq:1} sem dobil
+
+\begin{align*}
+\Delta B_{80} &=  (0.12 \pm 0.01) \mathrm{mT} \\
+\Delta B_{85} &= (0.13 \pm 0.02) \mathrm{mT} \\
+\Delta B_{90} &= (0.14 \pm 0.01) \mathrm{mT}
+\end{align*}
+
+Razmerje \( \nu / B_0 \) pa je enako
+
+\begin{align*}
+  (\frac{\nu}{B_0})_{80} &= (27.8 \pm 0.2) \frac{\mathrm{GHz}}{\mathrm{T}}
+  (\frac{\nu}{B_0})_{85} &= (27.9 \pm 0.2) \frac{\mathrm{GHz}}{\mathrm{T}}
+  (\frac{\nu}{B_0})_{90} &= (27.8 \pm 0.2) \frac{\mathrm{GHz}}{\mathrm{T}}
+\end{align*}
+
+[[file:figures/gfaktor.png]]
+Za \( g \) vrednost sem regresiral premico na dane podatke in iz grafa \ref{} dobil vrednost
+
+\[ g = 1.96 \pm 0.04
+\]
+
+* Komentar
+
+Izračunani podatki se zdijo smiselni. Meritev je tudi potekala brez kakršnihkolih večjih težav.
