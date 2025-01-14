@@ -1,3 +1,4 @@
 .venv
 *.pdf
 *.sync-conflict*
+!./08gammagamma/porocilo/*.pdf

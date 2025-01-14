@@ -7,6 +7,15 @@ import cmasher as cmr
 from uncertainties import unumpy as unp
 import pandas as pd
 
+'''
+Vprašanja, ki mi jih je postavil asistent:
+- Kaj je koincidenca? Ker ne moremo biti neskončno natančni je to dogodek, ki ga
+zaznamo z dvema scintilatorjema ob približno istem času (nek majhen interval časa)
+- Kako smo izmerili TDC ločljivost? Signal enega scintilatorja smo zvezali na oba
+kanala smo vezali na RedPitayjo - če bi bila popolnoma natančno bi bilo vse na
+povprečnem času, vendar ker ni so Gaussovo razpršene okoli povprečne vrednosti
+'''
+
 # all the colors
 
 # colors used

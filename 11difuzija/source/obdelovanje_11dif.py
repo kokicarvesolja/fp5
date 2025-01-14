@@ -8,6 +8,14 @@ from uncertainties import unumpy as unp
 from uncertainties import ufloat
 import pandas as pd
 
+'''
+Vprašal me je:
+- zapisati sem moral difuzijsko enačbo
+- lomni zakon
+- zakaj je v našem zveznem lomnem zakonu kosinus in ne sinus? (glej sliko VprasanjaDifuzija)
+- kako steklena palčka razprši svetlobo? (glej sliko)
+'''
+
 # izmerjeni podatki
 a = ufloat(41, 0.5) * 1e-2 # razdalja leca - kiveta
 b = ufloat(110, 0.5) * 1e-2 # razdalja kiveta - zaslon
@@ -30,7 +38,8 @@ def linear(x, u, n): # k is already used so u will have to do
 
 k = (a + b) / a
 
-ploscina = k * d * 0.029 # razlika n_a - n_v = 0.029, podano v navodilih
+ploscina = k * b * d * 0.029 # razlika n_a - n_v = 0.029, podano v navodilih
+# dodal sem b, ki sem ga pri pisanju poročil pozabil
 print('ploscina S tocno: ', ploscina)
 
 # za case t=0, 33.5, 70
@@ -76,6 +85,8 @@ fit = linear(timeLin, *fitpar)
 # fit error
 napaka = np.sqrt(np.diag(fitcov))
 print('Difuzijska konstanta ', ufloat(fitpar[0], napaka[0]))
+
+# pravilna vrednost difuzijske konstante je okrog 3.7e-10 m^2/s
 
 fitLower = linear(timeLin, fitpar[0] - napaka[0], fitpar[1])
 fitUpper = linear(timeLin, fitpar[0] + napaka[0], fitpar[1])

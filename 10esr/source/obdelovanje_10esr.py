@@ -7,6 +7,15 @@ import cmasher as cmr
 from uncertainties import unumpy as unp
 from scipy.optimize import curve_fit
 
+'''
+Vprašal me je pri zagovoru:
+- Energijo spina v odvisnosti od magnetnega polja (enačba) ter graf (prvi graf
+na sliki 1). Poleg tega sta za elektron magnetni moment in spin ravno obratno orientirana
+(en kaže navzgor, drugi pa navzdol). Najbolj stabilna lega je pri spinu -1/2 in
+je spodnja veja. Stanje s spinom 1/2 je labilna lega in ima več energije
+- Kako sploh izmerimo odvod absorpcijske črte (glej sliko VprasanjeOdvod v enem direktoriju višje)
+- Kako nam v tej vaji olajša delo FOO?
+'''
 # colors
 
 c1, c2, c3, d1, d2, d3 = cmr.take_cmap_colors('cmr.lavender', 6,
